@@ -2,11 +2,15 @@ package studio.bowman.gamblegame;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Picture;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.provider.SyncStateContract;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,9 +26,14 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.R.attr.left;
+import static android.R.attr.right;
 import static android.graphics.Bitmap.createBitmap;
+import static studio.bowman.gamblegame.R.id.bottom;
+import static studio.bowman.gamblegame.R.id.top;
 
 public class game1 extends AppCompatActivity {
+    private int count = 0;
     private int width=600, height=400,profit, balance, bet, r1;
     private float x,y,vx=0.5f,r=5f,value, bailvalue, xval, vxval, yval;
     private Canvas c;
@@ -44,11 +53,17 @@ public class game1 extends AppCompatActivity {
         Random random = new Random();
         int crash = random.nextInt(r1) + 1;
 
+//        BitmapFactory bf = new BitmapFactory();
+//        Bitmap trail = bf.decodeResource(getResources(),R.drawable.trail);
+//        Bitmap bullet = bf.decodeResource(getResources(),R.drawable.bullet);
+//
+//        trail = Bitmap.createScaledBitmap(trail, 15, 15, true);
+//        bullet = Bitmap.createScaledBitmap(bullet, 150, 150, true);
+
         paint.setColor(Color.BLACK);
         c.drawCircle(x, y, r, paint);
-
+//        c.drawBitmap(trail, x, y, paint);
         //VISUAL GRAPH
-        vx = vx + 0.001f;
         x=x+vx;
         y = y - 0.1f - (float) ((Math.pow(x/600,2))/2);
 
@@ -59,6 +74,7 @@ public class game1 extends AppCompatActivity {
 
         paint.setColor(Color.BLACK);
         c.drawCircle(x, y, r, paint);
+//        c.drawBitmap(bullet,x,y,paint);
 
         value = 1 + (-(yval - 396))/100;
         valuedisplay.setText("x" + new DecimalFormat("##.00").format(value));
@@ -90,6 +106,8 @@ public class game1 extends AppCompatActivity {
 
         paint = new Paint();
         paint.setAntiAlias(true);
+        paint.setFilterBitmap(true);
+        paint.setDither(true);
         paint.setStyle(Paint.Style.FILL);
 
         imageview=(ImageView) findViewById(R.id.window);
@@ -100,7 +118,7 @@ public class game1 extends AppCompatActivity {
     void startengine(){
         Random random = new Random();
 //        r1 = random.nextInt(750)+750;
-        r1 = 200000;
+        r1 = 20000;
         profdisplay.setText("");
         boolcrash=false;
         boolbail=false;
@@ -109,7 +127,6 @@ public class game1 extends AppCompatActivity {
         drop.setClickable(true);
         play.setEnabled(false);
         play.setClickable(false);
-        c.drawCircle(x, y, r, paint);
 
         Timer timer=new Timer();
         timer.schedule(

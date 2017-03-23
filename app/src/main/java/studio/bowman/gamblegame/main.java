@@ -30,13 +30,15 @@ public class main extends AppCompatActivity {
 
         highscores.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+//                Intent intent = new Intent(main.this, Main2Activity.class);
+//                startActivity(intent);
             }
         });
 
         settings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
+                Intent intent = new Intent(main.this, settings.class);
+                startActivity(intent);
             }
         });
 
