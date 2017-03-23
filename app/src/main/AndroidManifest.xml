@@ -21,7 +21,8 @@
             android:name=".settings"
             android:label="@string/title_activity_settings" />
         <activity android:name=".aa" />
-        <activity android:name=".MyView"></activity>
+        <activity android:name=".MyView" />
+        <activity android:name=".game"></activity>
     </application>
 
 </manifest>

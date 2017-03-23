@@ -1,21 +1,12 @@
 package studio.bowman.gamblegame;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Picture;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
-import android.provider.SyncStateContract;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -27,13 +18,9 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static android.R.attr.left;
-import static android.R.attr.right;
-import static android.graphics.Bitmap.createBitmap;
-import static studio.bowman.gamblegame.R.id.bottom;
-import static studio.bowman.gamblegame.R.id.top;
-
 public class game1 extends AppCompatActivity {
+
+    private test v;
     private int width=600, height=400,profit, balance, bet, r1, bheight, bwidth;
     private float x,y,vx=0.5f, vy,value, bailvalue, xval, vxval, yval;
     private Canvas c;
@@ -83,28 +70,28 @@ public class game1 extends AppCompatActivity {
     }
 
     void create(){
+        x = -bwidth/3;
+        y = 400-bheight/3*2;
+        xval = 5f;
+        yval = 395f;
+
+        bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet);
+        bullet = Bitmap.createScaledBitmap(bullet, bullet.getWidth()/25, bullet.getHeight()/25, true);
+        background = BitmapFactory.decodeResource(getResources(),R.drawable.background);
+        background = Bitmap.createScaledBitmap(background, width, height,true);
+        bheight = bullet.getHeight();
+        bwidth = bullet.getWidth();
 
         display.setText("");
         valuedisplay.setText("");
         profdisplay.setText("");
         value = 1.00f;
 
-        x = -bwidth/3;
-        y = 400-bheight/3*2;
-        xval = 5f;
-        yval = 395f;
-
         Bitmap b = Bitmap.createBitmap(width, height,Bitmap.Config.ARGB_8888);
         c = new Canvas(b);
+        c.drawColor(Color.LTGRAY);
 
-        bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet);
-        bullet = Bitmap.createScaledBitmap(bullet, bullet.getWidth()/25, bullet.getHeight()/25, true);
-        background = BitmapFactory.decodeResource(getResources(),R.drawable.background);
-        background = Bitmap.createScaledBitmap(background, c.getWidth(), c.getHeight(),true);
-        bheight = bullet.getHeight();
-        bwidth = bullet.getWidth();
-
-        c.drawBitmap(background,0,0,null);
+//        c.drawBitmap(background,0,0,null);
 
         imageview=(ImageView) findViewById(R.id.window);
         imageview.setImageBitmap(b);
@@ -257,6 +244,9 @@ public class game1 extends AppCompatActivity {
         bet = 5;
         profit = 0;
         balance = 50;
+
+        v = new test(this);
+        setContentView(v);
 
         profdisplay.setText(" ");
         baldisplay.setText(" " + balance + "$");

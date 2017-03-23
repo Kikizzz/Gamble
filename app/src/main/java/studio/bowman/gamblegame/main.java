@@ -23,7 +23,7 @@ public class main extends AppCompatActivity {
 
         play.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            Intent myIntent = new Intent (main.this, game1.class);
+            Intent myIntent = new Intent (main.this, game.class);
             startActivity(myIntent);
             }
         });
