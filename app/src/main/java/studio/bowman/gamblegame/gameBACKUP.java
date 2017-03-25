@@ -1,45 +1,72 @@
 package studio.bowman.gamblegame;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class game1 extends AppCompatActivity {
 
-    private test v;
-    private int width=600, height=400,profit, balance, bet, r1, bheight, bwidth;
-    private float x,y,vx=0.5f, vy,value, bailvalue, xval, vxval, yval;
-    private Canvas c;
+public class gameBACKUP extends AppCompatActivity {
+    private int width, height,profit, balance, bet, r1, bheight, bwidth, boxwidth, boxheight, count, state;
+    private float x,y,vx,vy,value, value_old, bailvalue, xval, vxval, yval;
+    private Canvas c,p;
     private Bitmap bullet, background, trail;
-    private ImageView imageview;
+    private ImageView window,particle;
     private TextView debug, valuedisplay, display, baldisplay, profdisplay, betdisplay;
     private ImageButton play, drop, minusmax,minusmid,minusmin,plusmin,plusmid,plusmax;
     private boolean live, boolcrash, boolbail, playing, firsttime;
+
+    //STATES
+    // 1 = DRAW
+    // 2 = LOSE
+    // 3 = WIN
+
+    void updateDisplay(){
+        baldisplay.setText(" " + balance + "$");
+        betdisplay.setText("" + bet);
+    }
 
     void endgame(){
         Toast.makeText(getBaseContext(), "Your Game Has Been Reset",
                 Toast.LENGTH_SHORT).show();
         balance = 50;
-        baldisplay.setText("" + balance + "$");
+        updateDisplay();
     }
 
     void update(){
         Random random = new Random();
         int crash = random.nextInt(r1) + 1;
+
+        //LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH
+        Paint black = new Paint();
+        black.setAntiAlias(true);
+        black.setColor(Color.BLACK);
+        black.setStyle(Paint.Style.FILL);
+
+        c.drawCircle(x,y,5,black);
+        vy = -0.1f - (float) ((Math.pow(x / 600, 2)) / 1.25);
+
+        x += vx;
+        y += vy;
+        c.drawCircle(x,y,5,black);
+        //LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH
 
         //COUNTING GRAPH
         vxval = 0.5f;
@@ -57,54 +84,90 @@ public class game1 extends AppCompatActivity {
             }
         }
         if (crash == 1){
-            end();
             boolcrash = true;
             valuedisplay.setText("Crashed At x" + new DecimalFormat("##.00").format(value));
+            profdisplay.setText("");
+            value_old = value;
+            end();
         }
         if (value == 300){
-            end();
             boolcrash = true;
             valuedisplay.setText("Limit Reached x" + new DecimalFormat("##.00").format(value));
+            end();
         }
-        imageview.invalidate();
+        count = count + 1;
     }
 
     void create(){
-        x = -bwidth/3;
-        y = 400-bheight/3*2;
-        xval = 5f;
-        yval = 395f;
-
-        bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet);
-        bullet = Bitmap.createScaledBitmap(bullet, bullet.getWidth()/25, bullet.getHeight()/25, true);
-        background = BitmapFactory.decodeResource(getResources(),R.drawable.background);
-        background = Bitmap.createScaledBitmap(background, width, height,true);
-        bheight = bullet.getHeight();
-        bwidth = bullet.getWidth();
+        Paint AA = new Paint();
+        AA.setAntiAlias(true);
 
         display.setText("");
         valuedisplay.setText("");
         profdisplay.setText("");
         value = 1.00f;
+        vx =  0.5f;
 
-        Bitmap b = Bitmap.createBitmap(width, height,Bitmap.Config.ARGB_8888);
-        c = new Canvas(b);
+        bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet);
+        bullet = Bitmap.createScaledBitmap(bullet, bullet.getWidth()/5, bullet.getHeight()/5, true);
+        trail = BitmapFactory.decodeResource(getResources(), R.drawable.trail);
+        trail = Bitmap.createScaledBitmap(trail, trail.getWidth()/15, trail.getHeight()/15, true);
+
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        width = size.x;
+        height = size.y;
+        bheight = bullet.getHeight();
+        bwidth = bullet.getWidth();
+        boxheight = height / 4;
+        boxwidth = (width / 20) * 19;
+//        x = (width/20)/4;
+//        y = boxheight-bheight;
+        x=0;
+        y=boxheight;
+        xval = 5f;
+        yval = 395f;
+
+        Bitmap b1 = Bitmap.createBitmap(boxwidth, boxheight,Bitmap.Config.ARGB_8888);
+        c = new Canvas(b1);
+        Bitmap b2 = Bitmap.createBitmap(boxwidth, boxheight,Bitmap.Config.ARGB_8888);
+        p = new Canvas(b2);
+
+        background = BitmapFactory.decodeResource(getResources(),R.drawable.background);
+        background = Bitmap.createScaledBitmap(background, c.getWidth(), c.getHeight(),true);
+
+//        c.drawBitmap(background,0,0,AA);
         c.drawColor(Color.LTGRAY);
 
-//        c.drawBitmap(background,0,0,null);
+        window=(ImageView) findViewById(R.id.window);
+        window.setImageBitmap(b1);
 
-        imageview=(ImageView) findViewById(R.id.window);
-        imageview.setImageBitmap(b);
-
+        particle=(ImageView) findViewById(R.id.particle);
+        particle.setImageBitmap(b2);
     }
 
     void graph_start(){
-            vy = -0.1f - (float) ((Math.pow(x / 600, 2)) / 0.2);
+        Paint AA = new Paint();
+        AA.setAntiAlias(true);
+//        c.drawBitmap(background,0,0,AA);
+//        c.drawColor(Color.LTGRAY);
+        vy = -0.1f - (float) ((Math.pow(x / 600, 2)) / 1.25);
 
-            x += vx;
-            y += vy;
+        x += vx;
+        y += vy;
 
-            c.drawBitmap(bullet, x, y, null);
+//        c.drawBitmap(bullet, x, y, AA);
+        window.invalidate();
+        particle.invalidate();
+    }
+
+    void particle_start(){
+        Paint AA = new Paint();
+        AA.setAntiAlias(true);
+
+//        p.drawBitmap(trail,x-30,y+30,AA);
     }
 
     void startengine(){
@@ -119,8 +182,7 @@ public class game1 extends AppCompatActivity {
         drop.setClickable(true);
         play.setEnabled(false);
         play.setClickable(false);
-
-        graph_start();
+        count = 49;
 
         Timer timer=new Timer();
         timer.schedule(
@@ -137,12 +199,16 @@ public class game1 extends AppCompatActivity {
                                     public void run() {
                                         if (!boolcrash && live) {
                                             update();
+//                                            graph_start();
+//                                            if((count%50)== 0){
+//                                                particle_start();
+//                                            }
+
                                         }else{
                                             cancel();
                                         }
                                     }
                                 }
-
                         );
                     }
                 },0,10 );
@@ -155,7 +221,7 @@ public class game1 extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }else{
                 balance = balance - bet;
-                baldisplay.setText("" + balance + "$");
+                updateDisplay();
                 create();
                 startengine();
             }
@@ -163,9 +229,26 @@ public class game1 extends AppCompatActivity {
             create();
             startengine();
         }
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor save = load.edit();
+        save.putInt("balance", balance);
+        save.apply();
+        save.commit();
     }
 
     void end(){
+        if (!playing){
+            state = 1;
+        }else{
+            if (boolcrash) {
+                state = 2;
+            }
+            if (boolbail) {
+                state = 3;
+            }
+        }
+        debug.setText("" + state + "  " + new DecimalFormat("##.00").format(value));
         play.setEnabled(true);
         play.setClickable(true);
         drop.setEnabled(false);
@@ -175,6 +258,17 @@ public class game1 extends AppCompatActivity {
         if (balance==0){
             endgame();
         }
+
+        // SAVE DATA
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor save = load.edit();
+        save.putInt("balance", balance);
+        save.putFloat("value_old", value_old);
+        save.putInt("state", state);
+        save.apply();
+        save.commit();
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -236,6 +330,7 @@ public class game1 extends AppCompatActivity {
         betdisplay = (TextView)findViewById(R.id.betdisplay);
         debug = (TextView)findViewById(R.id.debug);
 
+        // STARTING VALUES
         x = 5f;
         y = 395f;
         xval = 5f;
@@ -245,14 +340,18 @@ public class game1 extends AppCompatActivity {
         profit = 0;
         balance = 50;
 
-        v = new test(this);
-        setContentView(v);
+        //LOAD DATA
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+        balance = load.getInt("balance", 50);
+        state = load.getInt("state", 0);
+        value_old = load.getFloat("value_old", 0);
 
+        //DEFAULT DISPLAY
+        updateDisplay();
         profdisplay.setText(" ");
-        baldisplay.setText(" " + balance + "$");
-        betdisplay.setText("" + bet);
         debug.setText("");
 
+        //DEFAULT STATES
         drop.setEnabled(false);
         drop.setClickable(false);
         create();
@@ -281,11 +380,12 @@ public class game1 extends AppCompatActivity {
                         }
                     }
                 }else{
-                    if (boolbail){
-                        live = false;
-                        create();
-                        end();
-                    }
+                    //SKIP GAME IF BAILED
+//                    if (boolbail){
+//                        live = false;
+//                        create();
+//                        end();
+//                    }
                 }
             }
         });
@@ -297,9 +397,8 @@ public class game1 extends AppCompatActivity {
                         bailvalue = value;
                         display.setText("Bailed at x" + new DecimalFormat("##.00").format(bailvalue));
                         profit = Math.round(bet * bailvalue);
-                        profdisplay.setText("" + profit);
                         balance = balance + profit;
-                        baldisplay.setText("" + balance);
+                        updateDisplay();
                         boolbail = true;
 
                         play.setClickable(true);
@@ -313,7 +412,7 @@ public class game1 extends AppCompatActivity {
         minusmax.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 bet = 0;
-                betdisplay.setText("" + bet + "$");
+                updateDisplay();
             }
         });
 
@@ -323,7 +422,7 @@ public class game1 extends AppCompatActivity {
                 if (bet<0){
                     bet = 0;
                 }
-                betdisplay.setText("" + bet + "$");
+                updateDisplay();
             }
         });
 
@@ -333,14 +432,14 @@ public class game1 extends AppCompatActivity {
                 if (bet<0){
                     bet = 0;
                 }
-                betdisplay.setText("" + bet + "$");
+                updateDisplay();
             }
         });
 
         plusmax.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 bet = balance;
-                betdisplay.setText("" + bet + "$");
+                updateDisplay();
             }
         });
 
@@ -350,7 +449,7 @@ public class game1 extends AppCompatActivity {
                 if (bet>balance){
                     bet = balance;
                 }
-                betdisplay.setText("" + bet + "$");
+                updateDisplay();
             }
         });
 
@@ -360,7 +459,7 @@ public class game1 extends AppCompatActivity {
                 if (bet>balance){
                     bet = balance;
                 }
-                betdisplay.setText("" + bet + "$");
+                updateDisplay();
             }
         });
     }
