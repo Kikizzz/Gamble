@@ -1,19 +1,28 @@
 package studio.bowman.gamblegame;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
-public class main extends AppCompatActivity {
+public class Main extends AppCompatActivity {
 
     ImageButton play, highscores, settings, exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set fullscreen
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // Set No Title
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_main);
 
         play = (ImageButton)findViewById(R.id.play);
@@ -23,21 +32,21 @@ public class main extends AppCompatActivity {
 
         play.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            Intent myIntent = new Intent (main.this, game.class);
+            Intent myIntent = new Intent (Main.this, Game.class);
             startActivity(myIntent);
             }
         });
 
         highscores.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                Intent intent = new Intent(main.this, Main2Activity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(Main.this, Inventory.class);
+                startActivity(intent);
             }
         });
 
         settings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(main.this, settings.class);
+                Intent intent = new Intent(Main.this, CrashSurfaceView.class);
                 startActivity(intent);
             }
         });

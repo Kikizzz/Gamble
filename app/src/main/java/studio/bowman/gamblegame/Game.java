@@ -1,20 +1,20 @@
 package studio.bowman.gamblegame;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.text.DecimalFormat;
@@ -23,26 +23,68 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class gameBACKUP extends AppCompatActivity {
-    private int width, height,profit, balance, bet, r1, bheight, bwidth, boxwidth, boxheight, count, state;
-    private float x,y,vx,vy,value, value_old, bailvalue, xval, vxval, yval;
-    private Canvas c,p;
-    private Bitmap bullet, background, trail;
-    private ImageView window,particle;
+public class Game extends AppCompatActivity {
+    private int width, height, bheight, bwidth, boxwidth, boxheight;
+    private float x, y;
+
+    private int profit, balance, bet, r1, count, state;
+    private float value, value_old, bailvalue, xval, vxval, yval;
     private TextView debug, valuedisplay, display, baldisplay, profdisplay, betdisplay;
     private ImageButton play, drop, minusmax,minusmid,minusmin,plusmin,plusmid,plusmax;
+    private ImageButton leftBtn, mainBtn, rightBtn;
     private boolean live, boolcrash, boolbail, playing, firsttime;
+    View cv;
+    Utils utils;
+    Thread thread;
 
     //STATES
     // 1 = DRAW
     // 2 = LOSE
     // 3 = WIN
 
+    void setDisplay(){
+        play.setImageResource(R.drawable.play);
+        drop.setImageResource(R.drawable.bail);
+
+        // l t r b
+//        play.setAdjustViewBounds(true);
+//        play.setPadding(5,0,5,0);
+//        drop.setAdjustViewBounds(true);
+//        drop.setPadding(5,0,5,0);
+
+        play.setAdjustViewBounds(true);
+        play.setPadding(0,0,0,0);
+        drop.setAdjustViewBounds(true);
+        drop.setPadding(0,0,0,0);
+
+        betdisplay.setTextColor(Color.WHITE);
+        baldisplay.setTextColor(Color.WHITE);
+        profdisplay.setTextColor(Color.WHITE);
+        valuedisplay.setTextColor(Color.WHITE);
+
+
+
+        //BOTTOM BUTTONS
+        leftBtn.setImageResource(R.drawable.inventory_icon);
+        mainBtn.setImageResource(R.drawable.crash_icon_large);
+        rightBtn.setImageResource(R.drawable.mine_icon);
+
+        // l t r b
+        leftBtn.setAdjustViewBounds(true);
+        leftBtn.setPadding(0,0,0,0);
+
+        mainBtn.setAdjustViewBounds(true);
+        mainBtn.setPadding(0,0,0,0);
+
+        rightBtn.setAdjustViewBounds(true);
+        rightBtn.setPadding(0,0,0,0);
+    }
+
     void updateDisplay(){
         baldisplay.setText(" " + balance + "$");
         betdisplay.setText("" + bet);
     }
-
+    
     void endgame(){
         Toast.makeText(getBaseContext(), "Your Game Has Been Reset",
                 Toast.LENGTH_SHORT).show();
@@ -53,20 +95,6 @@ public class gameBACKUP extends AppCompatActivity {
     void update(){
         Random random = new Random();
         int crash = random.nextInt(r1) + 1;
-
-        //LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH
-        Paint black = new Paint();
-        black.setAntiAlias(true);
-        black.setColor(Color.BLACK);
-        black.setStyle(Paint.Style.FILL);
-
-        c.drawCircle(x,y,5,black);
-        vy = -0.1f - (float) ((Math.pow(x / 600, 2)) / 1.25);
-
-        x += vx;
-        y += vy;
-        c.drawCircle(x,y,5,black);
-        //LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH | LINE GRAPH
 
         //COUNTING GRAPH
         vxval = 0.5f;
@@ -99,81 +127,23 @@ public class gameBACKUP extends AppCompatActivity {
     }
 
     void create(){
-        Paint AA = new Paint();
-        AA.setAntiAlias(true);
-
         display.setText("");
         valuedisplay.setText("");
         profdisplay.setText("");
-        value = 1.00f;
-        vx =  0.5f;
-
-        bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet);
-        bullet = Bitmap.createScaledBitmap(bullet, bullet.getWidth()/5, bullet.getHeight()/5, true);
-        trail = BitmapFactory.decodeResource(getResources(), R.drawable.trail);
-        trail = Bitmap.createScaledBitmap(trail, trail.getWidth()/15, trail.getHeight()/15, true);
-
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        width = size.x;
-        height = size.y;
-        bheight = bullet.getHeight();
-        bwidth = bullet.getWidth();
-        boxheight = height / 4;
-        boxwidth = (width / 20) * 19;
-//        x = (width/20)/4;
-//        y = boxheight-bheight;
-        x=0;
-        y=boxheight;
-        xval = 5f;
-        yval = 395f;
-
-        Bitmap b1 = Bitmap.createBitmap(boxwidth, boxheight,Bitmap.Config.ARGB_8888);
-        c = new Canvas(b1);
-        Bitmap b2 = Bitmap.createBitmap(boxwidth, boxheight,Bitmap.Config.ARGB_8888);
-        p = new Canvas(b2);
-
-        background = BitmapFactory.decodeResource(getResources(),R.drawable.background);
-        background = Bitmap.createScaledBitmap(background, c.getWidth(), c.getHeight(),true);
-
-//        c.drawBitmap(background,0,0,AA);
-        c.drawColor(Color.LTGRAY);
-
-        window=(ImageView) findViewById(R.id.window);
-        window.setImageBitmap(b1);
-
-        particle=(ImageView) findViewById(R.id.particle);
-        particle.setImageBitmap(b2);
-    }
-
-    void graph_start(){
-        Paint AA = new Paint();
-        AA.setAntiAlias(true);
-//        c.drawBitmap(background,0,0,AA);
-//        c.drawColor(Color.LTGRAY);
-        vy = -0.1f - (float) ((Math.pow(x / 600, 2)) / 1.25);
-
-        x += vx;
-        y += vy;
-
-//        c.drawBitmap(bullet, x, y, AA);
-        window.invalidate();
-        particle.invalidate();
-    }
-
-    void particle_start(){
-        Paint AA = new Paint();
-        AA.setAntiAlias(true);
-
-//        p.drawBitmap(trail,x-30,y+30,AA);
     }
 
     void startengine(){
+        xval = 5f;
+        yval = 395f;
+
+        cv.setX(x);
+        cv.setY(y);
+        utils.setCrashRunning(true);
+
         Random random = new Random();
         r1 = random.nextInt(750)+750;
-//        r1 = 20000;
+//        r1 = 200000;
+
         profdisplay.setText("");
         boolcrash=false;
         boolbail=false;
@@ -182,7 +152,6 @@ public class gameBACKUP extends AppCompatActivity {
         drop.setClickable(true);
         play.setEnabled(false);
         play.setClickable(false);
-        count = 49;
 
         Timer timer=new Timer();
         timer.schedule(
@@ -199,16 +168,14 @@ public class gameBACKUP extends AppCompatActivity {
                                     public void run() {
                                         if (!boolcrash && live) {
                                             update();
-//                                            graph_start();
-//                                            if((count%50)== 0){
-//                                                particle_start();
-//                                            }
-
-                                        }else{
-                                            cancel();
+                                            }else{
+                                                cancel();
+                                            }
+                                        if(utils.isCrashRunning()){
+                                            cv.invalidate();
+                                        }
                                         }
                                     }
-                                }
                         );
                     }
                 },0,10 );
@@ -238,6 +205,8 @@ public class gameBACKUP extends AppCompatActivity {
     }
 
     void end(){
+        utils.setCrashRunning(false);
+
         if (!playing){
             state = 1;
         }else{
@@ -248,7 +217,6 @@ public class gameBACKUP extends AppCompatActivity {
                 state = 3;
             }
         }
-        debug.setText("" + state + "  " + new DecimalFormat("##.00").format(value));
         play.setEnabled(true);
         play.setClickable(true);
         drop.setEnabled(false);
@@ -312,7 +280,15 @@ public class gameBACKUP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game1);
+
+        // Set fullscreen
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // Set No Title
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        setContentView(R.layout.activity_game);
 
         play = (ImageButton)findViewById(R.id.play);
         drop = (ImageButton)findViewById(R.id.drop);
@@ -323,6 +299,12 @@ public class gameBACKUP extends AppCompatActivity {
         plusmid = (ImageButton)findViewById(R.id.plusmid);
         plusmin = (ImageButton)findViewById(R.id.plusmin);
 
+        leftBtn = (ImageButton)findViewById(R.id.leftBtn);
+        mainBtn = (ImageButton)findViewById(R.id.mainBtn);
+        rightBtn = (ImageButton)findViewById(R.id.rightBtn);
+
+        cv = findViewById(R.id.crashView);
+
         display = (TextView)findViewById(R.id.display);
         valuedisplay = (TextView)findViewById(R.id.valuedisplay);
         baldisplay = (TextView)findViewById(R.id.balance);
@@ -330,12 +312,35 @@ public class gameBACKUP extends AppCompatActivity {
         betdisplay = (TextView)findViewById(R.id.betdisplay);
         debug = (TextView)findViewById(R.id.debug);
 
+        utils = new Utils(false);
+
+        /*
+        CRASHVIEW DEFAULT VALUES
+        */
+        Display displey = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        displey.getSize(size);
+        Bitmap bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet);
+        bullet = Bitmap.createScaledBitmap(bullet, bullet.getWidth() / 5, bullet.getHeight() / 5, true);
+
+        width = size.x;
+        height = size.y;
+
+        bheight = bullet.getHeight();
+        bwidth = bullet.getWidth();
+
+        boxheight = height / 4;
+        boxwidth = (width / 20) * 19;
+
+        x = (width / 20) / 4;
+        y = boxheight - bheight / 4 * 3;
+        /*
+        CRASHVIEW DEFAULT VALUES
+        */
+
         // STARTING VALUES
-        x = 5f;
-        y = 395f;
         xval = 5f;
         yval = 395f;
-        r1 = 0;
         bet = 5;
         profit = 0;
         balance = 50;
@@ -347,6 +352,7 @@ public class gameBACKUP extends AppCompatActivity {
         value_old = load.getFloat("value_old", 0);
 
         //DEFAULT DISPLAY
+        setDisplay();
         updateDisplay();
         profdisplay.setText(" ");
         debug.setText("");
@@ -369,8 +375,6 @@ public class gameBACKUP extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }else{
                         profdisplay.setText("Bet Placed");
-                        x = 5f;
-                        y = 395f;
                         xval = 5f;
                         yval = 395f;
                         playing = true;
@@ -379,13 +383,14 @@ public class gameBACKUP extends AppCompatActivity {
                             firsttime = false;
                         }
                     }
-                }else{
-                    //SKIP GAME IF BAILED
+//                }else{
+//                    //SKIP GAME IF BAILED
 //                    if (boolbail){
 //                        live = false;
 //                        create();
 //                        end();
 //                    }
+//                }
                 }
             }
         });
@@ -412,7 +417,7 @@ public class gameBACKUP extends AppCompatActivity {
         minusmax.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 bet = 0;
-                updateDisplay();
+               updateDisplay();
             }
         });
 
@@ -422,7 +427,7 @@ public class gameBACKUP extends AppCompatActivity {
                 if (bet<0){
                     bet = 0;
                 }
-                updateDisplay();
+               updateDisplay();
             }
         });
 
@@ -432,14 +437,14 @@ public class gameBACKUP extends AppCompatActivity {
                 if (bet<0){
                     bet = 0;
                 }
-                updateDisplay();
+               updateDisplay();
             }
         });
 
         plusmax.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 bet = balance;
-                updateDisplay();
+               updateDisplay();
             }
         });
 
@@ -449,7 +454,7 @@ public class gameBACKUP extends AppCompatActivity {
                 if (bet>balance){
                     bet = balance;
                 }
-                updateDisplay();
+               updateDisplay();
             }
         });
 
@@ -459,7 +464,7 @@ public class gameBACKUP extends AppCompatActivity {
                 if (bet>balance){
                     bet = balance;
                 }
-                updateDisplay();
+               updateDisplay();
             }
         });
     }
