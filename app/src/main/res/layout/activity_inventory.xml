@@ -9,7 +9,7 @@
 
     <ImageButton
         android:id="@+id/leftBtn"
-        android:layout_width="130dp"
+        android:layout_width="101dp"
         android:layout_height="62dp"
         android:layout_marginBottom="0dp"
         android:layout_marginRight="0dp"
@@ -31,7 +31,7 @@
 
     <ImageButton
         android:id="@+id/rightBtn"
-        android:layout_width="130dp"
+        android:layout_width="101dp"
         android:layout_height="62dp"
         android:layout_marginBottom="0dp"
         android:layout_marginLeft="0dp"

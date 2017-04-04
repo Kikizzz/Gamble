@@ -115,7 +115,7 @@ public class CrashView extends View {
         super.onDraw(canvas);
 
         setMeasuredDimension(boxwidth, boxheight);
-        canvas.drawColor(Color.LTGRAY);
+        canvas.drawColor(Color.DKGRAY);
 
             vy = -0.1f - (float) ((Math.pow(x / 600, 2)) / 1.25);
             vx = 1f;
@@ -124,6 +124,5 @@ public class CrashView extends View {
             y += vy;
 
             canvas.drawBitmap(bullet, x, y, AA);
-
     }
 }

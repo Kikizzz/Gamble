@@ -12,9 +12,9 @@ public class Inventory extends AppCompatActivity {
     ImageButton leftBtn, mainBtn, rightBtn;
 
     private void setDisplay(){
-            leftBtn.setImageResource(R.drawable.inventory_icon);
-            mainBtn.setImageResource(R.drawable.shop_icon_large);
-            rightBtn.setImageResource(R.drawable.cases_icon);
+            leftBtn.setImageResource(R.drawable.shop_icon);
+            mainBtn.setImageResource(R.drawable.inventory_icon);
+            rightBtn.setImageResource(R.drawable.case_icon);
 
             // l t r b
             leftBtn.setAdjustViewBounds(true);

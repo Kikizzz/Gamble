@@ -15,14 +15,11 @@ public class Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Set fullscreen
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         setContentView(R.layout.activity_main);
 
         play = (ImageButton)findViewById(R.id.play);
@@ -46,7 +43,7 @@ public class Main extends AppCompatActivity {
 
         settings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Main.this, CrashSurfaceView.class);
+                Intent intent = new Intent(Main.this, Case.class);
                 startActivity(intent);
             }
         });
