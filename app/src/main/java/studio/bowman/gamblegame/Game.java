@@ -43,14 +43,52 @@ public class Game extends AppCompatActivity {
     private boolean live, boolcrash, boolbail, playing, firsttime;
     View cv;
     Utils utils;
-    Thread thread;
 
     //STATES
     // 1 = DRAW
     // 2 = LOSE
     // 3 = WIN
 
-    void setDisplay(){
+    void saveData(){
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+        SharedPreferences.Editor save = load.edit();
+        save.putInt("balance", balance);
+        save.putFloat("v1", v1);
+        save.putFloat("v2", v2);
+        save.putFloat("v3", v3);
+        save.putFloat("v4", v4);
+        save.putFloat("v5", v5);
+        save.putFloat("v6", v6);
+        save.putFloat("v7", v7);
+        save.putFloat("v8", v8);
+        save.putFloat("v9", v9);
+        save.putFloat("v10", v10);
+        save.putFloat("v11", v11);
+        save.putFloat("v12", v12);
+
+        save.apply();
+        save.commit();
+    }
+    void loadData(){
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+        balance = load.getInt("balance", 50);
+        state = load.getInt("state", 0);
+        value_old = load.getFloat("value_old", 0);
+        v1 = load.getFloat("v1", 0);
+        v2 = load.getFloat("v2", 0);
+        v3 = load.getFloat("v3", 0);
+        v4 = load.getFloat("v4", 0);
+        v5 = load.getFloat("v5", 0);
+        v6 = load.getFloat("v6", 0);
+        v7 = load.getFloat("v7", 0);
+        v8 = load.getFloat("v8", 0);
+        v9 = load.getFloat("v9", 0);
+        v10 = load.getFloat("v10", 0);
+        v11 = load.getFloat("v11", 0);
+        v12 = load.getFloat("v12", 0);
+    }
+
+    void setGUI(){
         // TOP SCREEN
         settings.setImageResource(R.drawable.play);
         inventory.setImageResource(R.drawable.play);
@@ -113,8 +151,7 @@ public class Game extends AppCompatActivity {
         profdisplay.setTextColor(Color.WHITE);
         valuedisplay.setTextColor(Color.WHITE);
     }
-
-    void updateDisplay(){
+    void updateValues(){
         baldisplay.setText(" " + balance + "$");
         betdisplay.setText("" + bet);
         t1.setText("" + new DecimalFormat("##.00").format(v1));
@@ -130,141 +167,6 @@ public class Game extends AppCompatActivity {
         t11.setText("" + new DecimalFormat("##.00").format(v11));
         t12.setText("" + new DecimalFormat("##.00").format(v12));
     }
-    
-    void endgame(){
-        Toast.makeText(getBaseContext(), "Your Game Has Been Reset",
-                Toast.LENGTH_SHORT).show();
-        balance = 50;
-        updateDisplay();
-    }
-
-    void update(){
-        Random random = new Random();
-        int crash = random.nextInt(r1) + 1;
-
-        //COUNTING GRAPH
-        vxval = 0.5f;
-        xval = xval + vxval;
-        yval = yval - 0.1f - (float) ((Math.pow(xval/600,3))/10);
-
-        value = 1 + (-(yval - 396))/100;
-        valuedisplay.setText("x" + new DecimalFormat("##.00").format(value));
-
-        if(playing) {
-            if (!boolbail) {
-                profdisplay.setText("Profit: " + Math.round(bet * value) + "$");
-            } else {
-                profdisplay.setText("You got " + Math.round(profit) + "$");
-            }
-        }
-        if (crash == 1){
-            boolcrash = true;
-            valuedisplay.setText("Crashed At x" + new DecimalFormat("##.00").format(value));
-            profdisplay.setText("");
-            value_old = value;
-            end();
-        }
-//        if (value == 300){
-//            boolcrash = true;
-//            valuedisplay.setText("Limit Reached x" + new DecimalFormat("##.00").format(value));
-//            end();
-//        }
-        count = count + 1;
-    }
-
-    void create(){
-        display.setText("");
-        valuedisplay.setText("");
-        profdisplay.setText("");
-    }
-
-    void startengine(){
-        intense.start();
-        intense.setLooping(true);
-
-        xval = 5f;
-        yval = 395f;
-
-        cv.setX(x);
-        cv.setY(y);
-        utils.setCrashRunning(true);
-
-        Random random = new Random();
-        r1 = random.nextInt(750)+750;
-//        r1 = 200000;
-
-        profdisplay.setText("");
-        boolcrash=false;
-        boolbail=false;
-        live = true;
-        drop.setEnabled(true);
-        drop.setClickable(true);
-        play.setEnabled(false);
-        play.setClickable(false);
-
-        Timer timer=new Timer();
-        timer.schedule(
-                new TimerTask(){
-                    @Override
-                    public boolean cancel() {
-                        return super.cancel();
-                    }
-                    @Override
-                    public void run() {
-                        runOnUiThread(
-                                new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        if (!boolcrash && live) {
-                                            update();
-                                            }else{
-                                                cancel();
-                                            }
-                                        if(utils.isCrashRunning()){
-                                            cv.invalidate();
-                                        }
-                                        }
-                                    }
-                        );
-                    }
-                },0,10 );
-    }
-
-    void start(){
-        if(playing){
-            if (bet==0){
-                Toast.makeText(getBaseContext(), "Can't bet 0",
-                        Toast.LENGTH_SHORT).show();
-            }else{
-                balance = balance - bet;
-                updateDisplay();
-                create();
-                startengine();
-            }
-        }else{
-            create();
-            startengine();
-        }
-        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor save = load.edit();
-        save.putInt("balance", balance);
-        save.putFloat("v1", v1);
-        save.putFloat("v2", v2);
-        save.putFloat("v3", v3);
-        save.putFloat("v4", v4);
-        save.putFloat("v5", v5);
-        save.putFloat("v6", v6);
-        save.putFloat("v7", v7);
-        save.putFloat("v8", v8);
-        save.putFloat("v9", v9);
-        save.putFloat("v10", v10);
-        save.putFloat("v11", v11);
-        save.putFloat("v12", v12);
-        save.apply();
-        save.commit();
-    }
-
     public void sethistory(){
         // s = state , v = value, 1 = newest, 12 = oldest;
         s12 = s11;
@@ -303,13 +205,123 @@ public class Game extends AppCompatActivity {
         s1 = state;
         v1 = value;
 
-        updateDisplay();
+        updateValues();
+    }
+
+    void create(){
+        display.setText("");
+        valuedisplay.setText("");
+        profdisplay.setText("");
+    }
+    void start(){
+        if(playing){
+            if (bet==0){
+                Toast.makeText(getBaseContext(), "Can't bet 0",
+                        Toast.LENGTH_SHORT).show();
+            }else{
+                balance = balance - bet;
+                updateValues();
+                create();
+                startengine();
+            }
+        }else{
+            create();
+            startengine();
+        }
+        saveData();
+    }
+    void startengine(){
+        intense.setLooping(true);
+        intense.start();
+
+        xval = 5f;
+        yval = 395f;
+
+        cv.setX(x);
+        cv.setY(y);
+        utils.setCrashRunning(true);
+
+        Random random = new Random();
+        r1 = random.nextInt(750)+750;
+//        r1 = 200000;
+
+        profdisplay.setText("");
+        boolcrash=false;
+        boolbail=false;
+        live = true;
+        drop.setEnabled(true);
+        drop.setClickable(true);
+        play.setEnabled(false);
+        play.setClickable(false);
+
+        Timer timer=new Timer();
+        timer.schedule(
+                new TimerTask(){
+                    @Override
+                    public boolean cancel() {
+                        return super.cancel();
+                    }
+                    @Override
+                    public void run() {
+                        runOnUiThread(
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (!boolcrash && live) {
+                                            update();
+                                        }else{
+                                            cancel();
+                                        }
+                                        if(utils.isCrashRunning()){
+                                            cv.invalidate();
+                                        }
+                                    }
+                                }
+                        );
+                    }
+                },0,10 );
+    }
+    void update(){
+        Random random = new Random();
+        int crash = random.nextInt(r1) + 1;
+
+        //COUNTING GRAPH
+        vxval = 0.5f;
+        xval = xval + vxval;
+        yval = yval - 0.1f - (float) ((Math.pow(xval/600,3))/10);
+
+        value = 1 + (-(yval - 396))/100;
+        valuedisplay.setText("x" + new DecimalFormat("##.00").format(value));
+
+        if(playing) {
+            if (!boolbail) {
+                profdisplay.setText("Profit: " + Math.round(bet * value) + "$");
+            } else {
+                profdisplay.setText("You got " + Math.round(profit) + "$");
+            }
+        }
+        if (crash == 1){
+            boolcrash = true;
+            valuedisplay.setText("Crashed At x" + new DecimalFormat("##.00").format(value));
+            profdisplay.setText("");
+            value_old = value;
+            end();
+        }
+//        if (value == 300){
+//            boolcrash = true;
+//            valuedisplay.setText("Limit Reached x" + new DecimalFormat("##.00").format(value));
+//            end();
+//        }
+        count = count + 1;
     }
 
     void end(){
         intense.setLooping(false);
         intense.stop();
         utils.setCrashRunning(false);
+
+        if (bet>balance)bet=balance;
+        if (bet<0)bet=0;
 
         if (!playing){
             state = 1;
@@ -334,27 +346,7 @@ public class Game extends AppCompatActivity {
             endgame();
         }
 
-        // SAVE DATA
-        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor save = load.edit();
-        save.putInt("balance", balance);
-        save.putFloat("value_old", value_old);
-        save.putInt("state", state);
-        save.putFloat("v1", v1);
-        save.putFloat("v2", v2);
-        save.putFloat("v3", v3);
-        save.putFloat("v4", v4);
-        save.putFloat("v5", v5);
-        save.putFloat("v6", v6);
-        save.putFloat("v7", v7);
-        save.putFloat("v8", v8);
-        save.putFloat("v9", v9);
-        save.putFloat("v10", v10);
-        save.putFloat("v11", v11);
-        save.putFloat("v12", v12);
-        save.apply();
-        save.commit();
+        saveData();
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -394,6 +386,12 @@ public class Game extends AppCompatActivity {
             }
         }, 10000);
 
+    }
+    void endgame(){
+        Toast.makeText(getBaseContext(), "Your Game Has Been Reset",
+                Toast.LENGTH_SHORT).show();
+        balance = 50;
+        updateValues();
     }
 
     @Override
@@ -482,27 +480,11 @@ public class Game extends AppCompatActivity {
         profit = 0;
         balance = 50;
 
-        //LOAD DATA
-        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-        balance = load.getInt("balance", 50);
-        state = load.getInt("state", 0);
-        value_old = load.getFloat("value_old", 0);
-        v1 = load.getFloat("v1", 0);
-        v2 = load.getFloat("v2", 0);
-        v3 = load.getFloat("v3", 0);
-        v4 = load.getFloat("v4", 0);
-        v5 = load.getFloat("v5", 0);
-        v6 = load.getFloat("v6", 0);
-        v7 = load.getFloat("v7", 0);
-        v8 = load.getFloat("v8", 0);
-        v9 = load.getFloat("v9", 0);
-        v10 = load.getFloat("v10", 0);
-        v11 = load.getFloat("v11", 0);
-        v12 = load.getFloat("v12", 0);
+        loadData();
 
         //DEFAULT DISPLAY
-        setDisplay();
-        updateDisplay();
+        setGUI();
+        updateValues();
         profdisplay.setText(" ");
         debug.setText("");
 
@@ -554,7 +536,7 @@ public class Game extends AppCompatActivity {
                         intense.stop();
                         profit = Math.round(bet * bailvalue);
                         balance = balance + profit;
-                        updateDisplay();
+                        updateValues();
                         boolbail = true;
 
                         play.setClickable(true);
@@ -580,7 +562,7 @@ public class Game extends AppCompatActivity {
         minusmax.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 bet = 0;
-               updateDisplay();
+               updateValues();
                 button.start();
             }
         });
@@ -591,7 +573,7 @@ public class Game extends AppCompatActivity {
                 if (bet<0){
                     bet = 0;
                 }
-               updateDisplay();
+               updateValues();
             }
         });
 
@@ -601,14 +583,14 @@ public class Game extends AppCompatActivity {
                 if (bet<0){
                     bet = 0;
                 }
-               updateDisplay();
+               updateValues();
             }
         });
 
         plusmax.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 bet = balance;
-               updateDisplay();
+               updateValues();
             }
         });
 
@@ -618,7 +600,7 @@ public class Game extends AppCompatActivity {
                 if (bet>balance){
                     bet = balance;
                 }
-               updateDisplay();
+               updateValues();
             }
         });
 
@@ -628,7 +610,7 @@ public class Game extends AppCompatActivity {
                 if (bet>balance){
                     bet = balance;
                 }
-               updateDisplay();
+               updateValues();
             }
         });
     }
