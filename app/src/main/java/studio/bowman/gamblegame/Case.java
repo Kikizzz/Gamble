@@ -1,6 +1,7 @@
 package studio.bowman.gamblegame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 public class Case extends AppCompatActivity {
     private int v1,v2,v3,v4,v5,v6,v7,v8,v9;
+    private int selected;
 
     ImageView back1,back2,back3,back4,back5,back6,back7,back8,back9;
     TextView val1,val2,val3,val4,val5,val6,val7,val8,val9;
@@ -37,17 +39,54 @@ public class Case extends AppCompatActivity {
             title3.setPadding(0,0,0,0);
 
         // CASES
-        case1.setImageResource(R.drawable.case_1);
-        case2.setImageResource(R.drawable.case_2);
-//        case3.setImageResource(R.drawable.case_3);
-        case4.setImageResource(R.drawable.case_4);
-        case5.setImageResource(R.drawable.case_5);
-        case6.setImageResource(R.drawable.case_6);
-        case7.setImageResource(R.drawable.case_7);
-        case8.setImageResource(R.drawable.case_8);
-        case9.setImageResource(R.drawable.case_9);
+        if (v1 > 0){
+            case1.setImageResource(R.drawable.case_1);
+        }else{
+            case1.setImageResource(R.drawable.case_1_empty);
+        }
+        if (v2 > 0){
+            case2.setImageResource(R.drawable.case_2);
+        }else{
+            case2.setImageResource(R.drawable.case_2_empty);
+        }
+        //CHANGE CASE 3//CHANGE CASE 3//CHANGE CASE 3
+        if (v3 > 0){
+            case3.setImageResource(R.drawable.case_2);
+        }else{
+            case3.setImageResource(R.drawable.case_2_empty);
+        }
+        //CHANGE CASE 3//CHANGE CASE 3//CHANGE CASE 3
+        if (v4 > 0){
+            case4.setImageResource(R.drawable.case_4);
+        }else{
+            case4.setImageResource(R.drawable.case_4_empty);
+        }
+        if (v5 > 0){
+            case5.setImageResource(R.drawable.case_5);
+        }else{
+            case5.setImageResource(R.drawable.case_5_empty);
+        }
+        if (v6 > 0){
+            case6.setImageResource(R.drawable.case_6);
+        }else{
+            case6.setImageResource(R.drawable.case_6_empty);
+        }
+        if (v7 > 0){
+            case7.setImageResource(R.drawable.case_7);
+        }else{
+            case7.setImageResource(R.drawable.case_7_empty);
+        }
+        if (v8 > 0){
+            case8.setImageResource(R.drawable.case_8);
+        }else{
+            case8.setImageResource(R.drawable.case_8_empty);
+        }
+        if (v9 > 0){
+            case9.setImageResource(R.drawable.case_9);
+        }else{
+            case9.setImageResource(R.drawable.case_9_empty);
+        }
 
-        case3.setImageResource(R.drawable.case_7);
 
         case1.setAdjustViewBounds(true);
         case1.setPadding(0,0,0,0);
@@ -68,7 +107,7 @@ public class Case extends AppCompatActivity {
         case9.setAdjustViewBounds(true);
         case9.setPadding(0,0,0,0);
 
-        // CASE BACKS AND VALUES
+        // CASE BACKS AND VALUES}
         back1.setImageResource(R.drawable.case_amount_img);
         back2.setImageResource(R.drawable.case_amount_img);
         back3.setImageResource(R.drawable.case_amount_img);
@@ -99,9 +138,9 @@ public class Case extends AppCompatActivity {
         back9.setPadding(0,0,0,0);
 
         //BOTTOM BUTTONS
-        leftBtn.setImageResource(R.drawable.coinflip_icon);
-        mainBtn.setImageResource(R.drawable.crash_icon);
-        rightBtn.setImageResource(R.drawable.robbery_icon);
+        leftBtn.setImageResource(R.drawable.shop_icon);
+        mainBtn.setImageResource(R.drawable.inventory_icon);
+        rightBtn.setImageResource(R.drawable.case_icon);
 
         leftBtn.setAdjustViewBounds(true);
         leftBtn.setPadding(0,0,0,0);
@@ -138,13 +177,13 @@ public class Case extends AppCompatActivity {
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         v1 = load.getInt("val1", 0);
-        v2 = load.getInt("val2", 0);
+        v2 = load.getInt("val2", 2);
         v3 = load.getInt("val3", 0);
         v4 = load.getInt("val4", 0);
-        v5 = load.getInt("val5", 0);
+        v5 = load.getInt("val5", 5);
         v6 = load.getInt("val6", 0);
         v7 = load.getInt("val7", 0);
-        v8 = load.getInt("val8", 0);
+        v8 = load.getInt("val8", 1);
         v9 = load.getInt("val9", 0);
     }
     void savedata(){
@@ -221,9 +260,38 @@ public class Case extends AppCompatActivity {
         }else{
            switch (Case){
                case 1:
-                   //OPEN CASE
+                   selected = 1;
                break;
+               case 2:
+                   selected = 2;
+                   break;
+               case 3:
+                   selected = 3;
+                   break;
+               case 4:
+                   selected = 4;
+                   break;
+               case 5:
+                   selected = 5;
+                   break;
+               case 6:
+                   selected = 6;
+                   break;
+               case 7:
+                   selected = 7;
+                   break;
+               case 8:
+                   selected = 8;
+                   break;
+               case 9:
+                   selected = 9;
+                   break;
            }
+            Intent intent = new Intent(Case.this, CaseCheck.class);
+            intent.putExtra("selected", selected);
+            startActivity(intent);
+
+            savedata();
         }
     }
 
@@ -275,9 +343,10 @@ public class Case extends AppCompatActivity {
         val8 = (TextView) findViewById(R.id.val8);
         val9 = (TextView) findViewById(R.id.val9);
 
-            setGUI();
-            loadData();
-            updateDisplay();
+        loadData();
+        updateDisplay();
+        setGUI();
+
 
         case1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

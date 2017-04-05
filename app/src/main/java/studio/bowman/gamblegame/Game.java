@@ -242,8 +242,10 @@ public class Game extends AppCompatActivity {
         utils.setCrashRunning(true);
 
         Random random = new Random();
-        r1 = random.nextInt(750)+750;
-//        r1 = 200000;
+//        r1 = random.nextInt(750)+750;
+
+        //DEBUGGING WITH INFINITE GROWTH
+        r1 = 2000000;
 
         profdisplay.setText("");
         boolcrash=false;
@@ -293,12 +295,25 @@ public class Game extends AppCompatActivity {
         value = 1 + (-(yval - 396))/100;
         valuedisplay.setText("x" + new DecimalFormat("##.00").format(value));
 
+        if (value >= 5){
+            value = 5;
+            bailvalue = value;
+            boolcrash = true;
+            valuedisplay.setText("Limit Reached x" + new DecimalFormat("##.00").format(value));
+            if (playing) {
+                profit = Math.round(bet * bailvalue);
+                balance = balance + profit;
+            }
+            end();
+        }
+
         if(playing) {
             if (!boolbail) {
                 profdisplay.setText("Profit: " + Math.round(bet * value) + "$");
             } else {
                 profdisplay.setText("You got " + Math.round(profit) + "$");
             }
+
         }
         if (crash == 1){
             boolcrash = true;
@@ -307,11 +322,6 @@ public class Game extends AppCompatActivity {
             value_old = value;
             end();
         }
-//        if (value == 300){
-//            boolcrash = true;
-//            valuedisplay.setText("Limit Reached x" + new DecimalFormat("##.00").format(value));
-//            end();
-//        }
         count = count + 1;
     }
 
@@ -334,6 +344,7 @@ public class Game extends AppCompatActivity {
             }
         }
 
+        updateValues();
         sethistory();
 
         play.setEnabled(true);
