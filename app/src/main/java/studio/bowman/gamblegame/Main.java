@@ -29,14 +29,14 @@ public class Main extends AppCompatActivity {
 
         play.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            Intent myIntent = new Intent (Main.this, Game.class);
+            Intent myIntent = new Intent (Main.this, Crash.class);
             startActivity(myIntent);
             }
         });
 
         highscores.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Main.this, Inventory.class);
+                Intent intent = new Intent(Main.this, CaseCheck.class);
                 startActivity(intent);
             }
         });

@@ -11,14 +11,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class CaseCheck extends AppCompatActivity {
 
     int selected;
     int keys;
 
-    ImageButton caseview, mainBtn, buykey;
-    ImageView key;
+    ImageButton caseview, mainBtn, buykey, usekey;
+    ImageView foobar;
+    TextView amount;
 
     void setGUI(){
 
@@ -30,9 +32,9 @@ public class CaseCheck extends AppCompatActivity {
             case 2:
                 caseview.setImageResource(R.drawable.case_2);
                 break;
-//            case 3:
-//                caseview.setImageResource(R.drawable.case_3);
-//                break;
+            case 3:
+                caseview.setImageResource(R.drawable.case_3);
+                break;
             case 4:
                 caseview.setImageResource(R.drawable.case_4);
                 break;
@@ -53,38 +55,25 @@ public class CaseCheck extends AppCompatActivity {
                 break;
         }
 
-        buykey.setImageResource(R.drawable.case_icon);
+        usekey.setImageResource(R.drawable.unlock_case);
+        buykey.setImageResource(R.drawable.buy_keys);
+        foobar.setImageResource(R.drawable.you_have_keys);
+        mainBtn.setImageResource(R.drawable.back_icon);
 
+        foobar.setAdjustViewBounds(true);
+        foobar.setPadding(0,0,0,0);
         caseview.setAdjustViewBounds(true);
         caseview.setPadding(0,0,0,0);
-
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
-
         buykey.setAdjustViewBounds(true);
         buykey.setPadding(0,0,0,0);
+        usekey.setAdjustViewBounds(true);
+        usekey.setPadding(0,0,0,0);
 
-        if (keys>0){
-            buykey.setEnabled(false);
-            buykey.setVisibility(View.GONE);
-
-            key.setEnabled(true);
-            key.setVisibility(View.VISIBLE);
-
-            //MAIN BUTTON USE KEYS
-            mainBtn.setImageResource(R.drawable.inventory_icon);
-        }else{
-            buykey.setEnabled(true);
-            buykey.setVisibility(View.VISIBLE);
-
-            key.setEnabled(false);
-            key.setVisibility(View.GONE);
-
-            //MAIN BUTTON DONE
-            mainBtn.setImageResource(R.drawable.inventory_icon);
-        }
     }
     void updateDisplay(){
+        amount.setText("x" + keys);
     }
 
     void loadData(){
@@ -117,23 +106,42 @@ public class CaseCheck extends AppCompatActivity {
         caseview = (ImageButton)findViewById(R.id.caseview);
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
         buykey = (ImageButton)findViewById(R.id.buykey);
+        usekey = (ImageButton)findViewById(R.id.usekey);
 
-        key = (ImageView) findViewById(R.id.key);
+        foobar = (ImageView)findViewById(R.id.foobar);
+
+        amount = (TextView)findViewById(R.id.amount);
 
         loadData();
         setGUI();
         updateDisplay();
 
-        key.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //BUY KEY
-            }
-        });
 
         caseview.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //CHECK ITEMS
             }
         });
+
+        mainBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        usekey.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(CaseCheck.this, CaseOpen.class);
+                intent.putExtra("selected", selected);
+                startActivity(intent);
+            }
+        });
+
+        buykey.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            //BUY KEYS
+            }
+        });
+
     }
 }

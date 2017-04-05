@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Game"
+            android:name=".Crash"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
@@ -35,7 +35,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Inventory" />
         <activity android:name=".Case" />
-        <activity android:name=".CaseCheck"></activity>
+        <activity android:name=".CaseCheck" />
+        <activity android:name=".CaseOpen"></activity>
     </application>
 
 </manifest>

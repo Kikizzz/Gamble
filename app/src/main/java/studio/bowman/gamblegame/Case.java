@@ -49,13 +49,11 @@ public class Case extends AppCompatActivity {
         }else{
             case2.setImageResource(R.drawable.case_2_empty);
         }
-        //CHANGE CASE 3//CHANGE CASE 3//CHANGE CASE 3
         if (v3 > 0){
-            case3.setImageResource(R.drawable.case_2);
+            case3.setImageResource(R.drawable.case_3);
         }else{
-            case3.setImageResource(R.drawable.case_2_empty);
+            case3.setImageResource(R.drawable.case_3_empty);
         }
-        //CHANGE CASE 3//CHANGE CASE 3//CHANGE CASE 3
         if (v4 > 0){
             case4.setImageResource(R.drawable.case_4);
         }else{
@@ -287,11 +285,10 @@ public class Case extends AppCompatActivity {
                    selected = 9;
                    break;
            }
+            savedata();
             Intent intent = new Intent(Case.this, CaseCheck.class);
             intent.putExtra("selected", selected);
             startActivity(intent);
-
-            savedata();
         }
     }
 

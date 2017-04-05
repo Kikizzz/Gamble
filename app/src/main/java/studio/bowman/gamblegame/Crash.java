@@ -1,6 +1,5 @@
 package studio.bowman.gamblegame;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,7 +24,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class Game extends AppCompatActivity {
+public class Crash extends AppCompatActivity {
     private int width, height, bheight, bwidth, boxwidth, boxheight;
     private float x, y;
 
@@ -167,7 +166,7 @@ public class Game extends AppCompatActivity {
         t11.setText("" + new DecimalFormat("##.00").format(v11));
         t12.setText("" + new DecimalFormat("##.00").format(v12));
     }
-    public void sethistory(){
+    void sethistory(){
         // s = state , v = value, 1 = newest, 12 = oldest;
         s12 = s11;
         v12 = v11;
@@ -242,10 +241,9 @@ public class Game extends AppCompatActivity {
         utils.setCrashRunning(true);
 
         Random random = new Random();
-//        r1 = random.nextInt(750)+750;
-
+        r1 = random.nextInt(750)+750;
         //DEBUGGING WITH INFINITE GROWTH
-        r1 = 2000000;
+//        r1 = 2000000;
 
         profdisplay.setText("");
         boolcrash=false;
@@ -399,7 +397,7 @@ public class Game extends AppCompatActivity {
 
     }
     void endgame(){
-        Toast.makeText(getBaseContext(), "Your Game Has Been Reset",
+        Toast.makeText(getBaseContext(), "Your Crash Has Been Reset",
                 Toast.LENGTH_SHORT).show();
         balance = 50;
         updateValues();
@@ -413,7 +411,7 @@ public class Game extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_crash);
 
         /*
         CRASHVIEW DEFAULT VALUES
@@ -560,7 +558,7 @@ public class Game extends AppCompatActivity {
 
         inventory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Game.this, Inventory.class);
+                Intent intent = new Intent(Crash.this, Inventory.class);
                 startActivity(intent);
             }
         });
