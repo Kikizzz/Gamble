@@ -7,20 +7,6 @@
     tools:context="studio.bowman.gamblegame.CaseOpen"
     android:background="@drawable/background">
 
-    <ImageButton
-        android:id="@+id/caseview"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/case_3" />
-
     <TextView
         android:id="@+id/debug"
         android:layout_width="wrap_content"
@@ -33,4 +19,45 @@
         app:layout_constraintLeft_toLeftOf="@+id/caseview"
         app:layout_constraintRight_toRightOf="@+id/caseview"
         app:layout_constraintTop_toBottomOf="@+id/caseview" />
+
+    <ImageView
+        android:id="@+id/flare"
+        android:layout_width="300dp"
+        android:layout_height="270dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/case_open_flare"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <ImageButton
+        android:id="@+id/caseview"
+        android:layout_width="300dp"
+        android:layout_height="270dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/case_3" />
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="308dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_img_1" />
 </android.support.constraint.ConstraintLayout>

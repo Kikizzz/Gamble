@@ -15,11 +15,12 @@ import android.widget.TextView;
 
 public class CaseCheck extends AppCompatActivity {
 
+    private int v1,v2,v3,v4,v5,v6,v7,v8,v9;
     int selected;
     int keys;
 
     ImageButton caseview, mainBtn, buykey, usekey;
-    ImageView foobar;
+    ImageView foobar, back, flare;
     TextView amount;
 
     void setGUI(){
@@ -55,11 +56,25 @@ public class CaseCheck extends AppCompatActivity {
                 break;
         }
 
-        usekey.setImageResource(R.drawable.unlock_case);
+        if (keys==0){
+            usekey.setEnabled(false);
+            usekey.setImageResource(R.drawable.unlock_case_empty);
+        }else {
+            usekey.setEnabled(true);
+            usekey.setImageResource(R.drawable.unlock_case);
+        }
+
         buykey.setImageResource(R.drawable.buy_keys);
         foobar.setImageResource(R.drawable.you_have_keys);
+        back.setImageResource(R.drawable.key_amount);
         mainBtn.setImageResource(R.drawable.back_icon);
+        flare.setImageResource(R.drawable.flare);
 
+        flare.setAdjustViewBounds(true);
+        flare.setPadding(0,0,0,0);
+        flare.setAlpha((float)0.75);
+        back.setAdjustViewBounds(true);
+        back.setPadding(0,0,0,0);
         foobar.setAdjustViewBounds(true);
         foobar.setPadding(0,0,0,0);
         caseview.setAdjustViewBounds(true);
@@ -73,7 +88,7 @@ public class CaseCheck extends AppCompatActivity {
 
     }
     void updateDisplay(){
-        amount.setText("x" + keys);
+        amount.setText("" + keys);
     }
 
     void loadData(){
@@ -82,12 +97,30 @@ public class CaseCheck extends AppCompatActivity {
         selected = (int) bd.get("selected");
 
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+        v1 = load.getInt("val1", 0);
+        v2 = load.getInt("val2", 0);
+        v3 = load.getInt("val3", 0);
+        v4 = load.getInt("val4", 0);
+        v5 = load.getInt("val5", 0);
+        v6 = load.getInt("val6", 0);
+        v7 = load.getInt("val7", 0);
+        v8 = load.getInt("val8", 0);
+        v9 = load.getInt("val9", 0);
         keys = load.getInt("keys", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         SharedPreferences.Editor save = load.edit();
         save.putInt("keys", keys);
+        save.putInt("val1", v1);
+        save.putInt("val2", v2);
+        save.putInt("val3", v3);
+        save.putInt("val4", v4);
+        save.putInt("val5", v5);
+        save.putInt("val6", v6);
+        save.putInt("val7", v7);
+        save.putInt("val8", v8);
+        save.putInt("val9", v9);
 
         save.apply();
         save.commit();
@@ -109,6 +142,8 @@ public class CaseCheck extends AppCompatActivity {
         usekey = (ImageButton)findViewById(R.id.usekey);
 
         foobar = (ImageView)findViewById(R.id.foobar);
+        back = (ImageView)findViewById(R.id.back);
+        flare = (ImageView)findViewById(R.id.flare);
 
         amount = (TextView)findViewById(R.id.amount);
 
@@ -131,6 +166,37 @@ public class CaseCheck extends AppCompatActivity {
 
         usekey.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                keys -= 1;
+                switch(selected){
+                    case 1:
+                        v1 -= 1;
+                    break;
+                    case 2:
+                        v2 -= 1;
+                        break;
+                    case 3:
+                        v3 -= 1;
+                        break;
+                    case 4:
+                        v4 -= 1;
+                        break;
+                    case 5:
+                        v5 -= 1;
+                        break;
+                    case 6:
+                        v6 -= 1;
+                        break;
+                    case 7:
+                        v7 -= 1;
+                        break;
+                    case 8:
+                        v8 -= 1;
+                        break;
+                    case 9:
+                        v9 -= 1;
+                        break;
+                }
+                savedata();
                 Intent intent = new Intent(CaseCheck.this, CaseOpen.class);
                 intent.putExtra("selected", selected);
                 startActivity(intent);

@@ -3,11 +3,13 @@ package studio.bowman.gamblegame;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -15,8 +17,9 @@ import java.util.Random;
 public class CaseOpen extends AppCompatActivity {
 
     int selected;
-    int clicks,min, max, required;
+    int clicks, min, max, required;
     ImageButton caseview;
+    ImageView flare, title;
     TextView debug;
 
     void setGUI(){
@@ -26,7 +29,7 @@ public class CaseOpen extends AppCompatActivity {
                 caseview.setImageResource(R.drawable.case_1);
                 break;
             case 2:
-                caseview.setImageResource(R.drawable.case_2);
+                caseview.setImageResource(R.drawable.case_2_open);
                 break;
             case 3:
                 caseview.setImageResource(R.drawable.case_3);
@@ -50,6 +53,12 @@ public class CaseOpen extends AppCompatActivity {
                 caseview.setImageResource(R.drawable.case_9);
                 break;
         }
+        flare.setImageResource(R.drawable.case_open_flare);
+        title.setImageResource(R.drawable.title_img_1);
+
+
+        flare.setAdjustViewBounds(true);
+        flare.setPadding(0,0,0,0);
         caseview.setAdjustViewBounds(true);
         caseview.setPadding(0,0,0,0);
     }
@@ -66,6 +75,18 @@ public class CaseOpen extends AppCompatActivity {
         debug.setText("GZ");
         caseview.setVisibility(View.INVISIBLE);
         caseview.setEnabled(false);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(CaseOpen.this, Case.class);
+                startActivity(intent);
+            }
+        }, 1000);
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
     @Override
@@ -78,13 +99,16 @@ public class CaseOpen extends AppCompatActivity {
         setContentView(R.layout.activity_case_open);
 
         caseview = (ImageButton)findViewById(R.id.caseview);
+        flare = (ImageView)findViewById(R.id.flare);
+        title = (ImageView)findViewById(R.id.title);
         debug = (TextView)findViewById(R.id.debug);
 
         min = 50;
         max = 250;
         clicks = 0;
         Random random = new Random();
-        required = random.nextInt(max) + min;
+//        required = random.nextInt(max) + min;
+        required = 1;
 
         loadData();
         setGUI();

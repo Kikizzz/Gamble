@@ -36,7 +36,7 @@ public class Main extends AppCompatActivity {
 
         highscores.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Main.this, CaseCheck.class);
+                Intent intent = new Intent(Main.this, Sweeper.class);
                 startActivity(intent);
             }
         });

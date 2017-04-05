@@ -154,70 +154,98 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="@+id/caseview" />
 
-    <Space
-        android:id="@+id/space6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/flare"
+        android:layout_width="158dp"
+        android:layout_height="108dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/mainBtn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caseview" />
+        app:layout_constraintBottom_toBottomOf="@+id/buykey"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintLeft_toLeftOf="@+id/buykey"
+        app:layout_constraintRight_toRightOf="@+id/buykey"
+        app:layout_constraintTop_toTopOf="@+id/buykey"
+        app:layout_constraintVertical_bias="0.487"
+        app:srcCompat="@drawable/flare" />
 
     <ImageButton
         android:id="@+id/buykey"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintLeft_toLeftOf="@+id/space6"
-        app:layout_constraintRight_toRightOf="@+id/space6"
-        app:layout_constraintTop_toBottomOf="@+id/space6"
+        android:layout_marginTop="24dp"
+        app:layout_constraintLeft_toLeftOf="@+id/back"
+        app:layout_constraintRight_toRightOf="@+id/back"
+        app:layout_constraintTop_toBottomOf="@+id/back"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
         android:id="@+id/usekey"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        app:srcCompat="@drawable/plus"
         android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/foobar"
         android:layout_marginRight="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/space6"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintLeft_toLeftOf="@+id/space6"
-        app:layout_constraintRight_toRightOf="@+id/space6"
-        app:srcCompat="@drawable/plus" />
+        app:layout_constraintRight_toRightOf="@+id/foobar"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/foobar" />
 
     <ImageView
         android:id="@+id/foobar"
         android:layout_width="80dp"
         android:layout_height="30dp"
+        app:srcCompat="@drawable/coinflip_icon"
         android:layout_marginBottom="0dp"
-        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/space6"
         android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/usekey"
-        app:layout_constraintLeft_toLeftOf="@+id/usekey"
-        app:layout_constraintRight_toRightOf="@+id/usekey"
-        app:srcCompat="@drawable/coinflip_icon" />
+        app:layout_constraintRight_toRightOf="@+id/space6"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/space6" />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        app:srcCompat="@drawable/case_amount_img"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/space6"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/space6"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/space6" />
 
     <TextView
         android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
         android:text="x21"
         android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/back"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintLeft_toLeftOf="@+id/back"
+        app:layout_constraintRight_toRightOf="@+id/back"
+        app:layout_constraintTop_toTopOf="@+id/back"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/caseview"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainBtn"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="@+id/foobar"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/foobar"
-        app:layout_constraintTop_toTopOf="@+id/foobar"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/foobar"
-        android:layout_marginBottom="8dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/space6" />
 
 </android.support.constraint.ConstraintLayout>

@@ -175,13 +175,13 @@ public class Case extends AppCompatActivity {
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         v1 = load.getInt("val1", 0);
-        v2 = load.getInt("val2", 2);
+        v2 = load.getInt("val2", 0);
         v3 = load.getInt("val3", 0);
         v4 = load.getInt("val4", 0);
-        v5 = load.getInt("val5", 5);
+        v5 = load.getInt("val5", 0);
         v6 = load.getInt("val6", 0);
         v7 = load.getInt("val7", 0);
-        v8 = load.getInt("val8", 1);
+        v8 = load.getInt("val8", 0);
         v9 = load.getInt("val9", 0);
     }
     void savedata(){
