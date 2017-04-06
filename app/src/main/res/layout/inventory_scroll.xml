@@ -24,6 +24,7 @@
 
                 <ImageView
                     android:id="@+id/bar1"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
@@ -31,6 +32,7 @@
 
                 <ImageView
                     android:id="@+id/bar2"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="16dp"
@@ -40,6 +42,7 @@
 
                 <ImageView
                     android:id="@+id/bar3"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
@@ -54,6 +57,7 @@
 
                 <ImageButton
                     android:id="@+id/box1"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -61,6 +65,7 @@
 
                 <ImageButton
                     android:id="@+id/box2"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="16dp"
@@ -70,6 +75,7 @@
 
                 <ImageButton
                     android:id="@+id/box3"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -92,6 +98,7 @@
 
                 <ImageView
                     android:id="@+id/bar4"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
@@ -99,6 +106,7 @@
 
                 <ImageView
                     android:id="@+id/bar5"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="16dp"
@@ -108,6 +116,7 @@
 
                 <ImageView
                     android:id="@+id/bar6"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
@@ -122,6 +131,7 @@
 
                 <ImageButton
                     android:id="@+id/box4"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -129,6 +139,7 @@
 
                 <ImageButton
                     android:id="@+id/box5"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="16dp"
@@ -138,6 +149,7 @@
 
                 <ImageButton
                     android:id="@+id/box6"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -167,6 +179,7 @@
 
                 <ImageView
                     android:id="@+id/bar8"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="16dp"
@@ -176,6 +189,7 @@
 
                 <ImageView
                     android:id="@+id/bar9"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
@@ -190,6 +204,7 @@
 
                 <ImageButton
                     android:id="@+id/box7"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -197,6 +212,7 @@
 
                 <ImageButton
                     android:id="@+id/box8"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="16dp"
@@ -206,6 +222,7 @@
 
                 <ImageButton
                     android:id="@+id/box9"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -228,6 +245,7 @@
 
                 <ImageView
                     android:id="@+id/bar10"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
@@ -235,6 +253,7 @@
 
                 <ImageView
                     android:id="@+id/bar11"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="16dp"
@@ -244,6 +263,7 @@
 
                 <ImageView
                     android:id="@+id/bar12"
+                    android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
@@ -258,6 +278,7 @@
 
                 <ImageButton
                     android:id="@+id/box10"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -265,6 +286,7 @@
 
                 <ImageButton
                     android:id="@+id/box11"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="16dp"
@@ -274,6 +296,7 @@
 
                 <ImageButton
                     android:id="@+id/box12"
+                    android:background="@null"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
@@ -291,6 +314,7 @@
 
             <ImageView
                 android:id="@+id/bar13"
+                android:background="@null"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
@@ -298,6 +322,7 @@
 
             <ImageView
                 android:id="@+id/bar14"
+                android:background="@null"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="16dp"
@@ -307,6 +332,7 @@
 
             <ImageView
                 android:id="@+id/bar15"
+                android:background="@null"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
@@ -321,6 +347,7 @@
 
             <ImageButton
                 android:id="@+id/box13"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
                 android:layout_weight="1"
@@ -328,6 +355,7 @@
 
             <ImageButton
                 android:id="@+id/box14"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
                 android:layout_marginLeft="16dp"
@@ -337,6 +365,7 @@
 
             <ImageButton
                 android:id="@+id/box15"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="90dp"
                 android:layout_weight="1"
