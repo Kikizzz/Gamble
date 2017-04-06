@@ -41,7 +41,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:srcCompat="@drawable/case_prize_maske_whiteruby_fade" />
+        app:srcCompat="@drawable/case_prize_mask_whiteruby_fade" />
 
     <ImageButton
         android:id="@+id/mainBtn"
@@ -127,7 +127,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:background="0"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/stats1"
         app:layout_constraintRight_toLeftOf="@+id/stats1"
         app:layout_constraintTop_toTopOf="@+id/stats1"
@@ -137,7 +137,7 @@
         android:id="@+id/back2"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:background="0"
+        android:background="@null"
         app:srcCompat="@drawable/case_prize_ice_pig"
         app:layout_constraintRight_toLeftOf="@+id/stats3"
         android:layout_marginRight="8dp"
@@ -148,7 +148,7 @@
 
     <ImageView
         android:id="@+id/back3"
-        android:background="0"
+        android:background="@null"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
@@ -161,7 +161,7 @@
 
     <ImageView
         android:id="@+id/back4"
-        android:background="0"
+        android:background="@null"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"

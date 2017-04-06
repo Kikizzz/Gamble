@@ -20,7 +20,7 @@ public class CaseCheck extends AppCompatActivity {
     int keys;
 
     ImageButton caseview, mainBtn, buykey, usekey;
-    ImageView foobar, back, flare;
+    ImageView foobar, back, flare, title;
     ImageView item1, item2, item3, item4, item5, item6;
     TextView amount;
 
@@ -29,22 +29,28 @@ public class CaseCheck extends AppCompatActivity {
         //BOTTOM BUTTONS
         switch(selected){
             case 1:
-                caseview.setImageResource(R.drawable.case_1);
+                caseview.setImageResource(R.drawable.case_check_1);
+                title.setImageResource(R.drawable.case_title_exquisite);
             break;
             case 2:
                 caseview.setImageResource(R.drawable.case_2);
+                title.setImageResource(R.drawable.case_title_luxurious);
                 break;
             case 3:
                 caseview.setImageResource(R.drawable.case_3);
+                title.setImageResource(R.drawable.case_title_grand);
                 break;
             case 4:
                 caseview.setImageResource(R.drawable.case_4);
+                title.setImageResource(R.drawable.case_title_industry);
                 break;
             case 5:
                 caseview.setImageResource(R.drawable.case_5);
+                title.setImageResource(R.drawable.case_title_commerce);
                 break;
             case 6:
                 caseview.setImageResource(R.drawable.case_6);
+                title.setImageResource(R.drawable.case_title_office);
                 break;
             case 7:
                 caseview.setImageResource(R.drawable.case_7);
@@ -71,6 +77,8 @@ public class CaseCheck extends AppCompatActivity {
         mainBtn.setImageResource(R.drawable.back_icon);
         flare.setImageResource(R.drawable.flare);
 
+        title.setAdjustViewBounds(true);
+        title.setPadding(0,0,0,0);
         flare.setAdjustViewBounds(true);
         flare.setPadding(0,0,0,0);
         flare.setAlpha((float)0.75);
@@ -90,23 +98,23 @@ public class CaseCheck extends AppCompatActivity {
         //ITEMS
         switch(selected){
             case 1:
-            item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
-            item2.setImageResource(R.drawable.case_prize_ice_pig);
-            item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
-            item4.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
-            item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
-            item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item1.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                item2.setImageResource(R.drawable.case_prize_ice_pig);
+                item3.setImageResource(R.drawable.case_prize_keys);
+                item4.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item6.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
             break;
             case 2:
                 item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
-                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
-                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item3.setImageResource(R.drawable.case_prize_keys);
+                item4.setImageResource(R.drawable.case_prize_ruby);
                 item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
-                item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item6.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
                 break;
             case 3:
-                item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item1.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
                 item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
@@ -192,6 +200,11 @@ public class CaseCheck extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Set fullscreen
@@ -216,6 +229,7 @@ public class CaseCheck extends AppCompatActivity {
         foobar = (ImageView)findViewById(R.id.foobar);
         back = (ImageView)findViewById(R.id.back);
         flare = (ImageView)findViewById(R.id.flare);
+        title = (ImageView)findViewById(R.id.title);
 
         amount = (TextView)findViewById(R.id.amount);
 
@@ -232,7 +246,10 @@ public class CaseCheck extends AppCompatActivity {
 
         mainBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Intent intent = new Intent(CaseCheck.this, Case.class);
+                intent.putExtra("selected", selected);
                 finish();
+                startActivity(intent);
             }
         });
 

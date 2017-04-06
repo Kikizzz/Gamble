@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class CaseOpen extends AppCompatActivity {
 
+    int gotstatus;
     int keys, rubies, skin;
     int gotkeys, gotrubies, gotskin;
     int selected;
@@ -90,35 +91,49 @@ public class CaseOpen extends AppCompatActivity {
     void randomReward(){
         Random random = new Random();
         int r = random.nextInt(1000)+1;
+
+        /*
+        GOT STATUS
+        1:Keys
+        2:Rubies
+        3:Skins
+         */
+
         if (r<=1){
             //SUPERSKIN
             gotskin = 1;
+            gotstatus = 3;
         }
         if (r>1 && r<=100){
             //KEYS
             Random rkeys = new Random();
             gotkeys += rkeys.nextInt(3)+1;
             keys += gotkeys;
+            gotstatus = 1;
         }
         if (r>100 && r<=301){
             //RUBIES
             Random rrubies = new Random();
             gotrubies += rrubies.nextInt(5)+1;
             rubies += gotrubies;
+            gotstatus = 2;
         }
         if (r>301 && r<=534){
             gotskin = 2;
+            gotstatus = 3;
         }
         if (r>534 && r<=767){
             gotskin = 3;
+            gotstatus = 3;
         }
         if (r>767){
             gotskin = 4;
+            gotstatus = 3;
         }
         savedata();
     }
     void caseOpened(){
-        debug.setText("GZ");
+        debug.setText("" + gotstatus);
         caseview.setVisibility(View.INVISIBLE);
         caseview.setEnabled(false);
         Handler handler = new Handler();
@@ -126,10 +141,12 @@ public class CaseOpen extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(CaseOpen.this, CaseDone.class);
+                intent.putExtra("gotstatus", gotstatus);
                 intent.putExtra("gotkeys", gotkeys);
                 intent.putExtra("gotrubies", gotrubies);
                 intent.putExtra("gotskin", gotskin);
                 intent.putExtra("selected", selected);
+                finish();
                 startActivity(intent);
             }
         }, 2000);

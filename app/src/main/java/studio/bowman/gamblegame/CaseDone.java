@@ -15,19 +15,20 @@ public class CaseDone extends AppCompatActivity {
 
     int selected;
     int keys, rubies;
-    int gotkeys, gotrubies, gotskins;
+    int gotstatus;
+    int gotkeys, gotrubies, gotskin;
 
     ImageView itemview;
     ImageView title1, title2;
-    ImageView back1, back2, back3;
+    ImageView back1, back2, back3, back4;
     TextView stats1, stats2, stats3, stats4;
     ImageButton mainBtn;
 
     void setGUI(){
-        itemview.setImageResource(R.drawable.case_prize_maske_whiteruby_fade);
         back1.setImageResource(R.drawable.stats_back);
         back2.setImageResource(R.drawable.stats_back);
         back3.setImageResource(R.drawable.stats_back);
+        back4.setImageResource(R.drawable.stats_back);
         mainBtn.setImageResource(R.drawable.back_icon);
 
 
@@ -39,8 +40,142 @@ public class CaseDone extends AppCompatActivity {
         back2.setPadding(0,0,0,0);
         back3.setAdjustViewBounds(true);
         back3.setPadding(0,0,0,0);
+        back4.setAdjustViewBounds(true);
+        back4.setPadding(0,0,0,0);
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
+
+        /*
+        GOT STATUS
+        1:Keys
+        2:Rubies
+        3:Skins
+         */
+
+        if (gotstatus==1){
+            itemview.setImageResource(R.drawable.case_prize_keys);
+        }
+        if (gotstatus==2){
+            itemview.setImageResource(R.drawable.case_prize_ruby);
+        }
+        if (gotstatus==3) {
+            switch (selected) {
+                case 1:
+                    switch (gotskin) {
+                        case 1:
+                            itemview.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (gotskin) {
+                        case 1:
+                            itemview.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                            break;
+                        case 2:
+                            itemview.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                            break;
+                        case 3:
+                            itemview.setImageResource(R.drawable.case_prize_ice_pig);
+                            break;
+                        case 4:
+                            itemview.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (gotskin) {
+                        case 1:
+                            itemview.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch (gotskin) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 5:
+                    switch (gotskin) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 6:
+                    switch (gotskin) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 7:
+                    switch (gotskin) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 8:
+                    switch (gotskin) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 9:
+                    switch (gotskin) {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+            }
+        }
     }
     void updateDisplay(){
     }
@@ -51,7 +186,8 @@ public class CaseDone extends AppCompatActivity {
         selected = (int) bd.get("selected");
         gotkeys = (int) bd.get("gotkeys");
         gotrubies = (int) bd.get("gotrubies");
-//        gotskins = (int) bd.get("gotskins");
+        gotskin = (int) bd.get("gotskin");
+        gotstatus = (int)bd.get("gotstatus");
 
 
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
@@ -87,6 +223,7 @@ public class CaseDone extends AppCompatActivity {
         back1 = (ImageView)findViewById(R.id.back1);
         back2 = (ImageView)findViewById(R.id.back2);
         back3 = (ImageView)findViewById(R.id.back3);
+        back4 = (ImageView)findViewById(R.id.back4);
 
         stats1 = (TextView) findViewById(R.id.stats1);
         stats2 = (TextView) findViewById(R.id.stats2);
@@ -103,6 +240,7 @@ public class CaseDone extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CaseDone.this, CaseCheck.class);
                 intent.putExtra("selected", selected);
+                finish();
                 startActivity(intent);
             }
         });
