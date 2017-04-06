@@ -101,7 +101,7 @@ public class CaseCheck extends AppCompatActivity {
                 item1.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_keys);
-                item4.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                item4.setImageResource(R.drawable.case_prize_ruby);
                 item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
                 item6.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
             break;
@@ -116,32 +116,32 @@ public class CaseCheck extends AppCompatActivity {
             case 3:
                 item1.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
-                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
-                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item3.setImageResource(R.drawable.case_prize_keys);
+                item4.setImageResource(R.drawable.case_prize_ruby);
                 item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;
             case 4:
                 item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
-                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
-                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item3.setImageResource(R.drawable.case_prize_keys);
+                item4.setImageResource(R.drawable.case_prize_ruby);
                 item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;
             case 5:
                 item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
-                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
-                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item3.setImageResource(R.drawable.case_prize_keys);
+                item4.setImageResource(R.drawable.case_prize_ruby);
                 item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;
             case 6:
                 item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
-                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
-                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item3.setImageResource(R.drawable.case_prize_keys);
+                item4.setImageResource(R.drawable.case_prize_ruby);
                 item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;

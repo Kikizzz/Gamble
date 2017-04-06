@@ -29,31 +29,31 @@ public class CaseOpen extends AppCompatActivity {
         //BOTTOM BUTTONS
         switch(selected){
             case 1:
-                caseview.setImageResource(R.drawable.case_1);
+                caseview.setImageResource(R.drawable.case_1_open);
                 break;
             case 2:
                 caseview.setImageResource(R.drawable.case_2_open);
                 break;
             case 3:
-                caseview.setImageResource(R.drawable.case_3);
+                caseview.setImageResource(R.drawable.case_3_open);
                 break;
             case 4:
-                caseview.setImageResource(R.drawable.case_4);
+                caseview.setImageResource(R.drawable.case_4_open);
                 break;
             case 5:
-                caseview.setImageResource(R.drawable.case_5);
+                caseview.setImageResource(R.drawable.case_5_open);
                 break;
             case 6:
-                caseview.setImageResource(R.drawable.case_6);
+                caseview.setImageResource(R.drawable.case_6_open);
                 break;
             case 7:
-                caseview.setImageResource(R.drawable.case_7);
+                caseview.setImageResource(R.drawable.case_7_open);
                 break;
             case 8:
-                caseview.setImageResource(R.drawable.case_8);
+                caseview.setImageResource(R.drawable.case_8_open);
                 break;
             case 9:
-                caseview.setImageResource(R.drawable.case_9);
+                caseview.setImageResource(R.drawable.case_9_open);
                 break;
         }
         flare.setImageResource(R.drawable.case_open_flare);
