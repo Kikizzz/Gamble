@@ -25,6 +25,8 @@ public class Case extends AppCompatActivity {
 
     ImageButton leftBtn, mainBtn,rightBtn;
 
+    //TODO: ASYNC LAYOUTS, SOUNDS, SWEEPER
+
     void setGUI(){
         // TITLE BARS
             title1.setImageResource(R.drawable.title_img_1);
@@ -174,28 +176,28 @@ public class Case extends AppCompatActivity {
     
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-        v1 = load.getInt("val1", 0);
-        v2 = load.getInt("val2", 0);
-        v3 = load.getInt("val3", 0);
-        v4 = load.getInt("val4", 0);
-        v5 = load.getInt("val5", 0);
-        v6 = load.getInt("val6", 0);
-        v7 = load.getInt("val7", 0);
-        v8 = load.getInt("val8", 0);
-        v9 = load.getInt("val9", 0);
+        v1 = load.getInt("cases1", 0);
+        v2 = load.getInt("cases2", 0);
+        v3 = load.getInt("cases3", 0);
+        v4 = load.getInt("cases4", 0);
+        v5 = load.getInt("cases5", 0);
+        v6 = load.getInt("cases6", 0);
+        v7 = load.getInt("cases7", 0);
+        v8 = load.getInt("cases8", 0);
+        v9 = load.getInt("cases9", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         SharedPreferences.Editor save = load.edit();
-        save.putInt("val1", v1);
-        save.putInt("val2", v2);
-        save.putInt("val3", v3);
-        save.putInt("val4", v4);
-        save.putInt("val5", v5);
-        save.putInt("val6", v6);
-        save.putInt("val7", v7);
-        save.putInt("val8", v8);
-        save.putInt("val9", v9);
+        save.putInt("cases1", v1);
+        save.putInt("cases2", v2);
+        save.putInt("cases3", v3);
+        save.putInt("cases4", v4);
+        save.putInt("cases5", v5);
+        save.putInt("cases6", v6);
+        save.putInt("cases7", v7);
+        save.putInt("cases8", v8);
+        save.putInt("cases9", v9);
 
         save.apply();
         save.commit();

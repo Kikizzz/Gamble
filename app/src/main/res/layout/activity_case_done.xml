@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="studio.bowman.gamblegame.CaseDone"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/title2"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemview"
+        app:srcCompat="@drawable/title_img_1" />
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_img_1" />
+
+    <ImageView
+        android:id="@+id/itemview"
+        android:layout_width="300dp"
+        android:layout_height="270dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:srcCompat="@drawable/case_prize_maske_whiteruby_fade" />
+
+    <ImageButton
+        android:id="@+id/mainBtn"
+        android:layout_width="111dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/bail" />
+
+    <TextView
+        android:id="@+id/stats1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintLeft_toLeftOf="@+id/title2"
+        app:layout_constraintRight_toLeftOf="@+id/space7"
+        app:layout_constraintTop_toBottomOf="@+id/title2" />
+
+    <TextView
+        android:id="@+id/stats2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/stats1"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/stats1"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/stats1"
+        android:textColor="@android:color/background_light"/>
+
+    <TextView
+        android:id="@+id/stats3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintLeft_toRightOf="@+id/space7"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="@+id/title2"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/title2"
+        app:layout_constraintHorizontal_bias="0.462" />
+
+    <TextView
+        android:id="@+id/stats4"
+        android:textColor="@android:color/background_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/stats3"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/stats3"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/stats3" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/title2"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/title2"
+        app:layout_constraintHorizontal_bias="0.488"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/title2"
+        android:id="@+id/space7" />
+
+    <ImageView
+        android:id="@+id/back1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="0"
+        app:layout_constraintBottom_toBottomOf="@+id/stats1"
+        app:layout_constraintRight_toLeftOf="@+id/stats1"
+        app:layout_constraintTop_toTopOf="@+id/stats1"
+        app:srcCompat="@drawable/case_prize_ice_pig" />
+
+    <ImageView
+        android:id="@+id/back2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="0"
+        app:srcCompat="@drawable/case_prize_ice_pig"
+        app:layout_constraintRight_toLeftOf="@+id/stats3"
+        android:layout_marginRight="8dp"
+        app:layout_constraintTop_toTopOf="@+id/stats3"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/stats3"
+        android:layout_marginBottom="8dp" />
+
+    <ImageView
+        android:id="@+id/back3"
+        android:background="0"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/stats4"
+        app:layout_constraintRight_toLeftOf="@+id/stats4"
+        app:layout_constraintTop_toTopOf="@+id/stats4"
+        app:srcCompat="@drawable/case_prize_ice_pig" />
+
+    <ImageView
+        android:id="@+id/back4"
+        android:background="0"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/stats2"
+        app:layout_constraintRight_toLeftOf="@+id/stats2"
+        app:layout_constraintTop_toTopOf="@+id/stats2"
+        app:srcCompat="@drawable/case_prize_ice_pig" />
+</android.support.constraint.ConstraintLayout>

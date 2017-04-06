@@ -34,7 +34,7 @@ public class Crash extends AppCompatActivity {
 
     MediaPlayer button, intense;
 
-    private int profit, balance, bet, r1, count, state;
+    private int profit, balance, bet, r1, count, state, limit=10000;
     private float value, value_old, bailvalue, xval, vxval, yval;
     private TextView debug, valuedisplay, display, baldisplay, profdisplay, betdisplay;
     private ImageButton play, drop, minusmax,minusmid,minusmin,plusmin,plusmid,plusmax;
@@ -293,8 +293,8 @@ public class Crash extends AppCompatActivity {
         value = 1 + (-(yval - 396))/100;
         valuedisplay.setText("x" + new DecimalFormat("##.00").format(value));
 
-        if (value >= 5){
-            value = 5;
+        if (value >= limit){
+            value = limit;
             bailvalue = value;
             boolcrash = true;
             valuedisplay.setText("Limit Reached x" + new DecimalFormat("##.00").format(value));

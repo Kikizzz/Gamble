@@ -6,14 +6,8 @@
     android:layout_height="match_parent"
     tools:context="studio.bowman.gamblegame.test">
 
-    <studio.bowman.gamblegame.test2
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        android:id="@+id/test2" />
+    <include
+        layout="@layout/activity_test2"
+        android:id="@+id/includedLayout" />
 
 </android.support.constraint.ConstraintLayout>

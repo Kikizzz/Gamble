@@ -16,6 +16,8 @@ import java.util.Random;
 
 public class CaseOpen extends AppCompatActivity {
 
+    int keys, rubies, skin;
+    int gotkeys, gotrubies, gotskin;
     int selected;
     int clicks, min, max, required;
     ImageButton caseview;
@@ -65,12 +67,56 @@ public class CaseOpen extends AppCompatActivity {
     void updateDisplay(){
         debug.setText("" + clicks);
     }
+
     void loadData(){
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         selected = (int) bd.get("selected");
+
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+        keys = load.getInt("keys", 0);
+        rubies = load.getInt("rubies", 0);
+    }
+    void savedata(){
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+        SharedPreferences.Editor save = load.edit();
+        save.putInt("keys", keys);
+        save.putInt("rubies", rubies);
+
+        save.apply();
+        save.commit();
     }
 
+    void randomReward(){
+        Random random = new Random();
+        int r = random.nextInt(1000)+1;
+        if (r<=1){
+            //SUPERSKIN
+            gotskin = 1;
+        }
+        if (r>1 && r<=100){
+            //KEYS
+            Random rkeys = new Random();
+            gotkeys += rkeys.nextInt(3)+1;
+            keys += gotkeys;
+        }
+        if (r>100 && r<=301){
+            //RUBIES
+            Random rrubies = new Random();
+            gotrubies += rrubies.nextInt(5)+1;
+            rubies += gotrubies;
+        }
+        if (r>301 && r<=534){
+            gotskin = 2;
+        }
+        if (r>534 && r<=767){
+            gotskin = 3;
+        }
+        if (r>767){
+            gotskin = 4;
+        }
+        savedata();
+    }
     void caseOpened(){
         debug.setText("GZ");
         caseview.setVisibility(View.INVISIBLE);
@@ -79,10 +125,14 @@ public class CaseOpen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(CaseOpen.this, Case.class);
+                Intent intent = new Intent(CaseOpen.this, CaseDone.class);
+                intent.putExtra("gotkeys", gotkeys);
+                intent.putExtra("gotrubies", gotrubies);
+                intent.putExtra("gotskin", gotskin);
+                intent.putExtra("selected", selected);
                 startActivity(intent);
             }
-        }, 1000);
+        }, 2000);
     }
 
     @Override
@@ -111,6 +161,7 @@ public class CaseOpen extends AppCompatActivity {
         required = 1;
 
         loadData();
+        randomReward();
         setGUI();
         updateDisplay();
 

@@ -21,6 +21,7 @@ public class CaseCheck extends AppCompatActivity {
 
     ImageButton caseview, mainBtn, buykey, usekey;
     ImageView foobar, back, flare;
+    ImageView item1, item2, item3, item4, item5, item6;
     TextView amount;
 
     void setGUI(){
@@ -86,6 +87,70 @@ public class CaseCheck extends AppCompatActivity {
         usekey.setAdjustViewBounds(true);
         usekey.setPadding(0,0,0,0);
 
+        //ITEMS
+        switch(selected){
+            case 1:
+            item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+            item2.setImageResource(R.drawable.case_prize_ice_pig);
+            item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
+            item4.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+            item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+            item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+            break;
+            case 2:
+                item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item2.setImageResource(R.drawable.case_prize_ice_pig);
+                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                break;
+            case 3:
+                item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item2.setImageResource(R.drawable.case_prize_ice_pig);
+                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                break;
+            case 4:
+                item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item2.setImageResource(R.drawable.case_prize_ice_pig);
+                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                break;
+            case 5:
+                item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item2.setImageResource(R.drawable.case_prize_ice_pig);
+                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                break;
+            case 6:
+                item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item2.setImageResource(R.drawable.case_prize_ice_pig);
+                item3.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                break;
+        }
+
+        item1.setAdjustViewBounds(true);
+        item1.setPadding(0,0,0,0);
+        item2.setAdjustViewBounds(true);
+        item2.setPadding(0,0,0,0);
+        item3.setAdjustViewBounds(true);
+        item3.setPadding(0,0,0,0);
+        item4.setAdjustViewBounds(true);
+        item4.setPadding(0,0,0,0);
+        item5.setAdjustViewBounds(true);
+        item5.setPadding(0,0,0,0);
+        item6.setAdjustViewBounds(true);
+        item6.setPadding(0,0,0,0);
     }
     void updateDisplay(){
         amount.setText("" + keys);
@@ -97,30 +162,30 @@ public class CaseCheck extends AppCompatActivity {
         selected = (int) bd.get("selected");
 
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-        v1 = load.getInt("val1", 0);
-        v2 = load.getInt("val2", 0);
-        v3 = load.getInt("val3", 0);
-        v4 = load.getInt("val4", 0);
-        v5 = load.getInt("val5", 0);
-        v6 = load.getInt("val6", 0);
-        v7 = load.getInt("val7", 0);
-        v8 = load.getInt("val8", 0);
-        v9 = load.getInt("val9", 0);
+        v1 = load.getInt("cases1", 0);
+        v2 = load.getInt("cases2", 0);
+        v3 = load.getInt("cases3", 0);
+        v4 = load.getInt("cases4", 0);
+        v5 = load.getInt("cases5", 0);
+        v6 = load.getInt("cases6", 0);
+        v7 = load.getInt("cases7", 0);
+        v8 = load.getInt("cases8", 0);
+        v9 = load.getInt("cases9", 0);
         keys = load.getInt("keys", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         SharedPreferences.Editor save = load.edit();
         save.putInt("keys", keys);
-        save.putInt("val1", v1);
-        save.putInt("val2", v2);
-        save.putInt("val3", v3);
-        save.putInt("val4", v4);
-        save.putInt("val5", v5);
-        save.putInt("val6", v6);
-        save.putInt("val7", v7);
-        save.putInt("val8", v8);
-        save.putInt("val9", v9);
+        save.putInt("cases1", v1);
+        save.putInt("cases2", v2);
+        save.putInt("cases3", v3);
+        save.putInt("cases4", v4);
+        save.putInt("cases5", v5);
+        save.putInt("cases6", v6);
+        save.putInt("cases7", v7);
+        save.putInt("cases8", v8);
+        save.putInt("cases9", v9);
 
         save.apply();
         save.commit();
@@ -140,6 +205,13 @@ public class CaseCheck extends AppCompatActivity {
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
         buykey = (ImageButton)findViewById(R.id.buykey);
         usekey = (ImageButton)findViewById(R.id.usekey);
+
+        item1 = (ImageView)findViewById(R.id.item1);
+        item2 = (ImageView)findViewById(R.id.item2);
+        item3 = (ImageView)findViewById(R.id.item3);
+        item4 = (ImageView)findViewById(R.id.item4);
+        item5 = (ImageView)findViewById(R.id.item5);
+        item6 = (ImageView)findViewById(R.id.item6);
 
         foobar = (ImageView)findViewById(R.id.foobar);
         back = (ImageView)findViewById(R.id.back);
