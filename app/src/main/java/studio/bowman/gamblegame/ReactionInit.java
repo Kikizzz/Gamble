@@ -178,7 +178,7 @@ public class ReactionInit extends AppCompatActivity {
         moneyBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 selected = 1;
-                Intent intent = new Intent(ReactionInit.this, Crash.class);
+                Intent intent = new Intent(ReactionInit.this, ReactionChoose.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 finish();
                 startActivity(intent);
@@ -188,7 +188,7 @@ public class ReactionInit extends AppCompatActivity {
         keyBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 selected = 2;
-                Intent intent = new Intent(ReactionInit.this, Crash.class);
+                Intent intent = new Intent(ReactionInit.this, ReactionChoose.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 finish();
                 startActivity(intent);

@@ -23,6 +23,8 @@ public class ReactionChoose extends AppCompatActivity {
     ImageView winback, loseback, winimg, loseimg;
     ImageButton leftBtn, mainBtn, rightBtn;
 
+    ImageButton choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
+
     void setGUI(){
         //TOPBAR
         rank.setImageResource(R.drawable.rank_1);
@@ -31,7 +33,7 @@ public class ReactionChoose extends AppCompatActivity {
         winimg.setImageResource(R.drawable.case_7);
         loseimg.setImageResource(R.drawable.case_7);
         reactionbanner.setImageResource(R.drawable.case_title_exquisite);
-        mainBtn.setImageResource(R.drawable.back_icon);
+        mainBtn.setImageResource(R.drawable.buy_keys);
 
         rank.setAdjustViewBounds(true);
         rank.setPadding(0,0,0,0);
@@ -47,6 +49,46 @@ public class ReactionChoose extends AppCompatActivity {
         reactionbanner.setPadding(0,0,0,0);
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
+
+        //ALL ZE BUTTONS
+        if(selected == 1) {
+            choice1.setImageResource(R.drawable.unlock_case);
+            choice2.setImageResource(R.drawable.unlock_case);
+            choice3.setImageResource(R.drawable.unlock_case);
+            choice4.setImageResource(R.drawable.unlock_case);
+            choice5.setImageResource(R.drawable.unlock_case);
+            choice6.setImageResource(R.drawable.unlock_case);
+            choice7.setImageResource(R.drawable.unlock_case);
+            choice8.setImageResource(R.drawable.unlock_case);
+        }
+
+        if(selected == 2) {
+            choice1.setImageResource(R.drawable.buy_keys);
+            choice2.setImageResource(R.drawable.buy_keys);
+            choice3.setImageResource(R.drawable.buy_keys);
+            choice4.setImageResource(R.drawable.buy_keys);
+            choice5.setImageResource(R.drawable.buy_keys);
+            choice6.setImageResource(R.drawable.buy_keys);
+            choice7.setImageResource(R.drawable.buy_keys);
+            choice8.setImageResource(R.drawable.buy_keys);
+        }
+
+        choice1.setAdjustViewBounds(true);
+        choice1.setPadding(0,0,0,0);
+        choice2.setAdjustViewBounds(true);
+        choice2.setPadding(0,0,0,0);
+        choice3.setAdjustViewBounds(true);
+        choice3.setPadding(0,0,0,0);
+        choice4.setAdjustViewBounds(true);
+        choice4.setPadding(0,0,0,0);
+        choice5.setAdjustViewBounds(true);
+        choice5.setPadding(0,0,0,0);
+        choice6.setAdjustViewBounds(true);
+        choice6.setPadding(0,0,0,0);
+        choice7.setAdjustViewBounds(true);
+        choice7.setPadding(0,0,0,0);
+        choice8.setAdjustViewBounds(true);
+        choice8.setPadding(0,0,0,0);
     }
     void updateDisplay(){
     }
@@ -94,10 +136,17 @@ public class ReactionChoose extends AppCompatActivity {
         loseback = (ImageView)findViewById(R.id.loseback);
         winimg = (ImageView)findViewById(R.id.winimg);
         loseimg = (ImageView)findViewById(R.id.loseimg);
-        leftBtn = (ImageButton)findViewById(R.id.leftBtn);
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
-        rightBtn = (ImageButton)findViewById(R.id.rightBtn);
         reactionbanner = (ImageView)findViewById(R.id.reactionbanner);
+
+        choice1 = (ImageButton)findViewById(R.id.choice1);
+        choice2 = (ImageButton)findViewById(R.id.choice2);
+        choice3 = (ImageButton)findViewById(R.id.choice3);
+        choice4 = (ImageButton)findViewById(R.id.choice4);
+        choice5 = (ImageButton)findViewById(R.id.choice5);
+        choice6 = (ImageButton)findViewById(R.id.choice6);
+        choice7 = (ImageButton)findViewById(R.id.choice7);
+        choice8 = (ImageButton)findViewById(R.id.choice8);
 
         loadData();
         setGUI();
@@ -106,6 +155,39 @@ public class ReactionChoose extends AppCompatActivity {
         mainBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        choice1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        choice2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        choice3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        choice4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        choice5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        choice6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        choice7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        choice8.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
             }
         });
     }
