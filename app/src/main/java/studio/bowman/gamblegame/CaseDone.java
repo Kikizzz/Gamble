@@ -178,6 +178,140 @@ public class CaseDone extends AppCompatActivity {
         }
     }
     void updateDisplay(){
+        if (gotkeys>0){
+            stats1.setText("" + keys);
+            stats2.setText("");
+            stats3.setText("");
+            stats4.setText("");
+        }
+        if (gotrubies>0){
+            stats1.setText("" + rubies);
+            stats2.setText("");
+            stats3.setText("");
+            stats4.setText("");
+        }
+        if (gotskin>0){
+            switch (selected){
+            //WHICH CASE WAS OPENED
+                case 1 :
+                switch(gotskin){
+                    //WHICH SKIN
+                    case 1:
+                    break;
+                    case 2:
+                    break;
+                    case 3:
+                    break;
+                    case 4:
+                    break;
+                }
+                break;
+                case 2 :
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 3 :
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 4 :
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 5 :
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 6 :
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 7:
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 8 :
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 9 :
+                    switch(gotskin){
+                        //WHICH SKIN
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+            }
+        }
     }
 
     void loadData(){

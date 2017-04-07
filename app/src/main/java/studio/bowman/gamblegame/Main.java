@@ -12,6 +12,26 @@ public class Main extends AppCompatActivity {
 
     ImageButton play, highscores, settings, exit;
 
+    void GUI(){
+        play.setImageResource(R.drawable.stats_back);
+        settings.setImageResource(R.drawable.stats_back);
+        highscores.setImageResource(R.drawable.stats_back);
+        exit.setImageResource(R.drawable.stats_back);
+
+        play.setAdjustViewBounds(true);
+        play.setPadding(5,5,5,5);
+        settings.setAdjustViewBounds(true);
+        settings.setPadding(5,5,5,5);
+        highscores.setAdjustViewBounds(true);
+        highscores.setPadding(5,5,5,5);
+        exit.setAdjustViewBounds(true);
+        exit.setPadding(5,5,5,5);
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +46,8 @@ public class Main extends AppCompatActivity {
         highscores = (ImageButton)findViewById(R.id.highscores);
         settings = (ImageButton)findViewById(R.id.settings);
         exit = (ImageButton)findViewById(R.id.exit);
+
+        GUI();
 
         play.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

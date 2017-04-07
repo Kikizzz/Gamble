@@ -5,12 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="studio.bowman.gamblegame.Main"
     tools:layout_editor_absoluteY="25dp"
     tools:layout_editor_absoluteX="0dp">
 
     <ImageButton
         android:id="@+id/highscores"
+        android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_launcher"
@@ -23,6 +25,7 @@
 
     <ImageButton
         android:id="@+id/settings"
+        android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_launcher"
@@ -35,6 +38,7 @@
 
     <ImageButton
         android:id="@+id/play"
+        android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
@@ -47,6 +51,7 @@
 
     <ImageButton
         android:id="@+id/exit"
+        android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"

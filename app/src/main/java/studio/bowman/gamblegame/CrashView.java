@@ -15,8 +15,9 @@ import android.view.View;
 
 public class CrashView extends View {
 
-    private int width, height, bheight, bwidth, boxwidth, boxheight;
-    private float x, y, vx, vy;
+    static int width, height, bheight, bwidth, boxwidth, boxheight;
+    private float x, y;
+    static float vx, vy;
 
     private Bitmap bullet;
     private Paint AA = new Paint(Paint.ANTI_ALIAS_FLAG);

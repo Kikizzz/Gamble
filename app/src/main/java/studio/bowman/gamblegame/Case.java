@@ -176,15 +176,15 @@ public class Case extends AppCompatActivity {
     
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-        v1 = load.getInt("cases1", 0);
-        v2 = load.getInt("cases2", 0);
-        v3 = load.getInt("cases3", 0);
-        v4 = load.getInt("cases4", 0);
-        v5 = load.getInt("cases5", 0);
-        v6 = load.getInt("cases6", 0);
-        v7 = load.getInt("cases7", 0);
-        v8 = load.getInt("cases8", 0);
-        v9 = load.getInt("cases9", 0);
+        v1 = load.getInt("cases1", 1500);
+        v2 = load.getInt("cases2", 1500);
+        v3 = load.getInt("cases3", 1500);
+        v4 = load.getInt("cases4", 1500);
+        v5 = load.getInt("cases5", 1500);
+        v6 = load.getInt("cases6", 1500);
+        v7 = load.getInt("cases7", 1500);
+        v8 = load.getInt("cases8", 1500);
+        v9 = load.getInt("cases9", 1500);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
@@ -296,7 +296,10 @@ public class Case extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Intent intent = new Intent(Case.this, Main.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         finish();
+        startActivity(intent);
     }
 
     @Override
@@ -351,6 +354,22 @@ public class Case extends AppCompatActivity {
         updateDisplay();
         setGUI();
 
+        leftBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //SHOP BUTTON
+
+//                Intent intent = new Intent(Inventory.this, CaseCheck.class);
+//                startActivity(intent);
+            }
+        });
+
+        mainBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Case.this, Inventory.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
+            }
+        });
 
         case1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

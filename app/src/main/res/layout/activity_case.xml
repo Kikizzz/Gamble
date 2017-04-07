@@ -275,6 +275,7 @@
 
     <ImageButton
         android:id="@+id/case9"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -287,6 +288,7 @@
 
     <ImageButton
         android:id="@+id/case7"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -299,6 +301,7 @@
 
     <ImageButton
         android:id="@+id/case3"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -311,6 +314,7 @@
 
     <ImageButton
         android:id="@+id/case1"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -323,6 +327,7 @@
 
     <ImageButton
         android:id="@+id/case8"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -335,6 +340,7 @@
 
     <ImageButton
         android:id="@+id/case2"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -347,6 +353,7 @@
 
     <ImageButton
         android:id="@+id/case6"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -359,6 +366,7 @@
 
     <ImageButton
         android:id="@+id/case4"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"
@@ -371,6 +379,7 @@
 
     <ImageButton
         android:id="@+id/case5"
+        android:background="@null"
         android:layout_width="100dp"
         android:layout_height="90dp"
         app:srcCompat="@drawable/robbery_icon"

@@ -22,17 +22,17 @@ public class Inventory extends AppCompatActivity {
 
 
     void setGUI(){
-        box1.setImageResource(R.drawable.case_prize_ice_pig);
-        box2.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
-        box3.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
-        box4.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
-        box5.setImageResource(R.drawable.case_prize_keys);
-        box6.setImageResource(R.drawable.case_prize_ruby);
-        box7.setImageResource(R.drawable.case_check_1);
-        box8.setImageResource(R.drawable.case_check_1);
-        box9.setImageResource(R.drawable.case_check_1);
-        box10.setImageResource(R.drawable.case_check_1);
-        box11.setImageResource(R.drawable.case_check_1);
+        box1.setImageResource(R.drawable.item_key);
+        box2.setImageResource(R.drawable.item_mask);
+        box3.setImageResource(R.drawable.item_mask_whiteruby);
+        box4.setImageResource(R.drawable.item_pig);
+        box5.setImageResource(R.drawable.item_pig_ice);
+        box6.setImageResource(R.drawable.item_shovel);
+        box7.setImageResource(R.drawable.item_shovel_whiteruby);
+        box8.setImageResource(R.drawable.item_shovel_2);
+        box9.setImageResource(R.drawable.item_shovel_2_ice);
+        box10.setImageResource(R.drawable.item_vault);
+        box11.setImageResource(R.drawable.item_vault_whiteruby);
         box12.setImageResource(R.drawable.case_check_1);
         box13.setImageResource(R.drawable.case_check_1);
         box14.setImageResource(R.drawable.case_check_1);
@@ -98,7 +98,10 @@ public class Inventory extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        Intent intent = new Intent(Inventory.this, Main.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         finish();
+        startActivity(intent);
     }
 
     @Override
@@ -133,11 +136,25 @@ public class Inventory extends AppCompatActivity {
         box14 = (ImageButton)findViewById(R.id.box14);
         box15 = (ImageButton)findViewById(R.id.box15);
 
-
-
-
         loadData();
         setGUI();
         updateDisplay();
+
+        leftBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //SHOP BUTTON
+
+//                Intent intent = new Intent(Inventory.this, CaseCheck.class);
+//                startActivity(intent);
+            }
+        });
+
+        rightBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Inventory.this, Case.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
+            }
+        });
     }
 }

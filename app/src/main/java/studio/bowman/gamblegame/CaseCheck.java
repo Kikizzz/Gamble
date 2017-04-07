@@ -102,7 +102,7 @@ public class CaseCheck extends AppCompatActivity {
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_keys);
                 item4.setImageResource(R.drawable.case_prize_ruby);
-                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item5.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item6.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
             break;
             case 2:
@@ -110,7 +110,7 @@ public class CaseCheck extends AppCompatActivity {
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_keys);
                 item4.setImageResource(R.drawable.case_prize_ruby);
-                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item5.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item6.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
                 break;
             case 3:
@@ -118,7 +118,7 @@ public class CaseCheck extends AppCompatActivity {
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_keys);
                 item4.setImageResource(R.drawable.case_prize_ruby);
-                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item5.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;
             case 4:
@@ -126,7 +126,7 @@ public class CaseCheck extends AppCompatActivity {
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_keys);
                 item4.setImageResource(R.drawable.case_prize_ruby);
-                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item5.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;
             case 5:
@@ -134,7 +134,7 @@ public class CaseCheck extends AppCompatActivity {
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_keys);
                 item4.setImageResource(R.drawable.case_prize_ruby);
-                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item5.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;
             case 6:
@@ -142,7 +142,7 @@ public class CaseCheck extends AppCompatActivity {
                 item2.setImageResource(R.drawable.case_prize_ice_pig);
                 item3.setImageResource(R.drawable.case_prize_keys);
                 item4.setImageResource(R.drawable.case_prize_ruby);
-                item5.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                item5.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
                 item6.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
                 break;
         }
@@ -179,7 +179,7 @@ public class CaseCheck extends AppCompatActivity {
         v7 = load.getInt("cases7", 0);
         v8 = load.getInt("cases8", 0);
         v9 = load.getInt("cases9", 0);
-        keys = load.getInt("keys", 0);
+        keys = load.getInt("keys", 1000);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);

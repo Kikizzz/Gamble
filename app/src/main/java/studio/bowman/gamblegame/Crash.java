@@ -34,8 +34,9 @@ public class Crash extends AppCompatActivity {
 
     MediaPlayer button, intense;
 
-    private int profit, balance, bet, r1, count, state, limit=10000;
-    private float value, value_old, bailvalue, xval, vxval, yval;
+    private int profit, balance, bet, r1, state, limit=10000;
+    private float value, value_old, bailvalue, xval, yval;
+    static private float vxval;
     private TextView debug, valuedisplay, display, baldisplay, profdisplay, betdisplay;
     private ImageButton play, drop, minusmax,minusmid,minusmin,plusmin,plusmid,plusmax;
     private ImageButton leftBtn, mainBtn, rightBtn, settings, inventory;
@@ -286,7 +287,6 @@ public class Crash extends AppCompatActivity {
         int crash = random.nextInt(r1) + 1;
 
         //COUNTING GRAPH
-        vxval = 0.5f;
         xval = xval + vxval;
         yval = yval - 0.1f - (float) ((Math.pow(xval/600,3))/10);
 
@@ -320,7 +320,6 @@ public class Crash extends AppCompatActivity {
             value_old = value;
             end();
         }
-        count = count + 1;
     }
 
     void end(){
@@ -404,6 +403,16 @@ public class Crash extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        if(!playing){
+            Intent intent = new Intent(Crash.this, Main.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            finish();
+            startActivity(intent);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Set fullscreen
@@ -483,8 +492,7 @@ public class Crash extends AppCompatActivity {
         intense = MediaPlayer.create(this, R.raw.intense);
 
         // STARTING VALUES
-        xval = 5f;
-        yval = 395f;
+        vxval = 0.5f;
         bet = 5;
         profit = 0;
         balance = 50;
@@ -515,8 +523,6 @@ public class Crash extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }else{
                         profdisplay.setText("Bet Placed");
-                        xval = 5f;
-                        yval = 395f;
                         playing = true;
                         if (firsttime){
                             start();
@@ -622,5 +628,27 @@ public class Crash extends AppCompatActivity {
                updateValues();
             }
         });
+
+        leftBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+//                if(!playing){
+//                    Intent intent = new Intent(Crash.this, Main.class);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                    finish();
+//                    startActivity(intent);
+//            }
+            }
+        });
+        rightBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(!playing) {
+                    Intent intent = new Intent(Crash.this, Sweeper.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    finish();
+                    startActivity(intent);
+                }
+            }
+        });
+
     }
 }
