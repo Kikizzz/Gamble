@@ -19,7 +19,7 @@ public class CaseDone extends AppCompatActivity {
     int gotkeys, gotrubies, gotskin;
 
     ImageView itemview;
-    ImageView title1, title2;
+    ImageView banneris, title2;
     ImageView back1, back2, back3, back4;
     TextView stats1, stats2, stats3, stats4;
     ImageButton mainBtn;
@@ -45,6 +45,37 @@ public class CaseDone extends AppCompatActivity {
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
 
+
+        switch(selected){
+            case 1:
+                banneris.setImageResource(R.drawable.case_title_exquisite);
+                break;
+            case 2:
+                banneris.setImageResource(R.drawable.case_title_luxurious);
+                break;
+            case 3:
+                banneris.setImageResource(R.drawable.case_title_grand);
+                break;
+            case 4:
+                banneris.setImageResource(R.drawable.case_title_industry);
+                break;
+            case 5:
+                banneris.setImageResource(R.drawable.case_title_commerce);
+                break;
+            case 6:
+                banneris.setImageResource(R.drawable.case_title_office);
+                break;
+            case 7:
+                banneris.setImageResource(R.drawable.case_title_luxurious);
+                break;
+            case 8:
+                banneris.setImageResource(R.drawable.case_title_luxurious);
+                break;
+            case 9:
+                banneris.setImageResource(R.drawable.case_title_luxurious);
+                break;
+        }
+
         /*
         GOT STATUS
         1:Keys
@@ -53,10 +84,10 @@ public class CaseDone extends AppCompatActivity {
          */
 
         if (gotstatus==1){
-            itemview.setImageResource(R.drawable.case_prize_keys);
+            itemview.setImageResource(R.drawable.prize_img_keys);
         }
         if (gotstatus==2){
-            itemview.setImageResource(R.drawable.case_prize_ruby);
+            itemview.setImageResource(R.drawable.prize_img_ruby);
         }
         if (gotstatus==3) {
             switch (selected) {
@@ -76,16 +107,16 @@ public class CaseDone extends AppCompatActivity {
                 case 2:
                     switch (gotskin) {
                         case 1:
-                            itemview.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
+                            itemview.setImageResource(R.drawable.prize_img_mask_whiteruby);
                             break;
                         case 2:
-                            itemview.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                            itemview.setImageResource(R.drawable.prize_img_vault_whiteruby);
                             break;
                         case 3:
-                            itemview.setImageResource(R.drawable.case_prize_ice_pig);
+                            itemview.setImageResource(R.drawable.prize_img_pig_ice);
                             break;
                         case 4:
-                            itemview.setImageResource(R.drawable.case_prize_mask_whiteruby);
+                            itemview.setImageResource(R.drawable.prize_img_shovel_2_ice);
                             break;
                     }
                     break;
@@ -179,13 +210,13 @@ public class CaseDone extends AppCompatActivity {
     }
     void updateDisplay(){
         if (gotkeys>0){
-            stats1.setText("" + keys);
+            stats1.setText("" + gotkeys);
             stats2.setText("");
             stats3.setText("");
             stats4.setText("");
         }
         if (gotrubies>0){
-            stats1.setText("" + rubies);
+            stats1.setText("" + gotrubies);
             stats2.setText("");
             stats3.setText("");
             stats4.setText("");
@@ -352,7 +383,7 @@ public class CaseDone extends AppCompatActivity {
         setContentView(R.layout.activity_case_done);
 
         itemview = (ImageView)findViewById(R.id.itemview);
-        title1 = (ImageView)findViewById(R.id.title1);
+        banneris = (ImageView)findViewById(R.id.banneris);
         title2= (ImageView)findViewById(R.id.title2);
         back1 = (ImageView)findViewById(R.id.back1);
         back2 = (ImageView)findViewById(R.id.back2);

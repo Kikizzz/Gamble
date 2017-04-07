@@ -72,8 +72,6 @@ public class Crash extends AppCompatActivity {
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         balance = load.getInt("balance", 50);
-        state = load.getInt("state", 0);
-        value_old = load.getFloat("value_old", 0);
         v1 = load.getFloat("v1", 0);
         v2 = load.getFloat("v2", 0);
         v3 = load.getFloat("v3", 0);
@@ -152,8 +150,8 @@ public class Crash extends AppCompatActivity {
         valuedisplay.setTextColor(Color.WHITE);
     }
     void updateValues(){
-        baldisplay.setText(" " + balance + "$");
-        betdisplay.setText("" + bet);
+        baldisplay.setText("" + balance + "$");
+        betdisplay.setText("" + bet + "$");
         t1.setText("" + new DecimalFormat("##.00").format(v1));
         t2.setText("" + new DecimalFormat("##.00").format(v2));
         t3.setText("" + new DecimalFormat("##.00").format(v3));
@@ -493,9 +491,11 @@ public class Crash extends AppCompatActivity {
 
         // STARTING VALUES
         vxval = 0.5f;
+
         bet = 5;
+        if (balance < bet)bet = 0;
+
         profit = 0;
-        balance = 50;
 
         loadData();
 
@@ -631,12 +631,12 @@ public class Crash extends AppCompatActivity {
 
         leftBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                if(!playing){
-//                    Intent intent = new Intent(Crash.this, Main.class);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-//                    finish();
-//                    startActivity(intent);
-//            }
+                if(!playing){
+                    Intent intent = new Intent(Crash.this, ReactionInit.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    finish();
+                    startActivity(intent);
+            }
             }
         });
         rightBtn.setOnClickListener(new View.OnClickListener() {

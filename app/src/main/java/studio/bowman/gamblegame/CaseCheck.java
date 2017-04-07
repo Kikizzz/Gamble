@@ -3,7 +3,6 @@ package studio.bowman.gamblegame;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +19,7 @@ public class CaseCheck extends AppCompatActivity {
     int keys;
 
     ImageButton caseview, mainBtn, buykey, usekey;
-    ImageView foobar, back, flare, title;
+    ImageView back, flare;
     ImageView item1, item2, item3, item4, item5, item6;
     TextView amount;
 
@@ -30,27 +29,27 @@ public class CaseCheck extends AppCompatActivity {
         switch(selected){
             case 1:
                 caseview.setImageResource(R.drawable.case_check_1);
-                title.setImageResource(R.drawable.case_title_exquisite);
+//                banneris.setImageResource(R.drawable.case_title_exquisite);
             break;
             case 2:
                 caseview.setImageResource(R.drawable.case_2);
-                title.setImageResource(R.drawable.case_title_luxurious);
+//                banneris.setImageResource(R.drawable.case_title_luxurious);
                 break;
             case 3:
                 caseview.setImageResource(R.drawable.case_3);
-                title.setImageResource(R.drawable.case_title_grand);
+//                banneris.setImageResource(R.drawable.case_title_grand);
                 break;
             case 4:
                 caseview.setImageResource(R.drawable.case_4);
-                title.setImageResource(R.drawable.case_title_industry);
+//                banneris.setImageResource(R.drawable.case_title_industry);
                 break;
             case 5:
                 caseview.setImageResource(R.drawable.case_5);
-                title.setImageResource(R.drawable.case_title_commerce);
+//                banneris.setImageResource(R.drawable.case_title_commerce);
                 break;
             case 6:
                 caseview.setImageResource(R.drawable.case_6);
-                title.setImageResource(R.drawable.case_title_office);
+//                banneris.setImageResource(R.drawable.case_title_office);
                 break;
             case 7:
                 caseview.setImageResource(R.drawable.case_7);
@@ -72,20 +71,15 @@ public class CaseCheck extends AppCompatActivity {
         }
 
         buykey.setImageResource(R.drawable.buy_keys);
-        foobar.setImageResource(R.drawable.you_have_keys);
         back.setImageResource(R.drawable.key_amount);
         mainBtn.setImageResource(R.drawable.back_icon);
         flare.setImageResource(R.drawable.flare);
 
-        title.setAdjustViewBounds(true);
-        title.setPadding(0,0,0,0);
         flare.setAdjustViewBounds(true);
         flare.setPadding(0,0,0,0);
         flare.setAlpha((float)0.75);
         back.setAdjustViewBounds(true);
         back.setPadding(0,0,0,0);
-        foobar.setAdjustViewBounds(true);
-        foobar.setPadding(0,0,0,0);
         caseview.setAdjustViewBounds(true);
         caseview.setPadding(0,0,0,0);
         mainBtn.setAdjustViewBounds(true);
@@ -226,10 +220,8 @@ public class CaseCheck extends AppCompatActivity {
         item5 = (ImageView)findViewById(R.id.item5);
         item6 = (ImageView)findViewById(R.id.item6);
 
-        foobar = (ImageView)findViewById(R.id.foobar);
         back = (ImageView)findViewById(R.id.back);
         flare = (ImageView)findViewById(R.id.flare);
-        title = (ImageView)findViewById(R.id.title);
 
         amount = (TextView)findViewById(R.id.amount);
 

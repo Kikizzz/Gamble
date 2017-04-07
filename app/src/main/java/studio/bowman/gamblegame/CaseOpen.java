@@ -22,7 +22,7 @@ public class CaseOpen extends AppCompatActivity {
     int selected;
     int clicks, min, max, required;
     ImageButton caseview;
-    ImageView flare, title;
+    ImageView flare, banneris;
     TextView debug;
 
     void setGUI(){
@@ -30,34 +30,42 @@ public class CaseOpen extends AppCompatActivity {
         switch(selected){
             case 1:
                 caseview.setImageResource(R.drawable.case_1_open);
+//                banneris.setImageResource(R.drawable.case_title_exquisite);
                 break;
             case 2:
                 caseview.setImageResource(R.drawable.case_2_open);
+//                banneris.setImageResource(R.drawable.case_title_luxurious);
                 break;
             case 3:
                 caseview.setImageResource(R.drawable.case_3_open);
+//                banneris.setImageResource(R.drawable.case_title_grand);
                 break;
             case 4:
                 caseview.setImageResource(R.drawable.case_4_open);
+//                banneris.setImageResource(R.drawable.case_title_industry);
                 break;
             case 5:
                 caseview.setImageResource(R.drawable.case_5_open);
+//                banneris.setImageResource(R.drawable.case_title_commerce);
                 break;
             case 6:
                 caseview.setImageResource(R.drawable.case_6_open);
+//                banneris.setImageResource(R.drawable.case_title_office);
                 break;
             case 7:
                 caseview.setImageResource(R.drawable.case_7_open);
+//                banneris.setImageResource(R.drawable.case_title_luxurious);
                 break;
             case 8:
                 caseview.setImageResource(R.drawable.case_8_open);
+//                banneris.setImageResource(R.drawable.case_title_luxurious);
                 break;
             case 9:
                 caseview.setImageResource(R.drawable.case_9_open);
+//                banneris.setImageResource(R.drawable.case_title_luxurious);
                 break;
         }
         flare.setImageResource(R.drawable.case_open_flare);
-        title.setImageResource(R.drawable.title_img_1);
 
 
         flare.setAdjustViewBounds(true);
@@ -99,12 +107,12 @@ public class CaseOpen extends AppCompatActivity {
         3:Skins
          */
 
-        if (r<=1){
+        if (r<=10){
             //SUPERSKIN
             gotskin = 1;
             gotstatus = 3;
         }
-        if (r>1 && r<=100){
+        if (r>10 && r<=100){
             //KEYS
             Random rkeys = new Random();
             gotkeys += rkeys.nextInt(3)+1;
@@ -162,13 +170,17 @@ public class CaseOpen extends AppCompatActivity {
         // Set fullscreen
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        // Set No Title
+        // Set No banneris
         setContentView(R.layout.activity_case_open);
 
         caseview = (ImageButton)findViewById(R.id.caseview);
         flare = (ImageView)findViewById(R.id.flare);
-        title = (ImageView)findViewById(R.id.title);
+        banneris = (ImageView)findViewById(R.id.foobar);
         debug = (TextView)findViewById(R.id.debug);
+
+        gotkeys = 0;
+        gotrubies = 0;
+        gotskin=0;
 
         min = 50;
         max = 250;

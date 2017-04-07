@@ -50,12 +50,12 @@
         app:srcCompat="@drawable/case_3" />
 
     <ImageView
-        android:id="@+id/title"
-        android:layout_width="308dp"
-        android:layout_height="41dp"
+        android:id="@+id/banneris"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -20,12 +20,12 @@
         app:srcCompat="@drawable/title_img_1" />
 
     <ImageView
-        android:id="@+id/title"
+        android:id="@+id/banneris"
         android:layout_width="310dp"
         android:layout_height="40dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,7 +40,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/banneris"
         app:srcCompat="@drawable/case_prize_mask_whiteruby_fade" />
 
     <ImageButton
@@ -59,14 +59,12 @@
         android:id="@+id/stats1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        app:layout_constraintLeft_toLeftOf="@+id/title2"
-        app:layout_constraintRight_toLeftOf="@+id/space7"
-        app:layout_constraintTop_toBottomOf="@+id/title2" />
+        app:layout_constraintTop_toBottomOf="@+id/title2"
+        app:layout_constraintLeft_toRightOf="@+id/back1" />
 
     <TextView
         android:id="@+id/stats2"
@@ -87,13 +85,10 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        app:layout_constraintLeft_toRightOf="@+id/space7"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="0dp"
-        app:layout_constraintRight_toRightOf="@+id/title2"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/title2"
-        app:layout_constraintHorizontal_bias="0.462" />
+        app:layout_constraintLeft_toRightOf="@+id/back2"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:id="@+id/stats4"
@@ -125,13 +120,16 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/stats1"
-        app:layout_constraintRight_toLeftOf="@+id/stats1"
         app:layout_constraintTop_toTopOf="@+id/stats1"
-        app:srcCompat="@drawable/case_prize_ice_pig" />
+        app:srcCompat="@drawable/case_prize_ice_pig"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/title2"
+        app:layout_constraintRight_toLeftOf="@+id/space7"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.2" />
 
     <ImageView
         android:id="@+id/back2"
@@ -139,12 +137,15 @@
         android:layout_height="25dp"
         android:background="@null"
         app:srcCompat="@drawable/case_prize_ice_pig"
-        app:layout_constraintRight_toLeftOf="@+id/stats3"
         android:layout_marginRight="8dp"
         app:layout_constraintTop_toTopOf="@+id/stats3"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/stats3"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        app:layout_constraintRight_toRightOf="@+id/title2"
+        app:layout_constraintLeft_toRightOf="@+id/space7"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.2" />
 
     <ImageView
         android:id="@+id/back3"
@@ -152,12 +153,15 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/stats4"
-        app:layout_constraintRight_toLeftOf="@+id/stats4"
         app:layout_constraintTop_toTopOf="@+id/stats4"
-        app:srcCompat="@drawable/case_prize_ice_pig" />
+        app:srcCompat="@drawable/case_prize_ice_pig"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/title2"
+        app:layout_constraintLeft_toRightOf="@+id/space7"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.2" />
 
     <ImageView
         android:id="@+id/back4"
@@ -165,10 +169,13 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/stats2"
-        app:layout_constraintRight_toLeftOf="@+id/stats2"
         app:layout_constraintTop_toTopOf="@+id/stats2"
-        app:srcCompat="@drawable/case_prize_ice_pig" />
+        app:srcCompat="@drawable/case_prize_ice_pig"
+        app:layout_constraintRight_toLeftOf="@+id/space7"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/title2"
+        app:layout_constraintHorizontal_bias="0.201" />
 </android.support.constraint.ConstraintLayout>

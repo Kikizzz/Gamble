@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="studio.bowman.gamblegame.ReactionInit"
+    android:background="@drawable/background">
+
+    <include
+        layout="@layout/topbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        android:id="@+id/include" />
+
+    <ImageView
+        android:id="@+id/mainrank"
+        android:layout_width="150dp"
+        android:layout_height="125dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/banner2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintVertical_bias="0.19999999"
+        app:srcCompat="@drawable/case_5" />
+
+    <ImageView
+        android:id="@+id/rightrank"
+        android:layout_width="75dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/mainrank"
+        app:layout_constraintLeft_toRightOf="@+id/mainrank"
+        app:layout_constraintTop_toTopOf="@+id/mainrank"
+        app:srcCompat="@drawable/case_2" />
+
+    <ImageView
+        android:id="@+id/leftrank"
+        android:layout_width="75dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/mainrank"
+        app:layout_constraintRight_toLeftOf="@+id/mainrank"
+        app:layout_constraintTop_toTopOf="@+id/mainrank"
+        app:srcCompat="@drawable/case_7" />
+
+    <ImageView
+        android:id="@+id/leftrankimg"
+        android:background="@null"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/leftrank"
+        app:layout_constraintRight_toRightOf="@+id/leftrank"
+        app:layout_constraintTop_toBottomOf="@+id/leftrank"
+        app:srcCompat="@drawable/case_amount_img" />
+
+    <ImageView
+        android:id="@+id/mainrankimg"
+        android:background="@null"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/mainrank"
+        app:layout_constraintRight_toRightOf="@+id/mainrank"
+        app:layout_constraintTop_toBottomOf="@+id/mainrank"
+        app:srcCompat="@drawable/case_amount_img" />
+
+    <ImageView
+        android:id="@+id/rightrankimg"
+        android:background="@null"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/rightrank"
+        app:layout_constraintRight_toRightOf="@+id/rightrank"
+        app:layout_constraintTop_toBottomOf="@+id/rightrank"
+        app:srcCompat="@drawable/case_amount_img" />
+
+    <ImageView
+        android:id="@+id/banner2"
+        android:background="@null"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/title_img_1"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/moneyBtn" />
+
+    <include
+        layout="@layout/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="0dp"
+        android:id="@+id/include2" />
+
+    <ImageButton
+        android:id="@+id/moneyBtn"
+        android:background="@null"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/space8"
+        app:layout_constraintRight_toLeftOf="@+id/space8"
+        app:layout_constraintTop_toTopOf="@+id/space8"
+        app:srcCompat="@drawable/unlock_case" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/space8"
+        app:layout_constraintHorizontal_bias="0.516"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/include2"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <ImageButton
+        android:id="@+id/keyBtn"
+        android:background="@null"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/space8"
+        app:layout_constraintLeft_toRightOf="@+id/space8"
+        app:layout_constraintTop_toTopOf="@+id/space8"
+        app:srcCompat="@drawable/buy_keys"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ImageView
+        android:id="@+id/moneyvalueback"
+        android:background="@null"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/moneyBtn"
+        app:layout_constraintRight_toRightOf="@+id/moneyBtn"
+        app:layout_constraintTop_toBottomOf="@+id/moneyBtn"
+        app:srcCompat="@drawable/case_amount_img" />
+
+    <ImageView
+        android:id="@+id/keyvalueback"
+        android:layout_width="70dp"
+        android:background="@null"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/keyBtn"
+        app:layout_constraintRight_toRightOf="@+id/keyBtn"
+        app:layout_constraintTop_toBottomOf="@+id/keyBtn"
+        app:srcCompat="@drawable/case_amount_img" />
+
+    <TextView
+        android:id="@+id/moneyvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:text="value"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="@+id/moneyvalueback"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintLeft_toLeftOf="@+id/moneyvalueback"
+        app:layout_constraintRight_toRightOf="@+id/moneyvalueback"
+        app:layout_constraintTop_toTopOf="@+id/moneyvalueback"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/keyvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:text="value"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="@+id/keyvalueback"
+        app:layout_constraintLeft_toLeftOf="@+id/keyvalueback"
+        app:layout_constraintRight_toRightOf="@+id/keyvalueback"
+        app:layout_constraintTop_toTopOf="@+id/keyvalueback"
+        app:layout_constraintVertical_bias="0.6" />
+</android.support.constraint.ConstraintLayout>

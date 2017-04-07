@@ -3,19 +3,19 @@
     package="studio.bowman.gamblegame">
 
     <application
-    android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
-    android:label="@string/app_name"
-    android:roundIcon="@mipmap/ic_launcher_round"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <supports-screens
-            android:resizeable="true"
-            android:smallScreens="true"
-            android:normalScreens="true"
-            android:largeScreens="true"
             android:anyDensity="true"
-            />
+            android:largeScreens="true"
+            android:normalScreens="true"
+            android:resizeable="true"
+            android:smallScreens="true" />
+
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation"
@@ -47,8 +47,10 @@
         <activity android:name=".Sweeper" />
         <activity android:name=".test" />
         <activity android:name=".test2" />
-        <activity android:name=".CaseDone"></activity>
+        <activity android:name=".CaseDone" />
         <activity android:name=".Main" />
+        <activity android:name=".ReactionInit" />
+        <activity android:name=".ReactionChoose"></activity>
     </application>
 
 </manifest>
