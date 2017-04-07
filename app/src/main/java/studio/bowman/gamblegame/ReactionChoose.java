@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 public class ReactionChoose extends AppCompatActivity {
 
+    int bet;
     int wins, loses;
     int balance, keys;
     int selected;
@@ -33,7 +34,7 @@ public class ReactionChoose extends AppCompatActivity {
         winimg.setImageResource(R.drawable.case_7);
         loseimg.setImageResource(R.drawable.case_7);
         reactionbanner.setImageResource(R.drawable.case_title_exquisite);
-        mainBtn.setImageResource(R.drawable.buy_keys);
+        mainBtn.setImageResource(R.drawable.back_icon);
 
         rank.setAdjustViewBounds(true);
         rank.setPadding(0,0,0,0);
@@ -49,6 +50,9 @@ public class ReactionChoose extends AppCompatActivity {
         reactionbanner.setPadding(0,0,0,0);
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
+
+        leftBtn.setVisibility(View.GONE);
+        rightBtn.setVisibility(View.GONE);
 
         //ALL ZE BUTTONS
         if(selected == 1) {
@@ -93,6 +97,22 @@ public class ReactionChoose extends AppCompatActivity {
     void updateDisplay(){
     }
 
+    void calculateBet(){
+        if (selected == 1){
+            //MONEY
+            balance -= bet;
+        }else{
+            //KEYS
+            keys -= bet;
+        }
+        savedata();
+        Intent intent = new Intent(ReactionChoose.this, ReactionGame.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.putExtra("selected", selected);
+        finish();
+        startActivity(intent);
+    }
+
     void loadData(){
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
@@ -111,10 +131,11 @@ public class ReactionChoose extends AppCompatActivity {
         save.putInt("balance", balance);
         save.putInt("wins", wins);
         save.putInt("loses", loses);
-
+        save.putInt("bet", bet);
         save.apply();
         save.commit();
     }
+
     @Override
     public void onBackPressed() {
         finish();
@@ -136,7 +157,9 @@ public class ReactionChoose extends AppCompatActivity {
         loseback = (ImageView)findViewById(R.id.loseback);
         winimg = (ImageView)findViewById(R.id.winimg);
         loseimg = (ImageView)findViewById(R.id.loseimg);
+        leftBtn = (ImageButton)findViewById(R.id.leftBtn);
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
+        rightBtn = (ImageButton)findViewById(R.id.rightBtn);
         reactionbanner = (ImageView)findViewById(R.id.reactionbanner);
 
         choice1 = (ImageButton)findViewById(R.id.choice1);
@@ -160,34 +183,50 @@ public class ReactionChoose extends AppCompatActivity {
 
         choice1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
         choice2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
         choice3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
         choice4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
         choice5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
         choice6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
         choice7.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
         choice8.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                bet = 0;
+                calculateBet();
             }
         });
     }

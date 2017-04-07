@@ -50,7 +50,8 @@
         <activity android:name=".CaseDone" />
         <activity android:name=".Main" />
         <activity android:name=".ReactionInit" />
-        <activity android:name=".ReactionChoose"></activity>
+        <activity android:name=".ReactionChoose" />
+        <activity android:name=".ReactionGame"></activity>
     </application>
 
 </manifest>

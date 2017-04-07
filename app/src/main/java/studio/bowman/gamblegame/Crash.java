@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.text.DecimalFormat;
@@ -41,6 +42,7 @@ public class Crash extends AppCompatActivity {
     private ImageButton play, drop, minusmax,minusmid,minusmin,plusmin,plusmid,plusmax;
     private ImageButton leftBtn, mainBtn, rightBtn, settings, inventory;
     private boolean live, boolcrash, boolbail, playing, firsttime;
+    ImageView rank;
     View cv;
     Utils utils;
 
@@ -87,6 +89,11 @@ public class Crash extends AppCompatActivity {
     }
 
     void setGUI(){
+        rank.setImageResource(R.drawable.rank_1);
+        rank.setAdjustViewBounds(true);
+        rank.setPadding(0,0,0,0);
+
+
         // TOP SCREEN
         settings.setImageResource(R.drawable.play);
         inventory.setImageResource(R.drawable.play);
@@ -459,6 +466,8 @@ public class Crash extends AppCompatActivity {
         leftBtn = (ImageButton)findViewById(R.id.leftBtn);
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
         rightBtn = (ImageButton)findViewById(R.id.rightBtn);
+
+        rank = (ImageView)findViewById(R.id.rank);
 
         cv = findViewById(R.id.crashView);
 

@@ -180,7 +180,7 @@ public class ReactionInit extends AppCompatActivity {
                 selected = 1;
                 Intent intent = new Intent(ReactionInit.this, ReactionChoose.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                finish();
+                intent.putExtra("selected", selected);
                 startActivity(intent);
             }
         });
@@ -190,7 +190,7 @@ public class ReactionInit extends AppCompatActivity {
                 selected = 2;
                 Intent intent = new Intent(ReactionInit.this, ReactionChoose.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                finish();
+                intent.putExtra("selected", selected);
                 startActivity(intent);
             }
         });
