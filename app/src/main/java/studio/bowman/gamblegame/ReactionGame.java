@@ -3,6 +3,7 @@ package studio.bowman.gamblegame;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ public class ReactionGame extends AppCompatActivity {
     int wins, loses;
     int balance, keys;
     int selected;
-    boolean won, pressing, livegame, crashed;
+    boolean won, pressing, livegame, crashed, failed;
     int gocount, crash;
 
     int balance1,balance2,balance3,balance4,balance5,balance6;
@@ -34,6 +35,7 @@ public class ReactionGame extends AppCompatActivity {
     ImageView rank;
     ImageView reactionbanner;
     ImageView winback, loseback, winimg, loseimg;
+    TextView win, lose;
 
     ImageView displayback;
     ImageButton go;
@@ -44,8 +46,38 @@ public class ReactionGame extends AppCompatActivity {
     TextView name1,name2,name3,name4,name5,name6;
     TextView bal1,bal2,bal3,bal4,bal5,bal6;
 
-    //TODO: WINNING GIVES RESOURCES
+    TextView debug;
 
+    String randomName(){
+        Resources res = getResources();
+        String[] names = res.getStringArray(R.array.names);
+        String randomname = names[new Random().nextInt(names.length)];
+        return randomname;
+    }
+    void setNames(){
+        name1.setText(randomName());
+        name2.setText(randomName());
+        name3.setText(randomName());
+        name4.setText(randomName());
+        name5.setText(randomName());
+        name6.setText(randomName());
+
+        Random r = new Random();
+        int max= 500;
+        balance1 = r.nextInt(max)+1;
+        balance2 = r.nextInt(max)+1;
+        balance3 = r.nextInt(max)+1;
+        balance4 = r.nextInt(max)+1;
+        balance5 = r.nextInt(max)+1;
+        balance6 = r.nextInt(max)+1;
+
+        bal1.setText("" + balance1);
+        bal2.setText("" + balance2);
+        bal3.setText("" + balance3);
+        bal4.setText("" + balance4);
+        bal5.setText("" + balance5);
+        bal6.setText("" + balance6);
+    }
     void setGUI(){
         //DEFAULTS
         won = false;
@@ -55,10 +87,10 @@ public class ReactionGame extends AppCompatActivity {
 
         //TOPBAR
         rank.setImageResource(R.drawable.rank_1);
-        winback.setImageResource(R.drawable.case_amount_img);
-        loseback.setImageResource(R.drawable.case_amount_img);
-        winimg.setImageResource(R.drawable.case_7);
-        loseimg.setImageResource(R.drawable.case_7);
+        winback.setImageResource(R.drawable.rank_win_title_back);
+        loseback.setImageResource(R.drawable.rank_lose_title_back);
+        winimg.setImageResource(R.drawable.rank_win_title);
+        loseimg.setImageResource(R.drawable.rank_lose_title);
         reactionbanner.setImageResource(R.drawable.case_title_exquisite);
 
         rank.setAdjustViewBounds(true);
@@ -75,26 +107,26 @@ public class ReactionGame extends AppCompatActivity {
         reactionbanner.setPadding(0,0,0,0);
 
         //SPECIFIC ITEMS
-        nameback1.setImageResource(R.drawable.case_2);
-        nameback2.setImageResource(R.drawable.case_2);
-        nameback3.setImageResource(R.drawable.case_2);
-        nameback4.setImageResource(R.drawable.case_2);
-        nameback5.setImageResource(R.drawable.case_2);
-        nameback6.setImageResource(R.drawable.case_2);
+        nameback1.setImageResource(R.drawable.nickname);
+        nameback2.setImageResource(R.drawable.nickname);
+        nameback3.setImageResource(R.drawable.nickname);
+        nameback4.setImageResource(R.drawable.nickname);
+        nameback5.setImageResource(R.drawable.nickname);
+        nameback6.setImageResource(R.drawable.nickname);
 
-        balback1.setImageResource(R.drawable.case_2);
-        balback2.setImageResource(R.drawable.case_2);
-        balback3.setImageResource(R.drawable.case_2);
-        balback4.setImageResource(R.drawable.case_2);
-        balback5.setImageResource(R.drawable.case_2);
-        balback6.setImageResource(R.drawable.case_2);
+        balback1.setImageResource(R.drawable.bal_back);
+        balback2.setImageResource(R.drawable.bal_back);
+        balback3.setImageResource(R.drawable.bal_back);
+        balback4.setImageResource(R.drawable.bal_back);
+        balback5.setImageResource(R.drawable.bal_back);
+        balback6.setImageResource(R.drawable.bal_back);
 
-        rank1.setImageResource(R.drawable.case_2);
-        rank2.setImageResource(R.drawable.case_2);
-        rank3.setImageResource(R.drawable.case_2);
-        rank4.setImageResource(R.drawable.case_2);
-        rank5.setImageResource(R.drawable.case_2);
-        rank6.setImageResource(R.drawable.case_2);
+        rank1.setImageResource(R.drawable.rank_1_small);
+        rank2.setImageResource(R.drawable.rank_2_small);
+        rank3.setImageResource(R.drawable.rank_3_small);
+        rank4.setImageResource(R.drawable.rank_4_small);
+        rank5.setImageResource(R.drawable.rank_5_small);
+        rank6.setImageResource(R.drawable.rank_6_small);
 
         displayback.setImageResource(R.drawable.hold_your_buttons);
         go.setImageResource(R.drawable.go_inactive);
@@ -105,15 +137,8 @@ public class ReactionGame extends AppCompatActivity {
         go.setPadding(0,0,0,0);
     }
     void updateDisplay(){
-        Random r = new Random();
-        int max= 500;
-        balance1 = r.nextInt(max)+1;
-        balance2 = r.nextInt(max)+1;
-        balance3 = r.nextInt(max)+1;
-        balance4 = r.nextInt(max)+1;
-        balance5 = r.nextInt(max)+1;
-        balance6 = r.nextInt(max)+1;
-
+        win.setText("" + wins);
+        lose.setText("" + loses);
     }
 
     void loadData(){
@@ -124,9 +149,9 @@ public class ReactionGame extends AppCompatActivity {
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         keys = load.getInt("keys", 0);
         balance = load.getInt("balance", 0);
+        bet = load.getInt("bet", 0);
         wins = load.getInt("wins", 0);
         loses = load.getInt("loses", 0);
-        bet = load.getInt("bet", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
@@ -161,9 +186,8 @@ public class ReactionGame extends AppCompatActivity {
                 livegame = true;
                 Game();
             }
-        }, 11000);
+        }, 9000);
     }
-
     void Game(){
             Timer timer = new Timer();
             timer.schedule(
@@ -190,9 +214,22 @@ public class ReactionGame extends AppCompatActivity {
                         }
                     }, 0, 10);
     }
-
     void update() {
+        debug.setText("" + crashed);
         Random random = new Random();
+        if(!crashed){
+            if (crash == 1){
+                //STOP APPEARED
+                displayback.setImageResource(R.drawable.stop);
+                crashed=true;
+                if(!pressing){
+                    failed = true;
+                    won = false;
+                    livegame = false;
+                    endGame();
+                }
+            }
+        }
 
         if (crashed) {
             //COUNTING THE LIMIT
@@ -202,56 +239,63 @@ public class ReactionGame extends AppCompatActivity {
             crash = random.nextInt(500) + 1;
         }
 
-        if (crash == 1){
-            //STOP APPEARED
-            displayback.setImageResource(R.drawable.stop);
-            crashed=true;
-            if(!pressing){
-                won = false;
-                livegame = false;
-                endGame();
-            }
-        }
-
-        if(pressing && gocount>50){
-            //FAILED TO RELEASE AFTER 1 SEC INTERVAL
-            won = false;
-            livegame = false;
-            endGame();
-        }
-
-        if(crashed&&!pressing){
+        if(crashed&&!pressing&&!failed){
             livegame = false;
 
             //DETERMINES IF HE RELEASED ON TIME AND WON
             Random w = new Random();
-            int k = w.nextInt(5)+1;
+            int k = w.nextInt(2)+1;
             if (k==1){
                 won=true;
             }else{
                 won=false;
             }
-
             endGame();
+        }else{
+            if(pressing && gocount>65){
+                //FAILED TO RELEASE AFTER 1 SEC INTERVAL
+                won = false;
+                livegame = false;
+                endGame();
+            }
         }
+        debug.setText("" + crashed);
     }
-
     void endGame(){
         if(won){
-            displayback.setImageResource(R.drawable.go_inactive);
             //WHAT HAPPENS IF PLAYER WON
+            displayback.setImageResource(R.drawable.go_inactive);
+            wins += 1;
+            if(selected==1) {
+                balance += bet * 7;
+            }else{
+                keys += bet * 7;
+            }
         }else{
-            displayback.setImageResource(R.drawable.go_active);
             //WHAT HAPPENS IF AI WON
+            loses += 1;
+            displayback.setImageResource(R.drawable.go_active);
         }
-
-        //AFTER FEW SEC GO TO NEXT LAYOUT
+        updateDisplay();
         savedata();
+
+        //AFTER DELAY STARTS NEW ACTIVITY
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(ReactionGame.this, ReactionPost.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("selected", selected);
+                intent.putExtra("won", won);
+                startActivity(intent);
+            }
+        }, 4000);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//    }
+    @Override
+    public void onBackPressed() {
+    }
 
 
     @Override
@@ -265,6 +309,9 @@ public class ReactionGame extends AppCompatActivity {
         winimg = (ImageView)findViewById(R.id.winimg);
         loseimg = (ImageView)findViewById(R.id.loseimg);
         reactionbanner = (ImageView)findViewById(R.id.reactionbanner);
+
+        win = (TextView)findViewById(R.id.win);
+        lose = (TextView)findViewById(R.id.lose);
 
         displayback = (ImageView)findViewById(R.id.displayback);
         go = (ImageButton)findViewById(R.id.go);
@@ -304,9 +351,12 @@ public class ReactionGame extends AppCompatActivity {
         bal5 = (TextView)findViewById(R.id.bal5);
         bal6 = (TextView)findViewById(R.id.bal6);
 
+        debug = (TextView)findViewById(R.id.debug);
+
         loadData();
         setGUI();
         updateDisplay();
+        setNames();
         startGame();
 
         go.setOnTouchListener(new View.OnTouchListener() {

@@ -10,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ReactionChoose extends AppCompatActivity {
 
@@ -24,15 +25,18 @@ public class ReactionChoose extends AppCompatActivity {
     ImageView winback, loseback, winimg, loseimg;
     ImageButton leftBtn, mainBtn, rightBtn;
 
+    TextView win, lose;
+
+    //SPECIFICS
     ImageButton choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8;
 
     void setGUI(){
         //TOPBAR
         rank.setImageResource(R.drawable.rank_1);
-        winback.setImageResource(R.drawable.case_amount_img);
-        loseback.setImageResource(R.drawable.case_amount_img);
-        winimg.setImageResource(R.drawable.case_7);
-        loseimg.setImageResource(R.drawable.case_7);
+        winback.setImageResource(R.drawable.rank_win_title_back);
+        loseback.setImageResource(R.drawable.rank_lose_title_back);
+        winimg.setImageResource(R.drawable.rank_win_title);
+        loseimg.setImageResource(R.drawable.rank_lose_title);
         reactionbanner.setImageResource(R.drawable.case_title_exquisite);
         mainBtn.setImageResource(R.drawable.back_icon);
 
@@ -95,6 +99,8 @@ public class ReactionChoose extends AppCompatActivity {
         choice8.setPadding(0,0,0,0);
     }
     void updateDisplay(){
+        win.setText("" + wins);
+        lose.setText("" + loses);
     }
 
     void calculateBet(){
@@ -161,6 +167,9 @@ public class ReactionChoose extends AppCompatActivity {
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
         rightBtn = (ImageButton)findViewById(R.id.rightBtn);
         reactionbanner = (ImageView)findViewById(R.id.reactionbanner);
+
+        win = (TextView)findViewById(R.id.win);
+        lose = (TextView)findViewById(R.id.lose);
 
         choice1 = (ImageButton)findViewById(R.id.choice1);
         choice2 = (ImageButton)findViewById(R.id.choice2);

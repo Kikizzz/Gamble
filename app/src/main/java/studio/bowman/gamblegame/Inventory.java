@@ -15,7 +15,7 @@ public class Inventory extends AppCompatActivity {
 
     int balance;
 
-    ImageView title;
+    ImageView banneris;
     ImageButton leftBtn, mainBtn, rightBtn;
     ImageButton box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14, box15;
 
@@ -68,13 +68,13 @@ public class Inventory extends AppCompatActivity {
         box15.setAdjustViewBounds(true);
         box15.setPadding(0,0,0,0);
 
-        title.setImageResource(R.drawable.case_title_exquisite);
+        banneris.setImageResource(R.drawable.case_title_exquisite);
         leftBtn.setImageResource(R.drawable.shop_icon);
         mainBtn.setImageResource(R.drawable.inventory_icon);
         rightBtn.setImageResource(R.drawable.case_icon);
 
-        title.setAdjustViewBounds(true);
-        title.setPadding(0,0,0,0);
+        banneris.setAdjustViewBounds(true);
+        banneris.setPadding(0,0,0,0);
         leftBtn.setAdjustViewBounds(true);
         leftBtn.setPadding(0,0,0,0);
         mainBtn.setAdjustViewBounds(true);
@@ -113,7 +113,7 @@ public class Inventory extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_inventory);
 
-        title = (ImageView)findViewById(R.id.foobar);
+        banneris = (ImageView)findViewById(R.id.banneris);
 
         leftBtn = (ImageButton)findViewById(R.id.leftBtn);
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);

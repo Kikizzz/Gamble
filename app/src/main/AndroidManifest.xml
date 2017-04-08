@@ -51,7 +51,8 @@
         <activity android:name=".Main" />
         <activity android:name=".ReactionInit" />
         <activity android:name=".ReactionChoose" />
-        <activity android:name=".ReactionGame"></activity>
+        <activity android:name=".ReactionGame" />
+        <activity android:name=".ReactionPost"></activity>
     </application>
 
 </manifest>

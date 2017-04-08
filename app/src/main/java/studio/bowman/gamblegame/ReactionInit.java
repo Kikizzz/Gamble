@@ -23,6 +23,7 @@ public class ReactionInit extends AppCompatActivity {
     ImageView reactionbanner;
     ImageView winback, loseback, winimg, loseimg;
     ImageButton leftBtn, mainBtn, rightBtn;
+    TextView win, lose;
 
     //RANKS
     ImageView leftRank, mainRank, rightRank;
@@ -42,10 +43,10 @@ public class ReactionInit extends AppCompatActivity {
         //TOPBAR
         rank.setImageResource(R.drawable.rank_1);
         rank.setAdjustViewBounds(true);
-        winback.setImageResource(R.drawable.case_amount_img);
-        loseback.setImageResource(R.drawable.case_amount_img);
-        winimg.setImageResource(R.drawable.case_7);
-        loseimg.setImageResource(R.drawable.case_7);
+        winback.setImageResource(R.drawable.rank_win_title_back);
+        loseback.setImageResource(R.drawable.rank_lose_title_back);
+        winimg.setImageResource(R.drawable.rank_win_title);
+        loseimg.setImageResource(R.drawable.rank_lose_title);
         reactionbanner.setImageResource(R.drawable.case_title_exquisite);
 
         rank.setPadding(0,0,0,0);
@@ -81,7 +82,7 @@ public class ReactionInit extends AppCompatActivity {
         moneyBtn.setImageResource(R.drawable.unlock_case);
         keyBtn.setImageResource(R.drawable.buy_keys);
 
-        banner2.setImageResource(R.drawable.case_title_exquisite);
+        banner2.setImageResource(R.drawable.title_choose_bet_type);
 
         leftBtn.setAdjustViewBounds(true);
         leftBtn.setPadding(0,0,0,0);
@@ -103,6 +104,9 @@ public class ReactionInit extends AppCompatActivity {
     void updateDisplay(){
         moneyvalue.setText("" + balance + "$");
         keyvalue.setText("" + keys);
+
+        win.setText("" + wins);
+        lose.setText("" + loses);
     }
 
     void loadData(){
@@ -117,8 +121,6 @@ public class ReactionInit extends AppCompatActivity {
         SharedPreferences.Editor save = load.edit();
         save.putInt("keys", keys);
         save.putInt("balance", balance);
-        save.putInt("wins", wins);
-        save.putInt("loses", loses);
 
         save.apply();
         save.commit();
@@ -152,6 +154,9 @@ public class ReactionInit extends AppCompatActivity {
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
         rightBtn = (ImageButton)findViewById(R.id.rightBtn);
         reactionbanner = (ImageView)findViewById(R.id.reactionbanner);
+
+        win = (TextView)findViewById(R.id.win);
+        lose = (TextView)findViewById(R.id.lose);
 
         //SPECIFIC
         leftRank = (ImageView)findViewById(R.id.leftrank);
