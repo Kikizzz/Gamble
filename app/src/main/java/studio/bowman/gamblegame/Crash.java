@@ -26,6 +26,8 @@ import java.util.TimerTask;
 
 
 public class Crash extends AppCompatActivity {
+    int xp;
+
     private int width, height, bheight, bwidth, boxwidth, boxheight;
     private float x, y;
 
@@ -55,6 +57,7 @@ public class Crash extends AppCompatActivity {
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         SharedPreferences.Editor save = load.edit();
         save.putInt("balance", balance);
+        save.putInt("xp", xp);
         save.putFloat("v1", v1);
         save.putFloat("v2", v2);
         save.putFloat("v3", v3);
@@ -74,6 +77,7 @@ public class Crash extends AppCompatActivity {
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         balance = load.getInt("balance", 50);
+        xp = load.getInt("xp", 0);
         v1 = load.getFloat("v1", 0);
         v2 = load.getFloat("v2", 0);
         v3 = load.getFloat("v3", 0);
@@ -89,10 +93,26 @@ public class Crash extends AppCompatActivity {
     }
 
     void setGUI(){
-        rank.setImageResource(R.drawable.rank_1);
+        if(xp<100){
+            rank.setImageResource(R.drawable.rank_6);
+        }
+        if(xp>=100 && xp<200){
+            rank.setImageResource(R.drawable.rank_5);
+        }
+        if(xp>=200 && xp<300){
+            rank.setImageResource(R.drawable.rank_4);
+        }
+        if(xp>=300 && xp<400){
+            rank.setImageResource(R.drawable.rank_3);
+        }
+        if(xp>=400 && xp<500){
+            rank.setImageResource(R.drawable.rank_2);
+        }
+        if(xp>=500){
+            rank.setImageResource(R.drawable.rank_1);
+        }
         rank.setAdjustViewBounds(true);
         rank.setPadding(0,0,0,0);
-
 
         // TOP SCREEN
         settings.setImageResource(R.drawable.play);

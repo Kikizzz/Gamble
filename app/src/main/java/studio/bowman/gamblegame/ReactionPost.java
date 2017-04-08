@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class ReactionPost extends AppCompatActivity {
 
+    int xp;
     int keys, balance;
     int bet;
     int selected;
@@ -36,7 +37,24 @@ public class ReactionPost extends AppCompatActivity {
 
 
     void setGUI(){
-        rank.setImageResource(R.drawable.rank_1);
+        if(xp<100){
+            rank.setImageResource(R.drawable.rank_6);
+        }
+        if(xp>=100 && xp<200){
+            rank.setImageResource(R.drawable.rank_5);
+        }
+        if(xp>=200 && xp<300){
+            rank.setImageResource(R.drawable.rank_4);
+        }
+        if(xp>=300 && xp<400){
+            rank.setImageResource(R.drawable.rank_3);
+        }
+        if(xp>=400 && xp<500){
+            rank.setImageResource(R.drawable.rank_2);
+        }
+        if(xp>=500){
+            rank.setImageResource(R.drawable.rank_1);
+        }
         winback.setImageResource(R.drawable.rank_win_title_back);
         loseback.setImageResource(R.drawable.rank_lose_title_back);
         winimg.setImageResource(R.drawable.rank_win_title);
@@ -73,16 +91,7 @@ public class ReactionPost extends AppCompatActivity {
         win.setText("" + wins);
         lose.setText("" + loses);
 
-        int prof = 0;
-
-        //WHAT HE WON (VISUAL)
-        if(won){
-            prof = bet * 7;
-        }else{
-
-        }
-
-        profit.setText("" + prof);
+        //TODO : PROFIT VISUAL
     }
 
     void loadData(){
@@ -97,6 +106,7 @@ public class ReactionPost extends AppCompatActivity {
         bet = load.getInt("bet", 0);
         wins = load.getInt("wins", 0);
         loses = load.getInt("loses", 0);
+        xp = load.getInt("xp", 0);
 
     }
     void savedata(){

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 public class ReactionInit extends AppCompatActivity {
 
+    int xp;
     int balance, keys;
     int wins, loses;
     int selected;
@@ -47,7 +48,7 @@ public class ReactionInit extends AppCompatActivity {
         loseback.setImageResource(R.drawable.rank_lose_title_back);
         winimg.setImageResource(R.drawable.rank_win_title);
         loseimg.setImageResource(R.drawable.rank_lose_title);
-        reactionbanner.setImageResource(R.drawable.case_title_exquisite);
+        reactionbanner.setImageResource(R.drawable.title_ranks);
 
         rank.setPadding(0,0,0,0);
         winback.setAdjustViewBounds(true);
@@ -100,6 +101,27 @@ public class ReactionInit extends AppCompatActivity {
         keyBtn.setPadding(0,0,0,0);
         banner2.setAdjustViewBounds(true);
         banner2.setPadding(0,0,0,0);
+
+        //RANKS
+
+        if(xp<100){
+            rank.setImageResource(R.drawable.rank_6);
+        }
+        if(xp>=100 && xp<200){
+            rank.setImageResource(R.drawable.rank_5);
+        }
+        if(xp>=200 && xp<300){
+            rank.setImageResource(R.drawable.rank_4);
+        }
+        if(xp>=300 && xp<400){
+            rank.setImageResource(R.drawable.rank_3);
+        }
+        if(xp>=400 && xp<500){
+            rank.setImageResource(R.drawable.rank_2);
+        }
+        if(xp>=500){
+            rank.setImageResource(R.drawable.rank_1);
+        }
     }
     void updateDisplay(){
         moneyvalue.setText("" + balance + "$");
@@ -115,6 +137,7 @@ public class ReactionInit extends AppCompatActivity {
         balance = load.getInt("balance", 0);
         wins = load.getInt("wins", 0);
         loses = load.getInt("loses", 0);
+        xp = load.getInt("xp", 50);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
@@ -187,6 +210,7 @@ public class ReactionInit extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra("selected", selected);
                 startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             }
         });
 
@@ -197,6 +221,7 @@ public class ReactionInit extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra("selected", selected);
                 startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             }
         });
 
@@ -206,6 +231,7 @@ public class ReactionInit extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     finish();
                     startActivity(intent);
+                    overridePendingTransition(0, 0);
             }
         });
 
@@ -215,6 +241,7 @@ public class ReactionInit extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     finish();
                     startActivity(intent);
+                    overridePendingTransition(0, 0);
             }
         });
     }
