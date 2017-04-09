@@ -100,12 +100,12 @@ public class CaseCheck extends AppCompatActivity {
                 item6.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
             break;
             case 2:
-                item1.setImageResource(R.drawable.case_prize_mask_whiteruby_fade);
-                item2.setImageResource(R.drawable.case_prize_ice_pig);
+                item1.setImageResource(R.drawable.case_prize_crown_1_gold);
+                item2.setImageResource(R.drawable.case_prize_watch_1_gold);
                 item3.setImageResource(R.drawable.case_prize_keys);
                 item4.setImageResource(R.drawable.case_prize_ruby);
-                item5.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);
-                item6.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                item5.setImageResource(R.drawable.case_prize_shovel_gold);
+                item6.setImageResource(R.drawable.case_prize_bank_gold);
                 break;
             case 3:
                 item1.setImageResource(R.drawable.case_prize_shovel_whiteruby_fade);

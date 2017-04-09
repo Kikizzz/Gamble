@@ -34,6 +34,7 @@ public class ReactionGame extends AppCompatActivity {
 
     int balance1,balance2,balance3,balance4,balance5,balance6;
     int AI1rank, AI2rank, AI3rank, AI4rank, AI5rank ,AI6rank;
+    int max;
 
     //REACTION PRESETS
     ImageView rank;
@@ -67,7 +68,25 @@ public class ReactionGame extends AppCompatActivity {
         name6.setText(randomName());
 
         Random r = new Random();
-        int max= 5000;
+        if(xp<100){
+            max = 300;
+        }
+        if(xp>=100 && xp<200){
+            max = 500;
+        }
+        if(xp>=200 && xp<300){
+            max = 1000;
+        }
+        if(xp>=300 && xp<400){
+            max = 1250;
+        }
+        if(xp>=400 && xp<500){
+            max = 1500;
+        }
+        if(xp>=500){
+            max = 2500;
+        }
+
         balance1 = r.nextInt(max)+1;
         balance2 = r.nextInt(max)+1;
         balance3 = r.nextInt(max)+1;
@@ -439,6 +458,8 @@ public class ReactionGame extends AppCompatActivity {
         debug.setText("" + xp);
         debug2.setText("" + balance);
         debug3.setText("" + keys);
+
+        if (xp<0) xp=0;
     }
 
     void loadData(){

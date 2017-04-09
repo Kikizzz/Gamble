@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -42,15 +43,12 @@ public class ReactionInit extends AppCompatActivity {
 
     void setGUI(){
         //TOPBAR
-        rank.setImageResource(R.drawable.rank_1);
-        rank.setAdjustViewBounds(true);
         winback.setImageResource(R.drawable.rank_win_title_back);
         loseback.setImageResource(R.drawable.rank_lose_title_back);
         winimg.setImageResource(R.drawable.rank_win_title);
         loseimg.setImageResource(R.drawable.rank_lose_title);
         reactionbanner.setImageResource(R.drawable.title_ranks);
 
-        rank.setPadding(0,0,0,0);
         winback.setAdjustViewBounds(true);
         winback.setPadding(0,0,0,0);
         loseback.setAdjustViewBounds(true);
@@ -61,18 +59,6 @@ public class ReactionInit extends AppCompatActivity {
         loseimg.setPadding(0,0,0,0);
         reactionbanner.setAdjustViewBounds(true);
         reactionbanner.setPadding(0,0,0,0);
-
-        //RANKS
-        leftRank.setImageResource(R.drawable.case_7);
-        mainRank.setImageResource(R.drawable.case_5);
-        rightRank.setImageResource(R.drawable.case_2);
-
-        leftRank.setAdjustViewBounds(true);
-        leftRank.setPadding(0,0,0,0);
-        mainRank.setAdjustViewBounds(true);
-        mainRank.setPadding(0,0,0,0);
-        rightRank.setAdjustViewBounds(true);
-        rightRank.setPadding(0,0,0,0);
 
         //SPECIFIC
         leftBtn.setImageResource(R.drawable.coinflip_icon);
@@ -102,26 +88,76 @@ public class ReactionInit extends AppCompatActivity {
         banner2.setAdjustViewBounds(true);
         banner2.setPadding(0,0,0,0);
 
-        //RANKS
+        //CUREENT RANKS
 
         if(xp<100){
             rank.setImageResource(R.drawable.rank_6);
+            mainRank.setImageResource(R.drawable.rank_6_small);
+            rightRank.setImageResource(R.drawable.rank_5_small);
+            leftRank.setVisibility(View.GONE);
+            rightRank.setVisibility(View.VISIBLE);
+            leftrankImg.setVisibility(View.GONE);
+            rightrankImg.setVisibility(View.VISIBLE);
         }
         if(xp>=100 && xp<200){
             rank.setImageResource(R.drawable.rank_5);
+            leftRank.setImageResource(R.drawable.rank_6_small);
+            mainRank.setImageResource(R.drawable.rank_5_small);
+            rightRank.setImageResource(R.drawable.rank_4_small);
+            leftRank.setVisibility(View.VISIBLE);
+            rightRank.setVisibility(View.VISIBLE);
+            leftrankImg.setVisibility(View.VISIBLE);
+            rightrankImg.setVisibility(View.VISIBLE);
         }
         if(xp>=200 && xp<300){
             rank.setImageResource(R.drawable.rank_4);
+            leftRank.setImageResource(R.drawable.rank_5_small);
+            mainRank.setImageResource(R.drawable.rank_4_small);
+            rightRank.setImageResource(R.drawable.rank_3_small);
+            leftRank.setVisibility(View.VISIBLE);
+            rightRank.setVisibility(View.VISIBLE);
+            leftrankImg.setVisibility(View.VISIBLE);
+            rightrankImg.setVisibility(View.VISIBLE);
         }
         if(xp>=300 && xp<400){
             rank.setImageResource(R.drawable.rank_3);
+            leftRank.setImageResource(R.drawable.rank_4_small);
+            mainRank.setImageResource(R.drawable.rank_3_small);
+            rightRank.setImageResource(R.drawable.rank_2_small);
+            leftRank.setVisibility(View.VISIBLE);
+            rightRank.setVisibility(View.VISIBLE);
+            leftrankImg.setVisibility(View.VISIBLE);
+            rightrankImg.setVisibility(View.VISIBLE);
         }
         if(xp>=400 && xp<500){
             rank.setImageResource(R.drawable.rank_2);
+            leftRank.setImageResource(R.drawable.rank_3_small);
+            mainRank.setImageResource(R.drawable.rank_2_small);
+            rightRank.setImageResource(R.drawable.rank_1_small);
+            leftRank.setVisibility(View.VISIBLE);
+            rightRank.setVisibility(View.VISIBLE);
+            leftrankImg.setVisibility(View.VISIBLE);
+            rightrankImg.setVisibility(View.VISIBLE);
         }
         if(xp>=500){
             rank.setImageResource(R.drawable.rank_1);
+            leftRank.setImageResource(R.drawable.rank_2_small);
+            mainRank.setImageResource(R.drawable.rank_1_small);
+            leftRank.setVisibility(View.VISIBLE);
+            rightRank.setVisibility(View.INVISIBLE);
+            leftrankImg.setVisibility(View.VISIBLE);
+            rightrankImg.setVisibility(View.GONE);
         }
+
+        leftRank.setAdjustViewBounds(true);
+        leftRank.setPadding(0,0,0,0);
+        mainRank.setAdjustViewBounds(true);
+        mainRank.setPadding(0,0,0,0);
+        rightRank.setAdjustViewBounds(true);
+        rightRank.setPadding(0,0,0,0);
+
+        rank.setAdjustViewBounds(true);
+        rank.setPadding(0,0,0,0);
     }
     void updateDisplay(){
         moneyvalue.setText("" + balance + "$");
@@ -138,6 +174,7 @@ public class ReactionInit extends AppCompatActivity {
         wins = load.getInt("wins", 0);
         loses = load.getInt("loses", 0);
         xp = load.getInt("xp", 50);
+        selected = 0;
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
@@ -198,7 +235,6 @@ public class ReactionInit extends AppCompatActivity {
         moneyvalue = (TextView)findViewById(R.id.moneyvalue);
         keyvalue = (TextView)findViewById(R.id.keyvalue);
 
-        selected = 0;
         loadData();
         setGUI();
         updateDisplay();

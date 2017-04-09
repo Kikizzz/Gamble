@@ -41,8 +41,8 @@ public class SplashScreen extends Activity {
         protected void onPostExecute(String result) {
             Intent i = new Intent(SplashScreen.this, Main.class);
             i.putExtra("data", result);
-            startActivity(i);
             finish();
+            startActivity(i);
         }
 
         @Override
