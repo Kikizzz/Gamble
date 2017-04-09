@@ -28,7 +28,7 @@ public class Sweeper extends AppCompatActivity {
 
     int buttonclicked;
     int keys, rubies;
-    int playmode, minecount, dividenumber;
+    static int minecount = 10, dividenumber= 10;
     int betval, profitval, balanceval;
 
     //VISUAL UTILS
@@ -268,161 +268,269 @@ public class Sweeper extends AppCompatActivity {
             int r = random.nextInt(25)+1;
             switch(r){
                 case 1:
-                    if (!b1)b1=true;
-                    btn1.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b1){
+                        b1=true;
+                        img1.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 2:
-                    if (!b2)b2=true;
-                    btn2.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b2){
+                        b2=true;
+                        img2.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 3:
-                    if (!b3)b3=true;
-                    btn3.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b3){
+                        b3=true;
+                        img3.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 4:
-                    if (!b4)b4=true;
-                    btn4.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b4){
+                        b4=true;
+                        img4.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 5:
-                    if (!b5)b5=true;
-                    btn5.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b5){
+                        b5=true;
+                        img5.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 6:
-                    if (!b6)b6=true;
-                    btn6.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b6){
+                        b6=true;
+                        img6.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 7:
-                    if (!b7)b7=true;
-                    btn7.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b7){
+                        b7=true;
+                        img7.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 8:
-                    if (!b8)b8=true;
-                    btn8.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b8){
+                        b8=true;
+                        img8.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 9:
-                    if (!b9)b9=true;
-                    btn9.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b9){
+                        b9=true;
+                        img9.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 10:
-                    if (!b10)b10=true;
-                    btn10.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b10){
+                        b10=true;
+                        img10.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 11:
-                    if (!b11)b11=true;
-                    btn11.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b11){
+                        b11=true;
+                        img11.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 12:
-                    if (!b12)b12=true;
-                    btn12.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b12){
+                        b12=true;
+                        img12.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 13:
-                    if (!b13)b13=true;
-                    btn13.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b13){
+                        b13=true;
+                        img13.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 14:
-                    if (!b14)b14=true;
-                    btn14.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b14){
+                        b14=true;
+                        img14.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 15:
-                    if (!b15)b15=true;
-                    btn15.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b15){
+                        b15=true;
+                        img15.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 16:
-                    if (!b16)b16=true;
-                    btn16.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b16){
+                        b16=true;
+                        img16.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 17:
-                    if (!b17)b17=true;
-                    btn17.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b17){
+                        b17=true;
+                        img17.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 18:
-                    if (!b18)b18=true;
-                    btn18.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b18){
+                        b18=true;
+                        img18.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 19:
-                    if (!b19)b19=true;
-                    btn19.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b19){
+                        b19=true;
+                        img19.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 20:
-                    if (!b20)b20=true;
-                    btn20.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b20){
+                        b20=true;
+                        img20.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 21:
-                    if (!b21)b21=true;
-                    btn21.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b21){
+                        b21=true;
+                        img21.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 22:
-                    if (!b22)b22=true;
-                    btn22.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b22){
+                        b22=true;
+                        img22.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 23:
-                    if (!b23)b23=true;
-                    btn23.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b23){
+                        b23=true;
+                        img23.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 24:
-                    if (!b24)b24=true;
-                    btn24.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b24){
+                        b24=true;
+                        img24.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
                 case 25:
-                    if (!b25)b25=true;
-                    btn25.setImageResource(R.drawable.mine_dead);
-                    placed+=1;
+                    if (!b25){
+                        b25=true;
+                        img25.setImageResource(R.drawable.mine_dead);
+                        placed+=1;
+                    }
                 break;
             }
         }
     }
     void clearMines(){
         b1=b2=b3=b4=b5=b6=b7=b8=b9=b10=b11=b12=b13=b14=b15=b16=b17=b18=b19=b20=b21=b22=b23=b24=b25=false;
-        btn1.setImageResource(R.drawable.go_active_royal);
-        btn2.setImageResource(R.drawable.go_active_royal);
-        btn3.setImageResource(R.drawable.go_active_royal);
-        btn4.setImageResource(R.drawable.go_active_royal);
-        btn5.setImageResource(R.drawable.go_active_royal);
-        btn6.setImageResource(R.drawable.go_active_royal);
-        btn7.setImageResource(R.drawable.go_active_royal);
-        btn8.setImageResource(R.drawable.go_active_royal);
-        btn9.setImageResource(R.drawable.go_active_royal);
-        btn10.setImageResource(R.drawable.go_active_royal);
-        btn11.setImageResource(R.drawable.go_active_royal);
-        btn12.setImageResource(R.drawable.go_active_royal);
-        btn13.setImageResource(R.drawable.go_active_royal);
-        btn14.setImageResource(R.drawable.go_active_royal);
-        btn15.setImageResource(R.drawable.go_active_royal);
-        btn16.setImageResource(R.drawable.go_active_royal);
-        btn16.setImageResource(R.drawable.go_active_royal);
-        btn17.setImageResource(R.drawable.go_active_royal);
-        btn18.setImageResource(R.drawable.go_active_royal);
-        btn19.setImageResource(R.drawable.go_active_royal);
-        btn20.setImageResource(R.drawable.go_active_royal);
-        btn21.setImageResource(R.drawable.go_active_royal);
-        btn22.setImageResource(R.drawable.go_active_royal);
-        btn23.setImageResource(R.drawable.go_active_royal);
-        btn24.setImageResource(R.drawable.go_active_royal);
-        btn25.setImageResource(R.drawable.go_active_royal);
+    }
+    void btnVisibility(String visibility){
+        switch (visibility){
+            case "INVISIBLE":
+                btn1.setVisibility(View.INVISIBLE);
+                btn2.setVisibility(View.INVISIBLE);
+                btn3.setVisibility(View.INVISIBLE);
+                btn4.setVisibility(View.INVISIBLE);
+                btn5.setVisibility(View.INVISIBLE);
+                btn6.setVisibility(View.INVISIBLE);
+                btn7.setVisibility(View.INVISIBLE);
+                btn8.setVisibility(View.INVISIBLE);
+                btn9.setVisibility(View.INVISIBLE);
+                btn10.setVisibility(View.INVISIBLE);
+                btn11.setVisibility(View.INVISIBLE);
+                btn12.setVisibility(View.INVISIBLE);
+                btn13.setVisibility(View.INVISIBLE);
+                btn14.setVisibility(View.INVISIBLE);
+                btn15.setVisibility(View.INVISIBLE);
+                btn16.setVisibility(View.INVISIBLE);
+                btn17.setVisibility(View.INVISIBLE);
+                btn18.setVisibility(View.INVISIBLE);
+                btn19.setVisibility(View.INVISIBLE);
+                btn20.setVisibility(View.INVISIBLE);
+                btn21.setVisibility(View.INVISIBLE);
+                btn22.setVisibility(View.INVISIBLE);
+                btn23.setVisibility(View.INVISIBLE);
+                btn24.setVisibility(View.INVISIBLE);
+                btn25.setVisibility(View.INVISIBLE);
+
+            break;
+            case "VISIBLE":
+                btn1.setVisibility(View.VISIBLE);
+                btn2.setVisibility(View.VISIBLE);
+                btn3.setVisibility(View.VISIBLE);
+                btn4.setVisibility(View.VISIBLE);
+                btn5.setVisibility(View.VISIBLE);
+                btn6.setVisibility(View.VISIBLE);
+                btn7.setVisibility(View.VISIBLE);
+                btn8.setVisibility(View.VISIBLE);
+                btn9.setVisibility(View.VISIBLE);
+                btn10.setVisibility(View.VISIBLE);
+                btn11.setVisibility(View.VISIBLE);
+                btn12.setVisibility(View.VISIBLE);
+                btn13.setVisibility(View.VISIBLE);
+                btn14.setVisibility(View.VISIBLE);
+                btn15.setVisibility(View.VISIBLE);
+                btn16.setVisibility(View.VISIBLE);
+                btn17.setVisibility(View.VISIBLE);
+                btn18.setVisibility(View.VISIBLE);
+                btn19.setVisibility(View.VISIBLE);
+                btn20.setVisibility(View.VISIBLE);
+                btn21.setVisibility(View.VISIBLE);
+                btn22.setVisibility(View.VISIBLE);
+                btn23.setVisibility(View.VISIBLE);
+                btn24.setVisibility(View.VISIBLE);
+                btn25.setVisibility(View.VISIBLE);
+                img1.setImageResource(R.drawable.plus);
+                img2.setImageResource(R.drawable.plus);
+                img3.setImageResource(R.drawable.plus);
+                img4.setImageResource(R.drawable.plus);
+                img5.setImageResource(R.drawable.plus);
+                img6.setImageResource(R.drawable.plus);
+                img7.setImageResource(R.drawable.plus);
+                img8.setImageResource(R.drawable.plus);
+                img9.setImageResource(R.drawable.plus);
+                img10.setImageResource(R.drawable.plus);
+                img11.setImageResource(R.drawable.plus);
+                img12.setImageResource(R.drawable.plus);
+                img13.setImageResource(R.drawable.plus);
+                img14.setImageResource(R.drawable.plus);
+                img15.setImageResource(R.drawable.plus);
+                img16.setImageResource(R.drawable.plus);
+                img17.setImageResource(R.drawable.plus);
+                img18.setImageResource(R.drawable.plus);
+                img19.setImageResource(R.drawable.plus);
+                img20.setImageResource(R.drawable.plus);
+                img21.setImageResource(R.drawable.plus);
+                img22.setImageResource(R.drawable.plus);
+                img23.setImageResource(R.drawable.plus);
+                img24.setImageResource(R.drawable.plus);
+                img25.setImageResource(R.drawable.plus);
+            break;
+        }
     }
 
     void boom() {
@@ -432,82 +540,81 @@ public class Sweeper extends AppCompatActivity {
         calculateProfit();
         switch(buttonclicked){
             case 1:
-                btn1.setImageResource(R.drawable.mine_ruby);
+                btn1.setVisibility(View.INVISIBLE);
                 break;
             case 2:
-                btn2.setImageResource(R.drawable.mine_ruby);
+                btn2.setVisibility(View.INVISIBLE);
                 break;
             case 3:
-                btn3.setImageResource(R.drawable.mine_ruby);
+                btn3.setVisibility(View.INVISIBLE);
                 break;
             case 4:
-                btn4.setImageResource(R.drawable.mine_ruby);
+                btn4.setVisibility(View.INVISIBLE);
                 break;
             case 5:
-                btn5.setImageResource(R.drawable.mine_ruby);
+                btn5.setVisibility(View.INVISIBLE);
                 break;
             case 6:
-                btn6.setImageResource(R.drawable.mine_ruby);
+                btn6.setVisibility(View.INVISIBLE);
                 break;
             case 7:
-                btn7.setImageResource(R.drawable.mine_ruby);
+                btn7.setVisibility(View.INVISIBLE);
                 break;
             case 8:
-                btn8.setImageResource(R.drawable.mine_ruby);
+                btn8.setVisibility(View.INVISIBLE);
                 break;
             case 9:
-                btn9.setImageResource(R.drawable.mine_ruby);
+                btn9.setVisibility(View.INVISIBLE);
                 break;
             case 10:
-                btn10.setImageResource(R.drawable.mine_ruby);
+                btn10.setVisibility(View.INVISIBLE);
                 break;
             case 11:
-                btn11.setImageResource(R.drawable.mine_ruby);
+                btn11.setVisibility(View.INVISIBLE);
                 break;
             case 12:
-                btn12.setImageResource(R.drawable.mine_ruby);
+                btn12.setVisibility(View.INVISIBLE);
                 break;
             case 13:
-                btn13.setImageResource(R.drawable.mine_ruby);
+                btn13.setVisibility(View.INVISIBLE);
                 break;
             case 14:
-                btn14.setImageResource(R.drawable.mine_ruby);
+                btn14.setVisibility(View.INVISIBLE);
                 break;
             case 15:
-                btn15.setImageResource(R.drawable.mine_ruby);
+                btn15.setVisibility(View.INVISIBLE);
                 break;
             case 16:
-                btn16.setImageResource(R.drawable.mine_ruby);
+                btn16.setVisibility(View.INVISIBLE);
                 break;
             case 17:
-                btn17.setImageResource(R.drawable.mine_ruby);
+                btn17.setVisibility(View.INVISIBLE);
                 break;
             case 18:
-                btn18.setImageResource(R.drawable.mine_ruby);
+                btn18.setVisibility(View.INVISIBLE);
                 break;
             case 19:
-                btn19.setImageResource(R.drawable.mine_ruby);
+                btn19.setVisibility(View.INVISIBLE);
                 break;
             case 20:
-                btn20.setImageResource(R.drawable.mine_ruby);
+                btn20.setVisibility(View.INVISIBLE);
                 break;
             case 21:
-                btn21.setImageResource(R.drawable.mine_ruby);
+                btn21.setVisibility(View.INVISIBLE);
                 break;
             case 22:
-                btn22.setImageResource(R.drawable.mine_ruby);
+                btn22.setVisibility(View.INVISIBLE);
                 break;
             case 23:
-                btn23.setImageResource(R.drawable.mine_ruby);
+                btn23.setVisibility(View.INVISIBLE);
                 break;
             case 24:
-                btn24.setImageResource(R.drawable.mine_ruby);
+                btn24.setVisibility(View.INVISIBLE);
                 break;
             case 25:
-                btn25.setImageResource(R.drawable.mine_ruby);
+                btn25.setVisibility(View.INVISIBLE);
                 break;
         }
-        Log.d("Profit", " value:" +profitval);
     }
 
     void buttonclick(){
@@ -614,31 +721,21 @@ public class Sweeper extends AppCompatActivity {
 
     //START END METHODS
     void startGame(){
+        btnVisibility("VISIBLE");
+
         firstturn = true;
         profitval = 0;
         balanceval-=betval;
         field("enable");
         livegame = true;
         updateDisplay();
-        //CHANGE DIVIDENUMBER
-        switch(playmode){
-            case 1:
-                minecount = 3;
-                dividenumber = 1;
-            break;
-            case 2:
-                minecount = 5;
-                dividenumber = 1;
-            break;
-            case 3:
-                minecount = 24;
-                dividenumber = 1;
-            break;
-        }
+
     createMines();
      savedata();
     }
     void endGame(){
+        btnVisibility("INVISIBLE");
+
         if(cashout){
             balanceval += profitval;
         }
@@ -719,9 +816,7 @@ public class Sweeper extends AppCompatActivity {
         bet = (TextView)findViewById(R.id.bet);
         profit = (TextView)findViewById(R.id.profit);
 
-        dividenumber = 10;
         betval = 5;
-        playmode = 2;
 
         field("disable");
         loadData();
