@@ -2,19 +2,19 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Sweeper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="studio.bowman.gamblegame.Sweeper">
 
     <ImageView
         android:id="@+id/img18"
+        android:background="@null"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintLeft_toLeftOf="@+id/img13"
         app:layout_constraintRight_toRightOf="@+id/img13"
         app:layout_constraintTop_toBottomOf="@+id/img13"
@@ -22,6 +22,7 @@
 
     <ImageView
         android:id="@+id/img7"
+        android:background="@null"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
@@ -32,6 +33,7 @@
 
     <ImageView
         android:id="@+id/img15"
+        android:background="@null"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
@@ -40,7 +42,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/img14"
         app:layout_constraintLeft_toRightOf="@+id/img14"
         app:layout_constraintTop_toTopOf="@+id/img14"
-        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/plus" />
 
     <ImageView
@@ -48,6 +49,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
+        android:background="@null"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@+id/img24"
         app:layout_constraintTop_toBottomOf="@+id/img20"
@@ -58,6 +60,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
+        android:background="@null"
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img14"
         app:layout_constraintLeft_toRightOf="@+id/img8"
@@ -70,8 +73,8 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toTopOf="@+id/img8"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/img8"
         app:layout_constraintRight_toRightOf="@+id/img8"
         app:srcCompat="@drawable/plus" />
@@ -83,6 +86,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/img12"
         app:layout_constraintRight_toLeftOf="@+id/img12"
         app:layout_constraintTop_toTopOf="@+id/img12"
@@ -94,6 +98,7 @@
         android:layout_height="50dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintRight_toLeftOf="@+id/img17"
         app:layout_constraintTop_toBottomOf="@+id/img11"
         app:srcCompat="@drawable/plus" />
@@ -104,6 +109,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
+        android:background="@null"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img13"
         app:layout_constraintLeft_toLeftOf="@+id/img13"
@@ -114,6 +120,7 @@
         android:id="@+id/img5"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img10"
@@ -128,6 +135,7 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img15"
         app:layout_constraintLeft_toRightOf="@+id/img9"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageView
@@ -139,6 +147,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@null"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -150,6 +159,7 @@
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintLeft_toRightOf="@+id/img19"
         app:layout_constraintTop_toBottomOf="@+id/img15"
         app:srcCompat="@drawable/plus" />
@@ -160,6 +170,7 @@
         android:layout_height="50dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintRight_toLeftOf="@+id/img22"
         app:layout_constraintTop_toBottomOf="@+id/img16"
         app:srcCompat="@drawable/plus" />
@@ -171,6 +182,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img6"
+        android:background="@null"
         app:layout_constraintRight_toLeftOf="@+id/img2"
         app:srcCompat="@drawable/plus" />
 
@@ -182,6 +194,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintRight_toLeftOf="@+id/img18"
         app:layout_constraintTop_toBottomOf="@+id/img12"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageView
@@ -190,6 +203,7 @@
         android:layout_height="50dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintRight_toLeftOf="@+id/img23"
         app:layout_constraintTop_toBottomOf="@+id/img17"
         app:srcCompat="@drawable/plus" />
@@ -201,6 +215,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/img13"
         app:layout_constraintRight_toLeftOf="@+id/img13"
         app:layout_constraintTop_toTopOf="@+id/img13"
@@ -212,6 +227,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toTopOf="@+id/img9"
         app:layout_constraintLeft_toRightOf="@+id/img3"
         app:srcCompat="@drawable/plus" />
@@ -223,14 +239,15 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/img13"
         app:layout_constraintLeft_toRightOf="@+id/img13"
         app:layout_constraintTop_toTopOf="@+id/img13"
-        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/plus" />
 
     <ImageView
         android:id="@+id/img19"
+        android:background="@null"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
@@ -241,6 +258,7 @@
 
     <ImageView
         android:id="@+id/img23"
+        android:background="@null"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
@@ -259,12 +277,14 @@
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img11"
         app:layout_constraintRight_toLeftOf="@+id/img7"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageView
         android:id="@+id/img24"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@+id/img23"
@@ -275,6 +295,7 @@
         android:id="@+id/img2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/img7"
@@ -288,7 +309,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:background="@null"
         app:layout_constraintLeft_toLeftOf="@+id/btn13"
         app:layout_constraintRight_toRightOf="@+id/btn13"
         app:layout_constraintTop_toBottomOf="@+id/btn13"
@@ -298,6 +319,7 @@
         android:id="@+id/btn7"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn12"
@@ -311,16 +333,17 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/btn14"
         app:layout_constraintLeft_toRightOf="@+id/btn14"
         app:layout_constraintTop_toTopOf="@+id/btn14"
-        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
         android:id="@+id/btn25"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@+id/btn24"
@@ -332,6 +355,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
+        android:background="@null"
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn14"
         app:layout_constraintLeft_toRightOf="@+id/btn8"
@@ -342,10 +366,10 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
+        android:background="@null"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn8"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/btn8"
         app:layout_constraintRight_toRightOf="@+id/btn8"
         app:srcCompat="@drawable/plus" />
@@ -356,6 +380,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
+        android:background="@null"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn12"
         app:layout_constraintRight_toLeftOf="@+id/btn12"
@@ -368,6 +393,7 @@
         android:layout_height="50dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintRight_toLeftOf="@+id/btn17"
         app:layout_constraintTop_toBottomOf="@+id/btn11"
         app:srcCompat="@drawable/plus" />
@@ -376,6 +402,7 @@
         android:id="@+id/btn8"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -390,6 +417,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toTopOf="@+id/btn10"
         app:layout_constraintLeft_toRightOf="@+id/btn4"
         app:srcCompat="@drawable/plus" />
@@ -399,6 +427,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
+        android:background="@null"
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn15"
         app:layout_constraintLeft_toRightOf="@+id/btn9"
@@ -408,6 +437,7 @@
         android:id="@+id/btn13"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -425,6 +455,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@+id/btn19"
+        android:background="@null"
         app:layout_constraintTop_toBottomOf="@+id/btn15"
         app:srcCompat="@drawable/plus" />
 
@@ -432,6 +463,7 @@
         android:id="@+id/btn21"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="@null"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintRight_toLeftOf="@+id/btn22"
@@ -443,6 +475,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
+        android:background="@null"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn6"
         app:layout_constraintRight_toLeftOf="@+id/btn2"
@@ -454,6 +487,7 @@
         android:layout_height="50dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@null"
         app:layout_constraintRight_toLeftOf="@+id/btn18"
         app:layout_constraintTop_toBottomOf="@+id/btn12"
         app:srcCompat="@drawable/plus" />
@@ -465,6 +499,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintRight_toLeftOf="@+id/btn23"
+        android:background="@null"
         app:layout_constraintTop_toBottomOf="@+id/btn17"
         app:srcCompat="@drawable/plus" />
 
@@ -478,6 +513,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn13"
         app:layout_constraintRight_toLeftOf="@+id/btn13"
         app:layout_constraintTop_toTopOf="@+id/btn13"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
@@ -488,6 +524,7 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn9"
         app:layout_constraintLeft_toRightOf="@+id/btn3"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
@@ -500,7 +537,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn13"
         app:layout_constraintLeft_toRightOf="@+id/btn13"
         app:layout_constraintTop_toTopOf="@+id/btn13"
-        app:layout_constraintVertical_bias="0.5"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
@@ -511,6 +548,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@+id/btn18"
         app:layout_constraintTop_toBottomOf="@+id/btn14"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
@@ -522,6 +560,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="@+id/btn18"
         app:layout_constraintRight_toRightOf="@+id/btn18"
+        android:background="@null"
         app:layout_constraintTop_toBottomOf="@+id/btn18"
         app:srcCompat="@drawable/plus" />
 
@@ -533,6 +572,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn11"
         app:layout_constraintRight_toLeftOf="@+id/btn7"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
@@ -543,6 +583,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@+id/btn23"
         app:layout_constraintTop_toBottomOf="@+id/btn19"
+        android:background="@null"
         app:srcCompat="@drawable/plus" />
 
     <ImageButton
@@ -551,6 +592,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="8dp"
+        android:background="@null"
         app:layout_constraintBottom_toTopOf="@+id/btn7"
         app:layout_constraintRight_toLeftOf="@+id/btn3"
         app:srcCompat="@drawable/plus" />
@@ -561,8 +603,8 @@
         android:layout_height="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:background="@null"
         android:layout_marginTop="32dp"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -572,47 +614,54 @@
         android:id="@+id/debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="debug"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textColor="@android:color/background_light"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/bet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:text="bet"
-        app:layout_constraintBottom_toTopOf="@+id/balance"
+        android:textColor="@android:color/background_light"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/profit" />
 
     <TextView
         android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:text="balance"
-        app:layout_constraintBottom_toTopOf="@+id/debug"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="-1dp"
+        app:layout_constraintTop_toBottomOf="@+id/bet"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/profit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:text="profit"
-        app:layout_constraintBottom_toTopOf="@+id/bet"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:textColor="@android:color/background_light"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <include
+        layout="@layout/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 </android.support.constraint.ConstraintLayout>

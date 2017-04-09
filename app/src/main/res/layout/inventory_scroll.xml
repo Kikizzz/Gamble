@@ -23,7 +23,6 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/bar1"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -31,7 +30,6 @@
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar2"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -41,7 +39,6 @@
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar3"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -97,7 +94,6 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/bar4"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -105,7 +101,6 @@
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar5"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -115,7 +110,6 @@
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar6"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -171,14 +165,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/bar7"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar8"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -188,7 +180,6 @@
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar9"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -244,7 +235,6 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/bar10"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -252,7 +242,6 @@
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar11"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -262,7 +251,6 @@
                     app:srcCompat="@drawable/you_have_keys" />
 
                 <ImageView
-                    android:id="@+id/bar12"
                     android:background="@null"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
@@ -313,7 +301,6 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/bar13"
                 android:background="@null"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
@@ -321,7 +308,6 @@
                 app:srcCompat="@drawable/you_have_keys" />
 
             <ImageView
-                android:id="@+id/bar14"
                 android:background="@null"
                 android:layout_width="60dp"
                 android:layout_height="25dp"
@@ -331,7 +317,6 @@
                 app:srcCompat="@drawable/you_have_keys" />
 
             <ImageView
-                android:id="@+id/bar15"
                 android:background="@null"
                 android:layout_width="60dp"
                 android:layout_height="25dp"

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -21,6 +20,7 @@ public class Sweeper extends AppCompatActivity {
     ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24,img25;
     ImageButton play;
     TextView debug, balance, bet, profit;
+    ImageButton leftBtn, mainBtn, rightBtn;
 
     boolean livegame, cashout;
     boolean b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17,b18,b19,b20,b21,b22,b23,b24,b25;
@@ -28,11 +28,23 @@ public class Sweeper extends AppCompatActivity {
 
     int buttonclicked;
     int keys, rubies;
-    static int minecount = 10, dividenumber= 10;
+    static int minecount = 7, dividenumber;
     int betval, profitval, balanceval;
 
     //VISUAL UTILS
     void setGUI(){
+        leftBtn.setImageResource(R.drawable.reaction_icon);
+        mainBtn.setImageResource(R.drawable.crash_icon);
+        rightBtn.setImageResource(R.drawable.robbery_icon_active);
+
+        leftBtn.setAdjustViewBounds(true);
+        leftBtn.setPadding(0,0,0,0);
+
+        mainBtn.setAdjustViewBounds(true);
+        mainBtn.setPadding(0,0,0,0);
+
+        rightBtn.setAdjustViewBounds(true);
+        rightBtn.setPadding(0,0,0,0);
 
         btn1.setImageResource(R.drawable.go_active_royal);
         btn2.setImageResource(R.drawable.go_active_royal);
@@ -257,7 +269,8 @@ public class Sweeper extends AppCompatActivity {
     }
     void calculateProfit(){
         profitval += betval / dividenumber;
-        dividenumber -= dividenumber/10;
+        Log.d("profitval", "" + profitval);
+        dividenumber -= dividenumber/5;
     }
     void createMines(){
         int placed = 0;
@@ -615,6 +628,7 @@ public class Sweeper extends AppCompatActivity {
                 btn25.setVisibility(View.INVISIBLE);
                 break;
         }
+        updateDisplay();
     }
 
     void buttonclick(){
@@ -725,6 +739,7 @@ public class Sweeper extends AppCompatActivity {
 
         firstturn = true;
         profitval = 0;
+        dividenumber = 5;
         balanceval-=betval;
         field("enable");
         livegame = true;
@@ -816,6 +831,10 @@ public class Sweeper extends AppCompatActivity {
         bet = (TextView)findViewById(R.id.bet);
         profit = (TextView)findViewById(R.id.profit);
 
+        leftBtn = (ImageButton)findViewById(R.id.leftBtn);
+        mainBtn = (ImageButton)findViewById(R.id.mainBtn);
+        rightBtn = (ImageButton)findViewById(R.id.rightBtn);
+
         betval = 5;
 
         field("disable");
@@ -828,13 +847,31 @@ public class Sweeper extends AppCompatActivity {
                 if(!livegame){
                     startGame();
                 }else{
-//                    if(!firstturn) {
+                    if(!firstturn) {
                         cashout = true;
                         endGame();
-//                    }
+                    }
                 }
             }
         });
+
+        leftBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                    Intent intent = new Intent(Sweeper.this, ReactionInit.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    finish();
+                    startActivity(intent);
+            }
+        });
+        mainBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                    Intent intent = new Intent(Sweeper.this, Crash.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    finish();
+                    startActivity(intent);
+            }
+        });
+
         btn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 buttonclicked = 1;

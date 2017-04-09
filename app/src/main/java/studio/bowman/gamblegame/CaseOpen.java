@@ -26,45 +26,36 @@ public class CaseOpen extends AppCompatActivity {
     TextView debug;
 
     void setGUI(){
-        //BOTTOM BUTTONS
         switch(selected){
             case 1:
-                caseview.setImageResource(R.drawable.case_1_open);
-//                banneris.setImageResource(R.drawable.case_title_exquisite);
+                banneris.setImageResource(R.drawable.case_title_grand);
                 break;
             case 2:
-                caseview.setImageResource(R.drawable.case_2_open);
-//                banneris.setImageResource(R.drawable.case_title_luxurious);
+                banneris.setImageResource(R.drawable.case_title_luxurious);
                 break;
             case 3:
-                caseview.setImageResource(R.drawable.case_3_open);
-//                banneris.setImageResource(R.drawable.case_title_grand);
+                banneris.setImageResource(R.drawable.case_title_exquisite);
                 break;
             case 4:
-                caseview.setImageResource(R.drawable.case_4_open);
-//                banneris.setImageResource(R.drawable.case_title_industry);
+                banneris.setImageResource(R.drawable.case_title_office);
                 break;
             case 5:
-                caseview.setImageResource(R.drawable.case_5_open);
-//                banneris.setImageResource(R.drawable.case_title_commerce);
+                banneris.setImageResource(R.drawable.case_title_commerce);
                 break;
             case 6:
-                caseview.setImageResource(R.drawable.case_6_open);
-//                banneris.setImageResource(R.drawable.case_title_office);
+                banneris.setImageResource(R.drawable.case_title_industry);
                 break;
             case 7:
-                caseview.setImageResource(R.drawable.case_7_open);
-//                banneris.setImageResource(R.drawable.case_title_luxurious);
+                banneris.setImageResource(R.drawable.case_title_budget);
                 break;
             case 8:
-                caseview.setImageResource(R.drawable.case_8_open);
-//                banneris.setImageResource(R.drawable.case_title_luxurious);
+                banneris.setImageResource(R.drawable.case_title_ordinary);
                 break;
             case 9:
-                caseview.setImageResource(R.drawable.case_9_open);
-//                banneris.setImageResource(R.drawable.case_title_luxurious);
+                banneris.setImageResource(R.drawable.case_title_standard);
                 break;
         }
+
         flare.setImageResource(R.drawable.case_open_flare);
 
 
@@ -175,7 +166,7 @@ public class CaseOpen extends AppCompatActivity {
 
         caseview = (ImageButton)findViewById(R.id.caseview);
         flare = (ImageView)findViewById(R.id.flare);
-        banneris = (ImageView)findViewById(R.id.foobar);
+        banneris = (ImageView)findViewById(R.id.banneris);
         debug = (TextView)findViewById(R.id.debug);
 
         gotkeys = 0;
@@ -186,8 +177,7 @@ public class CaseOpen extends AppCompatActivity {
         max = 250;
         clicks = 0;
         Random random = new Random();
-//        required = random.nextInt(max) + min;
-        required = 1;
+        required = random.nextInt(max) + min;
 
         loadData();
         randomReward();

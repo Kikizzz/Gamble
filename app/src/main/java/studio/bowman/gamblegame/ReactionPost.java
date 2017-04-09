@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,6 +17,7 @@ import java.util.Random;
 
 public class ReactionPost extends AppCompatActivity {
 
+    int droprate;
     int xp;
     int keys, balance;
     int bet;
@@ -34,7 +36,6 @@ public class ReactionPost extends AppCompatActivity {
     ImageView display,rankdisplay, underrank, title;
     ImageView profitback;
     TextView profit;
-
 
     void setGUI(){
         if(xp<100){
@@ -93,6 +94,16 @@ public class ReactionPost extends AppCompatActivity {
 
         //TODO : PROFIT VISUAL
     }
+    void tryDrop(){
+        //CHANCE THAT SOMETHING WILL DROP
+        Random dropchance = new Random();
+        int foobar = dropchance.nextInt(100)+1;
+        if (foobar<=1+droprate){
+            Intent intent = new Intent(ReactionPost.this, DropScreen.class);
+            startActivity(intent);
+        }
+
+    }
 
     void loadData(){
         Intent intent = getIntent();
@@ -107,7 +118,7 @@ public class ReactionPost extends AppCompatActivity {
         wins = load.getInt("wins", 0);
         loses = load.getInt("loses", 0);
         xp = load.getInt("xp", 0);
-
+        droprate = load.getInt("droprate", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
@@ -153,13 +164,13 @@ public class ReactionPost extends AppCompatActivity {
         underrank = (ImageView)findViewById(R.id.underrank);
         title = (ImageView)findViewById(R.id.title);
         profitback = (ImageView)findViewById(R.id.profitback);
-
         profit = (TextView)findViewById(R.id.profit);
-
 
         loadData();
         setGUI();
         updateDisplay();
+        Log.d("Drop Rate", "Value :" + droprate);
+        tryDrop();
 
         mainBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

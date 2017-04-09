@@ -45,34 +45,33 @@ public class CaseDone extends AppCompatActivity {
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
 
-
         switch(selected){
             case 1:
-                banneris.setImageResource(R.drawable.case_title_exquisite);
+                banneris.setImageResource(R.drawable.case_title_grand);
                 break;
             case 2:
                 banneris.setImageResource(R.drawable.case_title_luxurious);
                 break;
             case 3:
-                banneris.setImageResource(R.drawable.case_title_grand);
+                banneris.setImageResource(R.drawable.case_title_exquisite);
                 break;
             case 4:
-                banneris.setImageResource(R.drawable.case_title_industry);
+                banneris.setImageResource(R.drawable.case_title_office);
                 break;
             case 5:
                 banneris.setImageResource(R.drawable.case_title_commerce);
                 break;
             case 6:
-                banneris.setImageResource(R.drawable.case_title_office);
+                banneris.setImageResource(R.drawable.case_title_industry);
                 break;
             case 7:
-                banneris.setImageResource(R.drawable.case_title_luxurious);
+                banneris.setImageResource(R.drawable.case_title_budget);
                 break;
             case 8:
-                banneris.setImageResource(R.drawable.case_title_luxurious);
+                banneris.setImageResource(R.drawable.case_title_ordinary);
                 break;
             case 9:
-                banneris.setImageResource(R.drawable.case_title_luxurious);
+                banneris.setImageResource(R.drawable.case_title_standard);
                 break;
         }
 
@@ -84,39 +83,42 @@ public class CaseDone extends AppCompatActivity {
          */
 
         if (gotstatus==1){
-            itemview.setImageResource(R.drawable.prize_img_keys);
+            itemview.setImageResource(R.drawable.case_open_prize_keys);
         }
         if (gotstatus==2){
-            itemview.setImageResource(R.drawable.prize_img_ruby);
+            itemview.setImageResource(R.drawable.case_open_prize_ruby);
         }
         if (gotstatus==3) {
             switch (selected) {
                 case 1:
                     switch (gotskin) {
                         case 1:
-                            itemview.setImageResource(R.drawable.case_prize_vault_whiteruby_fade);
+                            itemview.setImageResource(R.drawable.case_open_prize_crown_1_purple);
                             break;
                         case 2:
+                            itemview.setImageResource(R.drawable.case_open_prize_shield_1_purple);
                             break;
                         case 3:
+                            itemview.setImageResource(R.drawable.case_open_prize_pig_purple);
                             break;
                         case 4:
+                            itemview.setImageResource(R.drawable.case_open_prize_shovel_3_purple);
                             break;
                     }
                     break;
                 case 2:
                     switch (gotskin) {
                         case 1:
-                            itemview.setImageResource(R.drawable.prize_img_mask_whiteruby);
+                            itemview.setImageResource(R.drawable.case_open_prize_crown_1_gold);
                             break;
                         case 2:
-                            itemview.setImageResource(R.drawable.prize_img_vault_whiteruby);
+                            itemview.setImageResource(R.drawable.case_open_prize_watch_1_gold);
                             break;
                         case 3:
-                            itemview.setImageResource(R.drawable.prize_img_pig_ice);
+                            itemview.setImageResource(R.drawable.case_open_prize_bank_gold);
                             break;
                         case 4:
-                            itemview.setImageResource(R.drawable.prize_img_shovel_2_ice);
+                            itemview.setImageResource(R.drawable.case_open_prize_shovel_gold);
                             break;
                     }
                     break;

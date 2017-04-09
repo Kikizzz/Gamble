@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -61,7 +60,7 @@ public class ReactionInit extends AppCompatActivity {
         reactionbanner.setPadding(0,0,0,0);
 
         //SPECIFIC
-        leftBtn.setImageResource(R.drawable.coinflip_icon);
+        leftBtn.setImageResource(R.drawable.reaction_icon_active);
         mainBtn.setImageResource(R.drawable.crash_icon);
         rightBtn.setImageResource(R.drawable.robbery_icon);
         moneyvalueback.setImageResource(R.drawable.case_amount_img);

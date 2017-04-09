@@ -22,16 +22,16 @@ public class Inventory extends AppCompatActivity {
 
     void setGUI(){
         box1.setImageResource(R.drawable.item_key);
-        box2.setImageResource(R.drawable.item_mask);
-        box3.setImageResource(R.drawable.item_mask_whiteruby);
+        box2.setImageResource(R.drawable.item_ruby);
+        box3.setImageResource(R.drawable.item_bank);
         box4.setImageResource(R.drawable.item_pig);
-        box5.setImageResource(R.drawable.item_pig_ice);
-        box6.setImageResource(R.drawable.item_shovel);
-        box7.setImageResource(R.drawable.item_shovel_whiteruby);
-        box8.setImageResource(R.drawable.item_shovel_2);
-        box9.setImageResource(R.drawable.item_shovel_2_ice);
-        box10.setImageResource(R.drawable.item_vault);
-        box11.setImageResource(R.drawable.item_vault_whiteruby);
+        box5.setImageResource(R.drawable.item_shovel);
+        box6.setImageResource(R.drawable.item_shovel_2);
+        box7.setImageResource(R.drawable.item_shovel_3);
+        box8.setImageResource(R.drawable.item_vault);
+        box9.setImageResource(R.drawable.item_watch);
+        box10.setImageResource(R.drawable.case_check_1);
+        box11.setImageResource(R.drawable.case_check_1);
         box12.setImageResource(R.drawable.case_check_1);
         box13.setImageResource(R.drawable.case_check_1);
         box14.setImageResource(R.drawable.case_check_1);
@@ -70,8 +70,8 @@ public class Inventory extends AppCompatActivity {
 
         banneris.setImageResource(R.drawable.case_title_exquisite);
         leftBtn.setImageResource(R.drawable.shop_icon);
-        mainBtn.setImageResource(R.drawable.inventory_icon);
-        rightBtn.setImageResource(R.drawable.case_icon);
+        mainBtn.setImageResource(R.drawable.inventory_icon_active);
+        rightBtn.setImageResource(R.drawable.cases_icon);
 
         banneris.setAdjustViewBounds(true);
         banneris.setPadding(0,0,0,0);

@@ -7,7 +7,6 @@
     tools:context="studio.bowman.gamblegame.test">
 
     <include
-        layout="@layout/activity_test2"
-        android:id="@+id/includedLayout" />
+        layout="@layout/activity_test2" />
 
 </android.support.constraint.ConstraintLayout>

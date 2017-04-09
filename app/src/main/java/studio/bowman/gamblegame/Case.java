@@ -25,7 +25,7 @@ public class Case extends AppCompatActivity {
 
     ImageButton leftBtn, mainBtn,rightBtn;
 
-    //TODO: ASYNC LAYOUTS, SOUNDS, SWEEPER
+    //TODO: ASYNC LAYOUTS, SOUNDS
 
     void setGUI(){
         // TITLE BARS
@@ -140,7 +140,7 @@ public class Case extends AppCompatActivity {
         //BOTTOM BUTTONS
         leftBtn.setImageResource(R.drawable.shop_icon);
         mainBtn.setImageResource(R.drawable.inventory_icon);
-        rightBtn.setImageResource(R.drawable.case_icon);
+        rightBtn.setImageResource(R.drawable.cases_icon_active);
 
         leftBtn.setAdjustViewBounds(true);
         leftBtn.setPadding(0,0,0,0);
@@ -176,15 +176,15 @@ public class Case extends AppCompatActivity {
     
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-        v1 = load.getInt("cases1", 1500);
-        v2 = load.getInt("cases2", 1500);
-        v3 = load.getInt("cases3", 1500);
-        v4 = load.getInt("cases4", 1500);
-        v5 = load.getInt("cases5", 1500);
-        v6 = load.getInt("cases6", 1500);
-        v7 = load.getInt("cases7", 1500);
-        v8 = load.getInt("cases8", 1500);
-        v9 = load.getInt("cases9", 1500);
+        v1 = load.getInt("cases1", 0);
+        v2 = load.getInt("cases2", 0);
+        v3 = load.getInt("cases3", 0);
+        v4 = load.getInt("cases4", 0);
+        v5 = load.getInt("cases5", 0);
+        v6 = load.getInt("cases6", 0);
+        v7 = load.getInt("cases7", 0);
+        v8 = load.getInt("cases8", 0);
+        v9 = load.getInt("cases9", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);

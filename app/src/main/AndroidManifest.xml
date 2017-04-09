@@ -52,7 +52,11 @@
         <activity android:name=".ReactionInit" />
         <activity android:name=".ReactionChoose" />
         <activity android:name=".ReactionGame" />
-        <activity android:name=".ReactionPost"></activity>
+        <activity android:name=".ReactionPost" />
+        <activity
+            android:name=".DropScreen"
+            android:theme="@style/PopTheme">
+        </activity>
     </application>
 
 </manifest>

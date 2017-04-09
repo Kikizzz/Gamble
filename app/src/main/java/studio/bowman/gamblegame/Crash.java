@@ -27,6 +27,7 @@ import java.util.TimerTask;
 
 public class Crash extends AppCompatActivity {
     int xp;
+    int droprate;
 
     private int width, height, bheight, bwidth, boxwidth, boxheight;
     private float x, y;
@@ -52,6 +53,16 @@ public class Crash extends AppCompatActivity {
     // 1 = DRAW
     // 2 = LOSE
     // 3 = WIN
+    void tryDrop(){
+        //CHANCE THAT SOMETHING WILL DROP
+        Random dropchance = new Random();
+        int foobar = dropchance.nextInt(100)+1;
+        if (foobar<=1+droprate){
+            Intent intent = new Intent(Crash.this, DropScreen.class);
+            startActivity(intent);
+        }
+
+    }
 
     void saveData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
@@ -77,6 +88,7 @@ public class Crash extends AppCompatActivity {
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         balance = load.getInt("balance", 50);
+        droprate = load.getInt("droprate", 0);
         xp = load.getInt("xp", 0);
         v1 = load.getFloat("v1", 0);
         v2 = load.getFloat("v2", 0);
@@ -156,16 +168,14 @@ public class Crash extends AppCompatActivity {
         plusmin.setPadding(0,0,0,0);
 
         //BOTTOM BUTTONS
-        leftBtn.setImageResource(R.drawable.coinflip_icon);
-        mainBtn.setImageResource(R.drawable.crash_icon);
+        leftBtn.setImageResource(R.drawable.reaction_icon);
+        mainBtn.setImageResource(R.drawable.crash_icon_active);
         rightBtn.setImageResource(R.drawable.robbery_icon);
 
         leftBtn.setAdjustViewBounds(true);
         leftBtn.setPadding(0,0,0,0);
-
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
-
         rightBtn.setAdjustViewBounds(true);
         rightBtn.setPadding(0,0,0,0);
 
@@ -368,6 +378,9 @@ public class Crash extends AppCompatActivity {
 
         updateValues();
         sethistory();
+        if (playing){
+            tryDrop();
+        }
 
         play.setEnabled(true);
         play.setClickable(true);
