@@ -58,8 +58,20 @@ public class Main extends AppCompatActivity {
 
         highscores.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Main.this, DropScreen.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Main.this, DropScreen.class);
+//               startActivity(intent);
+
+                try {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("text/plain");
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Royal Crash");
+                    String sAux = "\nElvis lohs\n\n";
+                    sAux = sAux + "https://play.google.com/store/apps/details?id=Orion.Soft \n\n";
+                    i.putExtra(Intent.EXTRA_TEXT, sAux);
+                    startActivity(Intent.createChooser(i, "Sharing Options"));
+                } catch(Exception e) {
+                    //e.toString();
+                }
             }
         });
 

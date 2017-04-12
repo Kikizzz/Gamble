@@ -18,8 +18,9 @@ public class Sweeper extends AppCompatActivity {
 
     ImageButton btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12,btn13,btn14,btn15,btn16,btn17,btn18,btn19,btn20,btn21,btn22,btn23,btn24,btn25;
     ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24,img25;
+    ImageView maintitle, bettitle;
     ImageButton play;
-    TextView debug, balance, bet, profit;
+    ImageButton bet1, bet2, bet3;
     ImageButton leftBtn, mainBtn, rightBtn;
 
     boolean livegame, cashout;
@@ -41,38 +42,76 @@ public class Sweeper extends AppCompatActivity {
 
         leftBtn.setAdjustViewBounds(true);
         leftBtn.setPadding(0,0,0,0);
-
         mainBtn.setAdjustViewBounds(true);
         mainBtn.setPadding(0,0,0,0);
-
         rightBtn.setAdjustViewBounds(true);
         rightBtn.setPadding(0,0,0,0);
 
-        btn1.setImageResource(R.drawable.go_active_royal);
-        btn2.setImageResource(R.drawable.go_active_royal);
-        btn3.setImageResource(R.drawable.go_active_royal);
-        btn4.setImageResource(R.drawable.go_active_royal);
-        btn5.setImageResource(R.drawable.go_active_royal);
-        btn6.setImageResource(R.drawable.go_active_royal);
-        btn7.setImageResource(R.drawable.go_active_royal);
-        btn8.setImageResource(R.drawable.go_active_royal);
-        btn9.setImageResource(R.drawable.go_active_royal);
-        btn10.setImageResource(R.drawable.go_active_royal);
-        btn11.setImageResource(R.drawable.go_active_royal);
-        btn12.setImageResource(R.drawable.go_active_royal);
-        btn13.setImageResource(R.drawable.go_active_royal);
-        btn14.setImageResource(R.drawable.go_active_royal);
-        btn15.setImageResource(R.drawable.go_active_royal);
-        btn16.setImageResource(R.drawable.go_active_royal);
-        btn17.setImageResource(R.drawable.go_active_royal);
-        btn18.setImageResource(R.drawable.go_active_royal);
-        btn19.setImageResource(R.drawable.go_active_royal);
-        btn20.setImageResource(R.drawable.go_active_royal);
-        btn21.setImageResource(R.drawable.go_active_royal);
-        btn22.setImageResource(R.drawable.go_active_royal);
-        btn23.setImageResource(R.drawable.go_active_royal);
-        btn24.setImageResource(R.drawable.go_active_royal);
-        btn25.setImageResource(R.drawable.go_active_royal);
+        play.setImageResource(R.drawable.robbery_icon_active);
+        bet1.setImageResource(R.drawable.robbery_icon_active);
+        bet2.setImageResource(R.drawable.robbery_icon_active);
+        bet3.setImageResource(R.drawable.robbery_icon_active);
+
+        play.setAdjustViewBounds(true);
+        play.setPadding(0,0,0,0);
+        bet1.setAdjustViewBounds(true);
+        bet1.setPadding(0,0,0,0);
+        bet2.setAdjustViewBounds(true);
+        bet2.setPadding(0,0,0,0);
+        bet3.setAdjustViewBounds(true);
+        bet3.setPadding(0,0,0,0);
+
+        btn1.setImageResource(R.drawable.mine_default);
+        btn2.setImageResource(R.drawable.mine_default);
+        btn3.setImageResource(R.drawable.mine_default);
+        btn4.setImageResource(R.drawable.mine_default);
+        btn5.setImageResource(R.drawable.mine_default);
+        btn6.setImageResource(R.drawable.mine_default);
+        btn7.setImageResource(R.drawable.mine_default);
+        btn8.setImageResource(R.drawable.mine_default);
+        btn9.setImageResource(R.drawable.mine_default);
+        btn10.setImageResource(R.drawable.mine_default);
+        btn11.setImageResource(R.drawable.mine_default);
+        btn12.setImageResource(R.drawable.mine_default);
+        btn13.setImageResource(R.drawable.mine_default);
+        btn14.setImageResource(R.drawable.mine_default);
+        btn15.setImageResource(R.drawable.mine_default);
+        btn16.setImageResource(R.drawable.mine_default);
+        btn17.setImageResource(R.drawable.mine_default);
+        btn18.setImageResource(R.drawable.mine_default);
+        btn19.setImageResource(R.drawable.mine_default);
+        btn20.setImageResource(R.drawable.mine_default);
+        btn21.setImageResource(R.drawable.mine_default);
+        btn22.setImageResource(R.drawable.mine_default);
+        btn23.setImageResource(R.drawable.mine_default);
+        btn24.setImageResource(R.drawable.mine_default);
+        btn25.setImageResource(R.drawable.mine_default);
+
+        img1.setImageResource(R.drawable.mine_default);
+        img2.setImageResource(R.drawable.mine_default);
+        img3.setImageResource(R.drawable.mine_default);
+        img4.setImageResource(R.drawable.mine_default);
+        img5.setImageResource(R.drawable.mine_default);
+        img6.setImageResource(R.drawable.mine_default);
+        img7.setImageResource(R.drawable.mine_default);
+        img8.setImageResource(R.drawable.mine_default);
+        img9.setImageResource(R.drawable.mine_default);
+        img10.setImageResource(R.drawable.mine_default);
+        img11.setImageResource(R.drawable.mine_default);
+        img12.setImageResource(R.drawable.mine_default);
+        img13.setImageResource(R.drawable.mine_default);
+        img14.setImageResource(R.drawable.mine_default);
+        img15.setImageResource(R.drawable.mine_default);
+        img16.setImageResource(R.drawable.mine_default);
+        img17.setImageResource(R.drawable.mine_default);
+        img18.setImageResource(R.drawable.mine_default);
+        img19.setImageResource(R.drawable.mine_default);
+        img20.setImageResource(R.drawable.mine_default);
+        img21.setImageResource(R.drawable.mine_default);
+        img22.setImageResource(R.drawable.mine_default);
+        img23.setImageResource(R.drawable.mine_default);
+        img24.setImageResource(R.drawable.mine_default);
+        img25.setImageResource(R.drawable.mine_default);
 
         btn1.setAdjustViewBounds(true);
         btn1.setPadding(0,0,0,0);
@@ -177,10 +216,6 @@ public class Sweeper extends AppCompatActivity {
         img25.setPadding(0,0,0,0);
     }
     void updateDisplay(){
-        debug.setText("" + livegame);
-        profit.setText("" + gotemeraldrings);
-        bet.setText("" + gotrubyrings);
-        balance.setText("" + gotroyalrings);
     }
 
     //UTILS
@@ -242,10 +277,6 @@ public class Sweeper extends AppCompatActivity {
                 break;
         }
     }
-    void calculateProfit(){
-        profitval += betval / dividenumber;
-        dividenumber -= dividenumber/5;
-    }
 
     int rewardmethod(boolean b, ImageView img){
         Random rewardrandom = new Random();
@@ -256,19 +287,19 @@ public class Sweeper extends AppCompatActivity {
             foobar = rewardrandom.nextInt(100)+1;
             if (foobar <= 50){
                 r = 0;
-                img.setImageResource(R.drawable.bal_back);
+                img.setImageResource(R.drawable.mine_blank);
             }
             if (foobar > 50 && foobar <=80){
                 r = 1;
-                img.setImageResource(R.drawable.item_ring_emerald);
+                img.setImageResource(R.drawable.mine_ringemerald);
             }
             if (foobar > 80 && foobar<=95){
                 r = 2;
-                img.setImageResource(R.drawable.item_ring_ruby);
+                img.setImageResource(R.drawable.mine_ringruby);
             }
             if (foobar > 95){
                 r = 3;
-                img.setImageResource(R.drawable.item_ring_royalstone);
+                img.setImageResource(R.drawable.mine_ringroyalstone);
             }
         }
         return r;
@@ -319,7 +350,6 @@ public class Sweeper extends AppCompatActivity {
         }
     }
     void getreward() {
-        calculateProfit();
         switch(buttonclicked){
             case 1:
                 rewardmethod(btn1, r1);
@@ -807,7 +837,6 @@ public class Sweeper extends AppCompatActivity {
         btnVisibility("INVISIBLE");
 
         if(cashout){
-            balanceval += profitval;
             emeraldrings += gotemeraldrings;
             rubyrings += gotrubyrings;
             royalrings += gotroyalrings;
@@ -884,10 +913,12 @@ public class Sweeper extends AppCompatActivity {
         img25 = (ImageView)findViewById(R.id.img25);
 
         play = (ImageButton)findViewById(R.id.play);
-        debug = (TextView)findViewById(R.id.debug);
-        balance  = (TextView)findViewById(R.id.balance);
-        bet = (TextView)findViewById(R.id.bet);
-        profit = (TextView)findViewById(R.id.profit);
+        bet1 = (ImageButton)findViewById(R.id.bet1);
+        bet2 = (ImageButton)findViewById(R.id.bet2);
+        bet3 = (ImageButton)findViewById(R.id.bet3);
+
+        maintitle = (ImageView)findViewById(R.id.maintitle);
+        bettitle = (ImageView)findViewById(R.id.bettitle);
 
         leftBtn = (ImageButton)findViewById(R.id.leftBtn);
         mainBtn = (ImageButton)findViewById(R.id.mainBtn);
@@ -915,6 +946,7 @@ public class Sweeper extends AppCompatActivity {
 
         leftBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                    savedata();
                     Intent intent = new Intent(Sweeper.this, ReactionInit.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     finish();
@@ -923,6 +955,7 @@ public class Sweeper extends AppCompatActivity {
         });
         mainBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                    savedata();
                     Intent intent = new Intent(Sweeper.this, Crash.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     finish();

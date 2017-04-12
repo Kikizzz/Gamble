@@ -129,14 +129,16 @@ public class ReactionChoose extends AppCompatActivity {
         if (selected == 1){
             //MONEY
             balance -= bet;
+            savedata();
         }else{
             //KEYS
             keys -= bet;
+            savedata();
         }
-        savedata();
         Intent intent = new Intent(ReactionChoose.this, ReactionGame.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         intent.putExtra("selected", selected);
+        intent.putExtra("bet", bet);
         finish();
         startActivity(intent);
     }
@@ -160,7 +162,6 @@ public class ReactionChoose extends AppCompatActivity {
         save.putInt("balance", balance);
         save.putInt("wins", wins);
         save.putInt("loses", loses);
-        save.putInt("bet", bet);
         save.apply();
         save.commit();
     }
@@ -215,122 +216,138 @@ public class ReactionChoose extends AppCompatActivity {
 
         choice1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 100;
-                    break;
-                    case 2:
-                        //KEYS
-                        bet = 1;
-                    break;
+                if(balance >= 100 && keys>=1) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 100;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 1;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
         choice2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 2500;
-                        break;
-                    case 2:
-                        //KEYS
-                        bet = 3;
-                        break;
+                if(balance >= 2500 && keys>=3) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 2500;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 3;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
         choice3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 250;
-                        break;
-                    case 2:
-                        //KEYS
-                        bet = 5;
-                        break;
+                if(balance >= 250 && keys>=5) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 250;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 5;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
         choice4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 5000;
-                        break;
-                    case 2:
-                        //KEYS
-                        bet = 10;
-                        break;
+                if(balance >= 5000 && keys>=10) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 5000;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 10;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
         choice5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 500;
-                        break;
-                    case 2:
-                        //KEYS
-                        bet = 15;
-                        break;
+                if(balance >= 500 && keys>=15) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 500;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 15;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
         choice6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 10000;
-                        break;
-                    case 2:
-                        //KEYS
-                        bet = 20;
-                        break;
+                if(balance >= 10000 && keys>=20) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 10000;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 20;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
         choice7.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 1000;
-                        break;
-                    case 2:
-                        //KEYS
-                        bet = 25;
-                        break;
+                if(balance >= 1000 && keys>=25) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 1000;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 25;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
         choice8.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                switch(selected){
-                    case 1:
-                        //MONEY
-                        bet = 25000;
-                        break;
-                    case 2:
-                        //KEYS
-                        bet = 50;
-                        break;
+                if(balance >= 25000 && keys>=50) {
+                    switch (selected) {
+                        case 1:
+                            //MONEY
+                            bet = 25000;
+                            break;
+                        case 2:
+                            //KEYS
+                            bet = 50;
+                            break;
+                    }
+                    calculateBet();
                 }
-                calculateBet();
             }
         });
     }

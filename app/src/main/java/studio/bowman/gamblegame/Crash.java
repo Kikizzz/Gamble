@@ -529,6 +529,8 @@ public class Crash extends AppCompatActivity {
         t11 = (TextView)findViewById(R.id.v11);
         t12 = (TextView)findViewById(R.id.v12);
 
+        loadData();
+
         //CRASH RUNNING BOOLEAN
         utils = new Utils(false);
 
@@ -544,7 +546,6 @@ public class Crash extends AppCompatActivity {
 
         profit = 0;
 
-        loadData();
 
         //DEFAULT DISPLAY
         setGUI();
@@ -600,6 +601,7 @@ public class Crash extends AppCompatActivity {
                         balance = balance + profit;
                         updateValues();
                         boolbail = true;
+                        playing = false;
 
                         play.setClickable(true);
                         play.setEnabled(true);
@@ -631,7 +633,15 @@ public class Crash extends AppCompatActivity {
 
         minusmid.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bet = bet - 5;
+                if(balance<=1000){
+                    bet = bet - 10;
+                }
+                if(balance > 1000 && balance <=10000){
+                    bet = bet - 100;
+                }
+                if(balance > 10000 && balance <=100000){
+                    bet = bet - 1000;
+                }
                 if (bet<0){
                     bet = 0;
                 }
@@ -658,7 +668,16 @@ public class Crash extends AppCompatActivity {
 
         plusmid.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bet = bet + 5;
+                if(balance<=1000){
+                    bet = bet + 10;
+                }
+                if(balance > 1000 && balance <=10000){
+                    bet = bet + 100;
+                }
+                if(balance > 10000 && balance <=100000){
+                    bet = bet + 1000;
+                }
+
                 if (bet>balance){
                     bet = balance;
                 }
@@ -678,6 +697,7 @@ public class Crash extends AppCompatActivity {
 
         leftBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                saveData();
                 if(!playing){
                     Intent intent = new Intent(Crash.this, ReactionInit.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -688,6 +708,7 @@ public class Crash extends AppCompatActivity {
         });
         rightBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                saveData();
                 if(!playing) {
                     Intent intent = new Intent(Crash.this, Sweeper.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

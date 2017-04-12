@@ -262,6 +262,7 @@ public class ReactionInit extends AppCompatActivity {
 
         mainBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                    savedata();
                     Intent intent = new Intent(ReactionInit.this, Crash.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     finish();
@@ -272,6 +273,7 @@ public class ReactionInit extends AppCompatActivity {
 
         rightBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                    savedata();
                     Intent intent = new Intent(ReactionInit.this, Sweeper.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     finish();

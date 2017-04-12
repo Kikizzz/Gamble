@@ -185,6 +185,7 @@ public class Case extends AppCompatActivity {
         v7 = load.getInt("cases7", 0);
         v8 = load.getInt("cases8", 0);
         v9 = load.getInt("cases9", 0);
+
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);

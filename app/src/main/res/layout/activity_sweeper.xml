@@ -151,7 +151,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plus" />
+        app:srcCompat="@drawable/plus"
+        app:layout_constraintVertical_bias="0.39999998" />
 
     <ImageView
         android:id="@+id/img20"
@@ -446,7 +447,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plus" />
+        app:srcCompat="@drawable/plus"
+        app:layout_constraintVertical_bias="0.39999998" />
 
     <ImageButton
         android:id="@+id/btn20"
@@ -599,60 +601,19 @@
 
     <ImageButton
         android:id="@+id/play"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:background="@null"
-        android:layout_marginTop="32dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mine_ruby" />
-
-    <TextView
-        android:id="@+id/debug"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:text="debug"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/bet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:text="bet"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/profit" />
-
-    <TextView
-        android:id="@+id/balance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="balance"
-        android:textColor="@android:color/background_light"
-        android:layout_marginTop="-1dp"
-        app:layout_constraintTop_toBottomOf="@+id/bet"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <TextView
-        android:id="@+id/profit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="profit"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/btn3"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maintitle"
+        app:srcCompat="@drawable/mine_ruby" />
 
     <include
         layout="@layout/navigation"
@@ -663,5 +624,70 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/include8" />
+
+    <ImageButton
+        android:id="@+id/bet1"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/bet_100"
+        app:layout_constraintRight_toLeftOf="@+id/bet2"
+        android:layout_marginRight="24dp"
+        app:layout_constraintTop_toTopOf="@+id/bet2"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bet2"
+        android:layout_marginBottom="8dp" />
+
+    <ImageButton
+        android:id="@+id/bet2"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/bet_1000"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/bettitle"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/bettitle"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/include8"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/bettitle"
+        app:layout_constraintVertical_bias="0.51" />
+
+    <ImageButton
+        android:id="@+id/bet3"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/bet_10000"
+        app:layout_constraintLeft_toRightOf="@+id/bet2"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintTop_toTopOf="@+id/bet2"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bet2"
+        android:layout_marginBottom="8dp" />
+
+    <ImageView
+        android:id="@+id/bettitle"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/case_title_budget"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn23" />
+
+    <ImageView
+        android:id="@+id/maintitle"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/case_title_budget"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.5" />
 </android.support.constraint.ConstraintLayout>

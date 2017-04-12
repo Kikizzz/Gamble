@@ -464,11 +464,11 @@ public class ReactionGame extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         selected = (int) bd.get("selected");
+        bet = (int) bd.get("bet");
 
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         keys = load.getInt("keys", 0);
         balance = load.getInt("balance", 0);
-        bet = load.getInt("bet", 0);
         wins = load.getInt("wins", 0);
         loses = load.getInt("loses", 0);
         xp = load.getInt("xp", 0);
@@ -480,7 +480,6 @@ public class ReactionGame extends AppCompatActivity {
         save.putInt("balance", balance);
         save.putInt("wins", wins);
         save.putInt("loses", loses);
-        save.putInt("bet", bet);
         save.putInt("xp", xp);
         save.apply();
         save.commit();

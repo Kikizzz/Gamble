@@ -192,8 +192,7 @@ public class CaseOpen extends AppCompatActivity {
         max = 250;
         clicks = 0;
         Random random = new Random();
-//        required = random.nextInt(max) + min;
-        required = 1;
+        required = random.nextInt(max) + min;
 
         loadData();
         randomReward();
