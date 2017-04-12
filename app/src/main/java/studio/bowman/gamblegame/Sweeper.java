@@ -25,9 +25,11 @@ public class Sweeper extends AppCompatActivity {
     boolean livegame, cashout;
     boolean b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17,b18,b19,b20,b21,b22,b23,b24,b25;
     boolean firstturn;
-
+    
+    int r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17,r18,r19,r20,r21,r22,r23,r24,r25;
     int buttonclicked;
-    int keys, rubies;
+    int keys, rubyrings, emeraldrings, royalrings;
+    int gotrubyrings, gotemeraldrings, gotroyalrings;
     static int minecount = 7, dividenumber;
     int betval, profitval, balanceval;
 
@@ -123,33 +125,6 @@ public class Sweeper extends AppCompatActivity {
         btn25.setAdjustViewBounds(true);
         btn25.setPadding(0,0,0,0);
 
-
-        img1.setImageResource(R.drawable.plus);
-        img2.setImageResource(R.drawable.plus);
-        img3.setImageResource(R.drawable.plus);
-        img4.setImageResource(R.drawable.plus);
-        img5.setImageResource(R.drawable.plus);
-        img6.setImageResource(R.drawable.plus);
-        img7.setImageResource(R.drawable.plus);
-        img8.setImageResource(R.drawable.plus);
-        img9.setImageResource(R.drawable.plus);
-        img10.setImageResource(R.drawable.plus);
-        img11.setImageResource(R.drawable.plus);
-        img12.setImageResource(R.drawable.plus);
-        img13.setImageResource(R.drawable.plus);
-        img14.setImageResource(R.drawable.plus);
-        img15.setImageResource(R.drawable.plus);
-        img16.setImageResource(R.drawable.plus);
-        img17.setImageResource(R.drawable.plus);
-        img18.setImageResource(R.drawable.plus);
-        img19.setImageResource(R.drawable.plus);
-        img20.setImageResource(R.drawable.plus);
-        img21.setImageResource(R.drawable.plus);
-        img22.setImageResource(R.drawable.plus);
-        img23.setImageResource(R.drawable.plus);
-        img24.setImageResource(R.drawable.plus);
-        img25.setImageResource(R.drawable.plus);
-
         img1.setAdjustViewBounds(true);
         img1.setPadding(0,0,0,0);
         img2.setAdjustViewBounds(true);
@@ -203,9 +178,9 @@ public class Sweeper extends AppCompatActivity {
     }
     void updateDisplay(){
         debug.setText("" + livegame);
-        balance.setText("" + balanceval);
-        bet.setText("" + betval);
-        profit.setText("" + profitval);
+        profit.setText("" + gotemeraldrings);
+        bet.setText("" + gotrubyrings);
+        balance.setText("" + gotroyalrings);
     }
 
     //UTILS
@@ -269,9 +244,163 @@ public class Sweeper extends AppCompatActivity {
     }
     void calculateProfit(){
         profitval += betval / dividenumber;
-        Log.d("profitval", "" + profitval);
         dividenumber -= dividenumber/5;
     }
+
+    int rewardmethod(boolean b, ImageView img){
+        Random rewardrandom = new Random();
+        int foobar;
+        int r = -1;
+
+        if(!b){
+            foobar = rewardrandom.nextInt(100)+1;
+            if (foobar <= 50){
+                r = 0;
+                img.setImageResource(R.drawable.bal_back);
+            }
+            if (foobar > 50 && foobar <=80){
+                r = 1;
+                img.setImageResource(R.drawable.item_ring_emerald);
+            }
+            if (foobar > 80 && foobar<=95){
+                r = 2;
+                img.setImageResource(R.drawable.item_ring_ruby);
+            }
+            if (foobar > 95){
+                r = 3;
+                img.setImageResource(R.drawable.item_ring_royalstone);
+            }
+        }
+        return r;
+    }
+    void createRewards(){
+        r1 = rewardmethod(b1,img1);
+        r2 = rewardmethod(b2,img2);
+        r3 = rewardmethod(b3,img3);
+        r4 = rewardmethod(b4,img4);
+        r5 = rewardmethod(b5,img5);
+        r6 = rewardmethod(b6,img6);
+        r7 = rewardmethod(b7,img7);
+        r8 = rewardmethod(b8,img8);
+        r9 = rewardmethod(b9,img9);
+        r10 = rewardmethod(b10,img10);
+        r11 = rewardmethod(b11,img11);
+        r12 = rewardmethod(b12,img12);
+        r13 = rewardmethod(b13,img13);
+        r14 = rewardmethod(b14,img14);
+        r15 = rewardmethod(b15,img15);
+        r16 = rewardmethod(b16,img16);
+        r17 = rewardmethod(b17,img17);
+        r18 = rewardmethod(b18,img18);
+        r19 = rewardmethod(b19,img19);
+        r20 = rewardmethod(b20,img20);
+        r21 = rewardmethod(b21,img21);
+        r22 = rewardmethod(b22,img22);
+        r23 = rewardmethod(b23,img23);
+        r24 = rewardmethod(b24,img24);
+        r25 = rewardmethod(b25,img25);
+    }
+    void rewardmethod(ImageView btn, int r){
+        btn.setVisibility(View.INVISIBLE);
+        switch(r){
+            case -1:
+                break;
+            case 0:
+                break;
+            case 1:
+                gotemeraldrings+=1;
+                break;
+            case 2:
+                gotrubyrings+=1;
+                break;
+            case 3:
+                gotroyalrings+=1;
+                break;
+        }
+    }
+    void getreward() {
+        calculateProfit();
+        switch(buttonclicked){
+            case 1:
+                rewardmethod(btn1, r1);
+                break;
+            case 2:
+                rewardmethod(btn2, r2);
+                break;
+            case 3:
+                rewardmethod(btn3, r3);
+                break;
+            case 4:
+                rewardmethod(btn4, r4);
+                break;
+            case 5:
+                rewardmethod(btn5, r5);
+                break;
+            case 6:
+                rewardmethod(btn6, r6);
+                break;
+            case 7:
+                rewardmethod(btn7, r7);
+                break;
+            case 8:
+                rewardmethod(btn8, r8);
+                break;
+            case 9:
+                rewardmethod(btn9, r9);
+                break;
+            case 10:
+                rewardmethod(btn10, r10);
+                break;
+            case 11:
+                rewardmethod(btn11, r11);
+                break;
+            case 12:
+                rewardmethod(btn12, r12);
+                break;
+            case 13:
+                rewardmethod(btn13, r13);
+                break;
+            case 14:
+                rewardmethod(btn14, r14);
+                break;
+            case 15:
+                rewardmethod(btn15, r15);
+                break;
+            case 16:
+                rewardmethod(btn16, r16);
+                break;
+            case 17:
+                rewardmethod(btn17, r17);
+                break;
+            case 18:
+                rewardmethod(btn18, r18);
+                break;
+            case 19:
+                rewardmethod(btn19, r19);
+                break;
+            case 20:
+                rewardmethod(btn20, r20);
+                break;
+            case 21:
+                rewardmethod(btn21, r21);
+                break;
+            case 22:
+                rewardmethod(btn22, r22);
+                break;
+            case 23:
+                rewardmethod(btn23, r23);
+                break;
+            case 24:
+                rewardmethod(btn24, r24);
+                break;
+            case 25:
+                rewardmethod(btn25, r25);
+                break;
+        }
+        updateDisplay();
+        savedata();
+    }
+
     void createMines(){
         int placed = 0;
 
@@ -461,174 +590,9 @@ public class Sweeper extends AppCompatActivity {
     void clearMines(){
         b1=b2=b3=b4=b5=b6=b7=b8=b9=b10=b11=b12=b13=b14=b15=b16=b17=b18=b19=b20=b21=b22=b23=b24=b25=false;
     }
-    void btnVisibility(String visibility){
-        switch (visibility){
-            case "INVISIBLE":
-                btn1.setVisibility(View.INVISIBLE);
-                btn2.setVisibility(View.INVISIBLE);
-                btn3.setVisibility(View.INVISIBLE);
-                btn4.setVisibility(View.INVISIBLE);
-                btn5.setVisibility(View.INVISIBLE);
-                btn6.setVisibility(View.INVISIBLE);
-                btn7.setVisibility(View.INVISIBLE);
-                btn8.setVisibility(View.INVISIBLE);
-                btn9.setVisibility(View.INVISIBLE);
-                btn10.setVisibility(View.INVISIBLE);
-                btn11.setVisibility(View.INVISIBLE);
-                btn12.setVisibility(View.INVISIBLE);
-                btn13.setVisibility(View.INVISIBLE);
-                btn14.setVisibility(View.INVISIBLE);
-                btn15.setVisibility(View.INVISIBLE);
-                btn16.setVisibility(View.INVISIBLE);
-                btn17.setVisibility(View.INVISIBLE);
-                btn18.setVisibility(View.INVISIBLE);
-                btn19.setVisibility(View.INVISIBLE);
-                btn20.setVisibility(View.INVISIBLE);
-                btn21.setVisibility(View.INVISIBLE);
-                btn22.setVisibility(View.INVISIBLE);
-                btn23.setVisibility(View.INVISIBLE);
-                btn24.setVisibility(View.INVISIBLE);
-                btn25.setVisibility(View.INVISIBLE);
-
-            break;
-            case "VISIBLE":
-                btn1.setVisibility(View.VISIBLE);
-                btn2.setVisibility(View.VISIBLE);
-                btn3.setVisibility(View.VISIBLE);
-                btn4.setVisibility(View.VISIBLE);
-                btn5.setVisibility(View.VISIBLE);
-                btn6.setVisibility(View.VISIBLE);
-                btn7.setVisibility(View.VISIBLE);
-                btn8.setVisibility(View.VISIBLE);
-                btn9.setVisibility(View.VISIBLE);
-                btn10.setVisibility(View.VISIBLE);
-                btn11.setVisibility(View.VISIBLE);
-                btn12.setVisibility(View.VISIBLE);
-                btn13.setVisibility(View.VISIBLE);
-                btn14.setVisibility(View.VISIBLE);
-                btn15.setVisibility(View.VISIBLE);
-                btn16.setVisibility(View.VISIBLE);
-                btn17.setVisibility(View.VISIBLE);
-                btn18.setVisibility(View.VISIBLE);
-                btn19.setVisibility(View.VISIBLE);
-                btn20.setVisibility(View.VISIBLE);
-                btn21.setVisibility(View.VISIBLE);
-                btn22.setVisibility(View.VISIBLE);
-                btn23.setVisibility(View.VISIBLE);
-                btn24.setVisibility(View.VISIBLE);
-                btn25.setVisibility(View.VISIBLE);
-                img1.setImageResource(R.drawable.plus);
-                img2.setImageResource(R.drawable.plus);
-                img3.setImageResource(R.drawable.plus);
-                img4.setImageResource(R.drawable.plus);
-                img5.setImageResource(R.drawable.plus);
-                img6.setImageResource(R.drawable.plus);
-                img7.setImageResource(R.drawable.plus);
-                img8.setImageResource(R.drawable.plus);
-                img9.setImageResource(R.drawable.plus);
-                img10.setImageResource(R.drawable.plus);
-                img11.setImageResource(R.drawable.plus);
-                img12.setImageResource(R.drawable.plus);
-                img13.setImageResource(R.drawable.plus);
-                img14.setImageResource(R.drawable.plus);
-                img15.setImageResource(R.drawable.plus);
-                img16.setImageResource(R.drawable.plus);
-                img17.setImageResource(R.drawable.plus);
-                img18.setImageResource(R.drawable.plus);
-                img19.setImageResource(R.drawable.plus);
-                img20.setImageResource(R.drawable.plus);
-                img21.setImageResource(R.drawable.plus);
-                img22.setImageResource(R.drawable.plus);
-                img23.setImageResource(R.drawable.plus);
-                img24.setImageResource(R.drawable.plus);
-                img25.setImageResource(R.drawable.plus);
-            break;
-        }
-    }
 
     void boom() {
         endGame();
-    }
-    void getreward() {
-        calculateProfit();
-        switch(buttonclicked){
-            case 1:
-                btn1.setVisibility(View.INVISIBLE);
-                break;
-            case 2:
-                btn2.setVisibility(View.INVISIBLE);
-                break;
-            case 3:
-                btn3.setVisibility(View.INVISIBLE);
-                break;
-            case 4:
-                btn4.setVisibility(View.INVISIBLE);
-                break;
-            case 5:
-                btn5.setVisibility(View.INVISIBLE);
-                break;
-            case 6:
-                btn6.setVisibility(View.INVISIBLE);
-                break;
-            case 7:
-                btn7.setVisibility(View.INVISIBLE);
-                break;
-            case 8:
-                btn8.setVisibility(View.INVISIBLE);
-                break;
-            case 9:
-                btn9.setVisibility(View.INVISIBLE);
-                break;
-            case 10:
-                btn10.setVisibility(View.INVISIBLE);
-                break;
-            case 11:
-                btn11.setVisibility(View.INVISIBLE);
-                break;
-            case 12:
-                btn12.setVisibility(View.INVISIBLE);
-                break;
-            case 13:
-                btn13.setVisibility(View.INVISIBLE);
-                break;
-            case 14:
-                btn14.setVisibility(View.INVISIBLE);
-                break;
-            case 15:
-                btn15.setVisibility(View.INVISIBLE);
-                break;
-            case 16:
-                btn16.setVisibility(View.INVISIBLE);
-                break;
-            case 17:
-                btn17.setVisibility(View.INVISIBLE);
-                break;
-            case 18:
-                btn18.setVisibility(View.INVISIBLE);
-                break;
-            case 19:
-                btn19.setVisibility(View.INVISIBLE);
-                break;
-            case 20:
-                btn20.setVisibility(View.INVISIBLE);
-                break;
-            case 21:
-                btn21.setVisibility(View.INVISIBLE);
-                break;
-            case 22:
-                btn22.setVisibility(View.INVISIBLE);
-                break;
-            case 23:
-                btn23.setVisibility(View.INVISIBLE);
-                break;
-            case 24:
-                btn24.setVisibility(View.INVISIBLE);
-                break;
-            case 25:
-                btn25.setVisibility(View.INVISIBLE);
-                break;
-        }
-        updateDisplay();
     }
 
     void buttonclick(){
@@ -714,19 +678,107 @@ public class Sweeper extends AppCompatActivity {
                 break;
         }
         }
+    void btnVisibility(String visibility){
+        switch (visibility){
+            case "INVISIBLE":
+                btn1.setVisibility(View.INVISIBLE);
+                btn2.setVisibility(View.INVISIBLE);
+                btn3.setVisibility(View.INVISIBLE);
+                btn4.setVisibility(View.INVISIBLE);
+                btn5.setVisibility(View.INVISIBLE);
+                btn6.setVisibility(View.INVISIBLE);
+                btn7.setVisibility(View.INVISIBLE);
+                btn8.setVisibility(View.INVISIBLE);
+                btn9.setVisibility(View.INVISIBLE);
+                btn10.setVisibility(View.INVISIBLE);
+                btn11.setVisibility(View.INVISIBLE);
+                btn12.setVisibility(View.INVISIBLE);
+                btn13.setVisibility(View.INVISIBLE);
+                btn14.setVisibility(View.INVISIBLE);
+                btn15.setVisibility(View.INVISIBLE);
+                btn16.setVisibility(View.INVISIBLE);
+                btn17.setVisibility(View.INVISIBLE);
+                btn18.setVisibility(View.INVISIBLE);
+                btn19.setVisibility(View.INVISIBLE);
+                btn20.setVisibility(View.INVISIBLE);
+                btn21.setVisibility(View.INVISIBLE);
+                btn22.setVisibility(View.INVISIBLE);
+                btn23.setVisibility(View.INVISIBLE);
+                btn24.setVisibility(View.INVISIBLE);
+                btn25.setVisibility(View.INVISIBLE);
+
+                break;
+            case "VISIBLE":
+                btn1.setVisibility(View.VISIBLE);
+                btn2.setVisibility(View.VISIBLE);
+                btn3.setVisibility(View.VISIBLE);
+                btn4.setVisibility(View.VISIBLE);
+                btn5.setVisibility(View.VISIBLE);
+                btn6.setVisibility(View.VISIBLE);
+                btn7.setVisibility(View.VISIBLE);
+                btn8.setVisibility(View.VISIBLE);
+                btn9.setVisibility(View.VISIBLE);
+                btn10.setVisibility(View.VISIBLE);
+                btn11.setVisibility(View.VISIBLE);
+                btn12.setVisibility(View.VISIBLE);
+                btn13.setVisibility(View.VISIBLE);
+                btn14.setVisibility(View.VISIBLE);
+                btn15.setVisibility(View.VISIBLE);
+                btn16.setVisibility(View.VISIBLE);
+                btn17.setVisibility(View.VISIBLE);
+                btn18.setVisibility(View.VISIBLE);
+                btn19.setVisibility(View.VISIBLE);
+                btn20.setVisibility(View.VISIBLE);
+                btn21.setVisibility(View.VISIBLE);
+                btn22.setVisibility(View.VISIBLE);
+                btn23.setVisibility(View.VISIBLE);
+                btn24.setVisibility(View.VISIBLE);
+                btn25.setVisibility(View.VISIBLE);
+                img1.setImageResource(R.drawable.bal_back);
+                img2.setImageResource(R.drawable.bal_back);
+                img3.setImageResource(R.drawable.bal_back);
+                img4.setImageResource(R.drawable.bal_back);
+                img5.setImageResource(R.drawable.bal_back);
+                img6.setImageResource(R.drawable.bal_back);
+                img7.setImageResource(R.drawable.bal_back);
+                img8.setImageResource(R.drawable.bal_back);
+                img9.setImageResource(R.drawable.bal_back);
+                img10.setImageResource(R.drawable.bal_back);
+                img11.setImageResource(R.drawable.bal_back);
+                img12.setImageResource(R.drawable.bal_back);
+                img13.setImageResource(R.drawable.bal_back);
+                img14.setImageResource(R.drawable.bal_back);
+                img15.setImageResource(R.drawable.bal_back);
+                img16.setImageResource(R.drawable.bal_back);
+                img17.setImageResource(R.drawable.bal_back);
+                img18.setImageResource(R.drawable.bal_back);
+                img19.setImageResource(R.drawable.bal_back);
+                img20.setImageResource(R.drawable.bal_back);
+                img21.setImageResource(R.drawable.bal_back);
+                img22.setImageResource(R.drawable.bal_back);
+                img23.setImageResource(R.drawable.bal_back);
+                img24.setImageResource(R.drawable.bal_back);
+                img25.setImageResource(R.drawable.bal_back);
+                break;
+        }
+    }
 
     //DATA MANAGEMENT
     void loadData(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         keys = load.getInt("keys", 0);
-        rubies = load.getInt("rubies", 0);
+        rubyrings = load.getInt("rubyrings", 0);
+        emeraldrings = load.getInt("emeraldrings", 0);
+        royalrings = load.getInt("royalrings", 0);
         balanceval = load.getInt("balance", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         SharedPreferences.Editor save = load.edit();
         save.putInt("keys", keys);
-        save.putInt("rubies", rubies);
+        save.putInt("rubyrings", rubyrings);
+        save.putInt("emeraldrings", emeraldrings);
+        save.putInt("royalrings", royalrings);
         save.putInt("balance", balanceval);
 
         save.apply();
@@ -737,6 +789,8 @@ public class Sweeper extends AppCompatActivity {
     void startGame(){
         btnVisibility("VISIBLE");
 
+        gotemeraldrings = gotrubyrings = gotroyalrings = 0;
+
         firstturn = true;
         profitval = 0;
         dividenumber = 5;
@@ -746,6 +800,7 @@ public class Sweeper extends AppCompatActivity {
         updateDisplay();
 
     createMines();
+    createRewards();
      savedata();
     }
     void endGame(){
@@ -753,6 +808,9 @@ public class Sweeper extends AppCompatActivity {
 
         if(cashout){
             balanceval += profitval;
+            emeraldrings += gotemeraldrings;
+            rubyrings += gotrubyrings;
+            royalrings += gotroyalrings;
         }
         livegame = false;
         cashout = false;

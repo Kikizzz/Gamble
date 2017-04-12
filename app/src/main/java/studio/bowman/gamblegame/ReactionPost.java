@@ -169,7 +169,6 @@ public class ReactionPost extends AppCompatActivity {
         loadData();
         setGUI();
         updateDisplay();
-        Log.d("Drop Rate", "Value :" + droprate);
         tryDrop();
 
         mainBtn.setOnClickListener(new View.OnClickListener() {

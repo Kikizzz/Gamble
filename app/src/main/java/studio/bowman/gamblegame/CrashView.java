@@ -19,7 +19,7 @@ public class CrashView extends View {
     private float x, y;
     static float vx, vy;
 
-    private Bitmap bullet;
+    private Bitmap bullet, background;
     private Paint AA = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public CrashView(Context context) {
@@ -54,6 +54,8 @@ public class CrashView extends View {
         display.getSize(size);
         bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet);
         bullet = Bitmap.createScaledBitmap(bullet, bullet.getWidth() / 5, bullet.getHeight() / 5, true);
+
+        background = BitmapFactory.decodeResource(getResources(), R.drawable.crashback);
 
         width = size.x;
         height = size.y;
@@ -116,7 +118,7 @@ public class CrashView extends View {
         super.onDraw(canvas);
 
         setMeasuredDimension(boxwidth, boxheight);
-        canvas.drawColor(Color.DKGRAY);
+        canvas.drawBitmap(background,0,0,AA);
 
             vy = -0.1f - (float) ((Math.pow(x / 600, 2)) / 1.25);
             vx = 1f;

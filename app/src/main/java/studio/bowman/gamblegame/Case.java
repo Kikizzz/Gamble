@@ -332,7 +332,7 @@ public class Case extends AppCompatActivity {
 
         back1 = (ImageView)findViewById(R.id.back1);
         back2 = (ImageView)findViewById(R.id.back2);
-        back3 = (ImageView)findViewById(R.id.back3);
+        back3 = (ImageView)findViewById(R.id.back4);
         back4 = (ImageView)findViewById(R.id.back4);
         back5 = (ImageView)findViewById(R.id.back5);
         back6 = (ImageView)findViewById(R.id.back6);

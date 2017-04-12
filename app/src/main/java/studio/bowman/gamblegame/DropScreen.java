@@ -31,10 +31,6 @@ public class DropScreen extends AppCompatActivity {
     }
 
     void loadData(){
-        Intent intent = getIntent();
-        Bundle bd = intent.getExtras();
-        gotindrop = (int) bd.get("gotindrop");
-
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         keys = load.getInt("keys", 0);
 
@@ -67,6 +63,90 @@ public class DropScreen extends AppCompatActivity {
         save.commit();
     }
 
+    void caseDrop(){
+        Random r1 = new Random();
+        Random r2 = new Random();
+        Random r3 = new Random();
+        int percentage1 = r1.nextInt(1000)+1;
+        int percentage2 = r2.nextInt(1000)+1;
+        int randomcase = r3.nextInt(3)+1;
+        gotindrop = 0;
+
+        /*
+        GOT IN DROP VALUES:
+        1: Case1
+        2: Case2
+        3: Case3
+        4: Case4
+        5: Case5
+        6: Case6
+        7: Case7
+        8: Case8
+        9: Case9
+        10 : Keys
+         */
+
+        if(percentage1 <= 10){
+            //KEY DROP
+            keys += 1;
+            gotindrop = 10;
+        }else{
+            //CHEST DROP
+            if(percentage2>=850) {
+                //ROYAL CASE
+                switch (randomcase){
+                    case 1:
+                        v1 += 1;
+                        gotindrop = 1;
+                        break;
+                    case 2:
+                        v2 += 1;
+                        gotindrop = 2;
+                        break;
+                    case 3:
+                        v3 += 1;
+                        gotindrop = 3;
+                        break;
+                }
+            }
+            if(percentage2>600 && percentage2<850) {
+                //BUSINESS CASE
+                switch (randomcase){
+                    case 1:
+                        v4 += 1;
+                        gotindrop = 4;
+                        break;
+                    case 2:
+                        v5 += 1;
+                        gotindrop = 5;
+                        break;
+                    case 3:
+                        v6 += 1;
+                        gotindrop = 6;
+                        break;
+                }
+            }
+            if(percentage2<=600) {
+                //CASUAL CASE
+                switch (randomcase){
+                    case 1:
+                        v7 += 1;
+                        gotindrop = 7;
+                        break;
+                    case 2:
+                        v8 += 1;
+                        gotindrop = 8;
+                        break;
+                    case 3:
+                        v9 += 1;
+                        gotindrop = 9;
+                        break;
+                }
+            }
+        }
+        savedata();
+        caseDropVisual();
+    }
     void caseDropVisual(){
         droptitle.setImageResource(R.drawable.case_title_luxurious);
         yougotimg.setImageResource(R.drawable.buy_keys);
@@ -125,93 +205,9 @@ public class DropScreen extends AppCompatActivity {
         }
     }
 
-    void caseDrop(){
-        Random r1 = new Random();
-        Random r2 = new Random();
-        Random r3 = new Random();
-        int percentage1 = r1.nextInt(1000)|1;
-        int percentage2 = r2.nextInt(1000)|1;
-        int randomcase = r3.nextInt(3)+1;
-        gotindrop = 0;
-
-        /*
-        GOT IN DROP VALUES:
-        1: Case1
-        2: Case2
-        3: Case3
-        4: Case4
-        5: Case5
-        6: Case6
-        7: Case7
-        8: Case8
-        9: Case9
-        10 : Keys
-         */
-
-        if(percentage1 <= 10){
-            //KEY DROP
-            keys += 1;
-            gotindrop = 10;
-        }else{
-            //CHEST DROP
-            if(percentage2>=950) {
-                //ROYAL CASE
-                switch (randomcase){
-                    case 1:
-                        v1 += 1;
-                        gotindrop = 1;
-                        break;
-                    case 2:
-                        v2 += 1;
-                        gotindrop = 2;
-                        break;
-                    case 3:
-                        v3 += 1;
-                        gotindrop = 3;
-                        break;
-                }
-            }
-            if(percentage2>600 && percentage2<950) {
-                //BUSINESS CASE
-                switch (randomcase){
-                    case 1:
-                        v4 += 1;
-                        gotindrop = 4;
-                        break;
-                    case 2:
-                        v5 += 1;
-                        gotindrop = 5;
-                        break;
-                    case 3:
-                        v6 += 1;
-                        gotindrop = 6;
-                        break;
-                }
-            }
-            if(percentage2<=600) {
-                //CASUAL CASE
-                switch (randomcase){
-                    case 1:
-                        v7 += 1;
-                        gotindrop = 7;
-                        break;
-                    case 2:
-                        v8 += 1;
-                        gotindrop = 8;
-                        break;
-                    case 3:
-                        v9 += 1;
-                        gotindrop = 9;
-                        break;
-                }
-            }
-        }
-        savedata();
-        caseDropVisual();
-    }
-
     @Override
     public void onBackPressed() {
+        finish();
     }
 
     @Override
@@ -233,6 +229,7 @@ public class DropScreen extends AppCompatActivity {
 
         getWindow().setLayout(width, height);
 
+        loadData();
         caseDrop();
     }
 }

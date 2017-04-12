@@ -16,7 +16,7 @@ public class CaseDone extends AppCompatActivity {
     int selected;
     int keys, rubies;
     int gotstatus;
-    int gotkeys, gotrubies, gotskin;
+    int gotkeys, gotrubies, gotemeralds, gotroyalstones, gotskin;
 
     ImageView itemview;
     ImageView banneris, title2;
@@ -78,14 +78,16 @@ public class CaseDone extends AppCompatActivity {
         /*
         GOT STATUS
         1:Keys
-        2:Rubies
+        2:Gems
         3:Skins
          */
 
         if (gotstatus==1){
+            //KEYS
             itemview.setImageResource(R.drawable.case_open_prize_keys);
         }
         if (gotstatus==2){
+            //GEMS
             itemview.setImageResource(R.drawable.case_open_prize_ruby);
         }
         if (gotstatus==3) {
@@ -218,9 +220,9 @@ public class CaseDone extends AppCompatActivity {
             stats4.setText("");
         }
         if (gotrubies>0){
-            stats1.setText("" + gotrubies);
-            stats2.setText("");
-            stats3.setText("");
+            stats1.setText("" + gotemeralds);
+            stats2.setText("" + gotrubies);
+            stats3.setText("" + gotroyalstones);
             stats4.setText("");
         }
         if (gotskin>0){
@@ -352,7 +354,9 @@ public class CaseDone extends AppCompatActivity {
         Bundle bd = intent.getExtras();
         selected = (int) bd.get("selected");
         gotkeys = (int) bd.get("gotkeys");
+        gotemeralds = (int) bd.get("gotemeralds");
         gotrubies = (int) bd.get("gotrubies");
+        gotroyalstones = (int) bd.get("gotroyalstones");
         gotskin = (int) bd.get("gotskin");
         gotstatus = (int)bd.get("gotstatus");
 
@@ -360,15 +364,6 @@ public class CaseDone extends AppCompatActivity {
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         keys = load.getInt("keys", 0);
         rubies = load.getInt("rubies", 0);
-    }
-    void savedata(){
-        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-        SharedPreferences.Editor save = load.edit();
-        save.putInt("keys", keys);
-        save.putInt("rubies", rubies);
-
-        save.apply();
-        save.commit();
     }
 
     @Override
@@ -389,7 +384,7 @@ public class CaseDone extends AppCompatActivity {
         title2= (ImageView)findViewById(R.id.title2);
         back1 = (ImageView)findViewById(R.id.back1);
         back2 = (ImageView)findViewById(R.id.back2);
-        back3 = (ImageView)findViewById(R.id.back3);
+        back3 = (ImageView)findViewById(R.id.back4);
         back4 = (ImageView)findViewById(R.id.back4);
 
         stats1 = (TextView) findViewById(R.id.stats1);
@@ -405,7 +400,7 @@ public class CaseDone extends AppCompatActivity {
 
         mainBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(CaseDone.this, CaseCheck.class);
+                Intent intent = new Intent(CaseDone.this, Case.class);
                 intent.putExtra("selected", selected);
                 finish();
                 startActivity(intent);

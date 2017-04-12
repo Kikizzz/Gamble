@@ -17,8 +17,8 @@ import java.util.Random;
 public class CaseOpen extends AppCompatActivity {
 
     int gotstatus;
-    int keys, rubies, skin;
-    int gotkeys, gotrubies, gotskin;
+    int keys, rubies, emeralds, royalstones;
+    int gotkeys,gotrubies, gotemeralds, gotroyalstones, gotskin;
     int selected;
     int clicks, min, max, required;
     ImageButton caseview;
@@ -76,12 +76,16 @@ public class CaseOpen extends AppCompatActivity {
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         keys = load.getInt("keys", 0);
         rubies = load.getInt("rubies", 0);
+        emeralds = load.getInt("emeralds", 0);
+        royalstones = load.getInt("royalstones", 0);
     }
     void savedata(){
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
         SharedPreferences.Editor save = load.edit();
         save.putInt("keys", keys);
         save.putInt("rubies", rubies);
+        save.putInt("emeralds", emeralds);
+        save.putInt("royalstones", royalstones);
 
         save.apply();
         save.commit();
@@ -111,10 +115,19 @@ public class CaseOpen extends AppCompatActivity {
             gotstatus = 1;
         }
         if (r>100 && r<=301){
-            //RUBIES
-            Random rrubies = new Random();
-            gotrubies += rrubies.nextInt(5)+1;
-            rubies += gotrubies;
+            //GEMS
+                Random remeralds = new Random();
+                gotemeralds += remeralds.nextInt(10)+1;
+                emeralds += gotemeralds;
+
+                Random rrubies = new Random();
+                gotrubies += rrubies.nextInt(5)+1;
+                rubies += gotrubies;
+
+                Random rroyalstones = new Random();
+                gotroyalstones += rroyalstones.nextInt(2)+1;
+                royalstones += gotroyalstones;
+
             gotstatus = 2;
         }
         if (r>301 && r<=534){
@@ -142,7 +155,9 @@ public class CaseOpen extends AppCompatActivity {
                 Intent intent = new Intent(CaseOpen.this, CaseDone.class);
                 intent.putExtra("gotstatus", gotstatus);
                 intent.putExtra("gotkeys", gotkeys);
+                intent.putExtra("gotemeralds", gotemeralds);
                 intent.putExtra("gotrubies", gotrubies);
+                intent.putExtra("gotroyalstones", gotroyalstones);
                 intent.putExtra("gotskin", gotskin);
                 intent.putExtra("selected", selected);
                 finish();
@@ -177,7 +192,8 @@ public class CaseOpen extends AppCompatActivity {
         max = 250;
         clicks = 0;
         Random random = new Random();
-        required = random.nextInt(max) + min;
+//        required = random.nextInt(max) + min;
+        required = 1;
 
         loadData();
         randomReward();

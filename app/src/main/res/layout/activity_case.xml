@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toTopOf="@+id/case3"
         app:layout_constraintLeft_toLeftOf="@+id/case3"
         app:layout_constraintRight_toRightOf="@+id/case3"
-        app:srcCompat="@drawable/minus" />
+        app:srcCompat="@drawable/case_amount_img" />
 
     <ImageView
     android:id="@+id/back4"
@@ -158,35 +158,30 @@
         android:id="@+id/val3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="a"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/back3"
+        android:text="TextView"
+        android:textColor="@android:color/background_light"
         app:layout_constraintLeft_toLeftOf="@+id/back3"
         app:layout_constraintRight_toRightOf="@+id/back3"
-        app:layout_constraintHorizontal_bias="0.5"
+        tools:text="a"
         app:layout_constraintTop_toTopOf="@+id/back3"
         android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintBottom_toBottomOf="@+id/back3"
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:id="@+id/val4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:text="a"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/back4"
         app:layout_constraintLeft_toLeftOf="@+id/back4"
         app:layout_constraintRight_toRightOf="@+id/back4"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toTopOf="@+id/back4"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.6" />
+        tools:layout_editor_absoluteY="205dp"
+        tools:layout_editor_absoluteX="61dp" />
 
     <TextView
         android:id="@+id/val5"
@@ -461,4 +456,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/title_img_3" />
+
 </android.support.constraint.ConstraintLayout>
