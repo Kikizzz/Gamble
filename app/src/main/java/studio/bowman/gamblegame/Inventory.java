@@ -17,7 +17,7 @@ public class Inventory extends AppCompatActivity {
     int balance, keys;
     int emeralds, rubies, royalstones;
     int emeraldrings, rubyrings, royalrings;
-    int backpack1, backpack2, backpack3, backpack4;
+    int backpack1, backpack2, backpack3, backpack4, backpack5, backpack6, backpack7, backpack8, backpack9;
     int anvil1, anvil2, anvil3;
     int pig1, pigroyalstone;
     int vault, vaultruby;
@@ -48,18 +48,17 @@ public class Inventory extends AppCompatActivity {
         box10.setImageResource(R.drawable.item_anvil_1);
         box11.setImageResource(R.drawable.item_anvil_2);
         box12.setImageResource(R.drawable.item_anvil_2_whiteruby);
-        box13.setImageResource(R.drawable.item_mask_1);
-        box14.setImageResource(R.drawable.item_mask_2);
-        box15.setImageResource(R.drawable.item_mask_1_ruby);
-        box15.setImageResource(R.drawable.item_pig);
-        box16.setImageResource(R.drawable.item_pig_royalstone);
-        box17.setImageResource(R.drawable.item_vault);
-        box18.setImageResource(R.drawable.item_vault_whiteruby);
+        box13.setImageResource(R.drawable.item_backpack1);
+        box14.setImageResource(R.drawable.item_backpack2);
+        box15.setImageResource(R.drawable.item_backpack3);
+        box16.setImageResource(R.drawable.item_backpack4);
+        box17.setImageResource(R.drawable.item_backpack5);
+        box18.setImageResource(R.drawable.item_backpack6);
         box19.setImageResource(R.drawable.item_bank);
         box20.setImageResource(R.drawable.item_bank_gold);
-        box21.setImageResource(R.drawable.item_backpack_2);
-        box22.setImageResource(R.drawable.item_backpack_3);
-        box23.setImageResource(R.drawable.item_backpack_4);
+        box21.setImageResource(R.drawable.case_check_1);
+        box22.setImageResource(R.drawable.case_check_1);
+        box23.setImageResource(R.drawable.case_check_1);
         box24.setImageResource(R.drawable.item_shield_1);
         box25.setImageResource(R.drawable.item_shield_1_1);
         box26.setImageResource(R.drawable.item_shield_1_2);
@@ -564,6 +563,11 @@ public class Inventory extends AppCompatActivity {
         backpack2 = load.getInt("backpack2", 0);
         backpack3 = load.getInt("backpack3", 0);
         backpack4 = load.getInt("backpack4", 0);
+        backpack5 = load.getInt("backpack5", 0);
+        backpack6 = load.getInt("backpack6", 0);
+        backpack7 = load.getInt("backpack7", 0);
+        backpack8 = load.getInt("backpack8", 0);
+        backpack9 = load.getInt("backpack9", 0);
 
         anvil1 = load.getInt("anvil1", 0);
         anvil2 = load.getInt("anvil2", 0);
@@ -628,6 +632,11 @@ public class Inventory extends AppCompatActivity {
         save.putInt("backpack2", backpack2);
         save.putInt("backpack3", backpack3);
         save.putInt("backpack4", backpack4);
+        save.putInt("backpack5", backpack5);
+        save.putInt("backpack6", backpack6);
+        save.putInt("backpack7", backpack7);
+        save.putInt("backpack8", backpack8);
+        save.putInt("backpack9", backpack9);
 
         //BALANCE HOLDERS
         save.putInt("pig1", pig1);

@@ -14,9 +14,22 @@ import android.widget.TextView;
 public class CaseDone extends AppCompatActivity {
 
     int selected;
-    int keys, rubies;
     int gotstatus;
     int gotkeys, gotrubies, gotemeralds, gotroyalstones, gotskin;
+
+    int balance, keys;
+    int emeralds, rubies, royalstones;
+    int emeraldrings, rubyrings, royalrings;
+    int backpack1, backpack2, backpack3, backpack4;
+    int anvil1, anvil2, anvil3;
+    int pig1, pigroyalstone;
+    int vault, vaultruby;
+    int bank1, bankgold;
+    int shield1, shield1_1, shield1_2, shield2, shield3, shield3royalstone, shield4;
+    int watch1, watch1gold, watch1_1, watch2, watch3;
+    int shovel1, shovel1royalstone, shovel2, shovel2gold, shovel3;
+    int mask1, mask1whiteruby, mask2;
+    int crowngold, crownroyalstone, crownwhiteruby;
 
     ImageView itemview;
     ImageView banneris, title2;
@@ -348,7 +361,6 @@ public class CaseDone extends AppCompatActivity {
             }
         }
     }
-
     void loadData(){
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
@@ -360,10 +372,129 @@ public class CaseDone extends AppCompatActivity {
         gotskin = (int) bd.get("gotskin");
         gotstatus = (int)bd.get("gotstatus");
 
-
         SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
-        keys = load.getInt("keys", 0);
+        balance = load.getInt("balance", 0);
+        keys = load.getInt("balance", 0);
+
+        emeralds = load.getInt("emeralds", 0);
         rubies = load.getInt("rubies", 0);
+        royalstones = load.getInt("royalstones", 0);
+
+        emeraldrings = load.getInt("emeraldrings", 0);
+        rubyrings = load.getInt("rubyrings", 0);
+        royalrings = load.getInt("royalrings", 0);
+
+        backpack1 = load.getInt("backpack1", 0);
+        backpack2 = load.getInt("backpack2", 0);
+        backpack3 = load.getInt("backpack3", 0);
+        backpack4 = load.getInt("backpack4", 0);
+
+        anvil1 = load.getInt("anvil1", 0);
+        anvil2 = load.getInt("anvil2", 0);
+        anvil3 = load.getInt("anvil3", 0);
+
+        pig1 = load.getInt("pig1", 0);
+        pigroyalstone = load.getInt("pigroyalstone", 0);
+
+        vault = load.getInt("vault", 0);
+        vaultruby = load.getInt("vaultruby", 0);
+
+        bank1 = load.getInt("bank1", 0);
+        bankgold = load.getInt("bankgold", 0);
+
+        shield1 = load.getInt("shield1", 0);
+        shield1_1 = load.getInt("shield1_1", 0);
+        shield1_2 = load.getInt("shield1_2", 0);
+        shield2 = load.getInt("shield2", 0);
+        shield3 = load.getInt("shield3", 0);
+        shield3royalstone = load.getInt("shield3royalstone", 0);
+        shield4 = load.getInt("shield4", 0);
+
+        watch1 = load.getInt("watch1", 0);
+        watch1_1 = load.getInt("watch1_1", 0);
+        watch1gold = load.getInt("watch1gold", 0);
+        watch2 = load.getInt("watch2", 0);
+        watch3 = load.getInt("watch3", 0);
+
+        shovel1 = load.getInt("shovel1", 0);
+        shovel1royalstone = load.getInt("shovel1royalstone", 0);
+        shovel2 = load.getInt("shovel2", 0);
+        shovel2gold = load.getInt("shovel2gold", 0);
+        shovel3 = load.getInt("shovel3", 0);
+
+        mask1 = load.getInt("mask1", 0);
+        mask1whiteruby = load.getInt("mask1whiteruby", 0);
+        mask2 = load.getInt("mask2", 0);
+
+        crowngold = load.getInt("crowngold", 0);
+        crownroyalstone = load.getInt("crownroyalstone", 0);
+        crownwhiteruby = load.getInt("crownwhiteruby", 0);
+    }
+    void savedata(){
+        SharedPreferences load = getSharedPreferences("Database", Context.MODE_PRIVATE);
+        SharedPreferences.Editor save = load.edit();
+        save.putInt("balance", balance);
+        save.putInt("keys", keys);
+        save.putInt("emeralds", emeralds);
+        save.putInt("rubies", rubies);
+        save.putInt("royalstones", royalstones);
+        save.putInt("emeraldrings", emeraldrings);
+        save.putInt("rubyrings", rubyrings);
+        save.putInt("royalrings", royalrings);
+
+        //SALVAGE RATE
+        save.putInt("anvil1", anvil1);
+        save.putInt("anvil2", anvil2);
+        save.putInt("anvil3", anvil3);
+
+        //INVENTORY SIZE
+        save.putInt("backpack1", backpack1);
+        save.putInt("backpack2", backpack2);
+        save.putInt("backpack3", backpack3);
+        save.putInt("backpack4", backpack4);
+
+        //BALANCE HOLDERS
+        save.putInt("pig1", pig1);
+        save.putInt("pigroyalstone", pigroyalstone);
+
+        save.putInt("vault", vault);
+        save.putInt("vaultruby", vaultruby);
+
+        save.putInt("bank1", bank1);
+        save.putInt("bankgold", bankgold);
+
+        //SHIELDS
+        save.putInt("shield1", shield1);
+        save.putInt("shield1_1", shield1_1);
+        save.putInt("shield1_2", shield1_2);
+        save.putInt("shield2", shield2);
+        save.putInt("shield3", shield3);
+        save.putInt("shield3royalstone", shield3royalstone);
+        save.putInt("shield4", shield4);
+
+        //WATCHES
+        save.putInt("watch1", watch1);
+        save.putInt("watch1gold", watch1gold);
+        save.putInt("watch1_1", watch1_1);
+        save.putInt("watch2", watch2);
+        save.putInt("watch3", watch3);
+
+        //SHOVELS
+        save.putInt("shovel1", shovel1);
+        save.putInt("shovel1royalstone", shovel1royalstone);
+        save.putInt("shovel2", shovel2);
+        save.putInt("shovel2gold", shovel2gold);
+        save.putInt("shovel3", shovel3);
+
+        //MASKS
+        save.putInt("mask1", mask1);
+        save.putInt("mask1whiteruby", mask1whiteruby);
+        save.putInt("mask2", mask2);
+
+        //CROWNS
+        save.putInt("crowngold", crowngold);
+        save.putInt("crownroyalstone", crownroyalstone);
+        save.putInt("crownwhiteruby", crownwhiteruby);
     }
 
     @Override

@@ -351,7 +351,9 @@ public class Crash extends AppCompatActivity {
         if (crash == 1){
             boolcrash = true;
             valuedisplay.setText("Crashed At x" + new DecimalFormat("##.00").format(value));
-            profdisplay.setText("");
+            if (!boolbail) {
+                profdisplay.setText("");
+            }
             value_old = value;
             end();
         }
@@ -399,6 +401,8 @@ public class Crash extends AppCompatActivity {
             @Override
             public void run() {
                 valuedisplay.setText("5");
+                profdisplay.setText("");
+                display.setText("");
             }
         }, 5000);
         handler.postDelayed(new Runnable() {
@@ -480,6 +484,7 @@ public class Crash extends AppCompatActivity {
 
         x = (width / 20) / 4;
         y = boxheight - bheight / 4 * 3;
+
         /*
         CRASHVIEW DEFAULT VALUES
         */
